@@ -3,9 +3,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Web Page</title>
+
+        <!--<link rel="stylesheet" href="/style/web.css"/>-->
+        <style><%@include file="/style/web.css"%></style>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>This is Flower Shop!</h1>
     </body>
 </html>
