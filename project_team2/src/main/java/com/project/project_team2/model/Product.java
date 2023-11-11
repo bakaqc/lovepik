@@ -1,32 +1,28 @@
 package com.project.project_team2.model;
 
+import java.util.List;
+
 public class Product {
 
     private int id;
-    private int categoryId;
+    private int categoryID;
     private String name;
     private String banners;
-    private String thumb;
+    private List<String> thumb;
     private int price;
-    private String place_product;
-    private String date_manufacture;
-    private int number_of_product;
-    private int number_left;
+    private String detail;
 
     public Product() {
     }
 
-    public Product(int id, int categoryId, String name, String banners, String thumb, int price, String place_product, String date_manufacture, int number_of_product, int number_left) {
+    public Product(int id, int categoryID, String name, String banners, List<String> thumb, int price, String detail) {
         this.id = id;
-        this.categoryId = categoryId;
+        this.categoryID = categoryID;
         this.name = name;
         this.banners = banners;
         this.thumb = thumb;
         this.price = price;
-        this.place_product = place_product;
-        this.date_manufacture = date_manufacture;
-        this.number_of_product = number_of_product;
-        this.number_left = number_left;
+        this.detail = detail;
     }
 
     public int getId() {
@@ -38,11 +34,11 @@ public class Product {
     }
 
     public int getCategoryId() {
-        return categoryId;
+        return categoryID;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategoryId(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     public String getName() {
@@ -61,11 +57,11 @@ public class Product {
         this.banners = banners;
     }
 
-    public String getThumb() {
+    public List<String> getThumb() {
         return thumb;
     }
 
-    public void setThumb(String thumb) {
+    public void setThumb(List<String> thumb) {
         this.thumb = thumb;
     }
 
@@ -77,44 +73,27 @@ public class Product {
         this.price = price;
     }
 
-    public String getPlace_product() {
-        return place_product;
+    public int getCategoryID() {
+        return categoryID;
     }
 
-    public void setPlace_product(String place_product) {
-        this.place_product = place_product;
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
-    public String getDate_manufacture() {
-        return date_manufacture;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setDate_manufacture(String date_manufacture) {
-        this.date_manufacture = date_manufacture;
-    }
-
-    public int getNumber_of_product() {
-        return number_of_product;
-    }
-
-    public void setNumber_of_product(int number_of_product) {
-        this.number_of_product = number_of_product;
-    }
-
-    public int getNumber_left() {
-        return number_left;
-    }
-
-    public void setNumber_left(int number_left) {
-        this.number_left = number_left;
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     @Override
     public String toString() {
-        return "Product [ " + "id = " + id + ", categoryId = " + categoryId + ", name = " + name
-                + ", banners = " + banners + ", thumb = " + thumb + ", price = " + price + ", place_product = "
-                + place_product + ", date_manufacture = " + date_manufacture + ", number_of_product = "
-                + number_of_product + ", number_left = " + number_left + ']' + "\n";
+        return "Product [ " + "ID = " + id + ", Category ID = " + categoryID + ", Name = " + name
+                + ", Banners = " + banners + ", Thumb = " + thumb + ", Price = " 
+                + price + ", Detail = " + detail + ']' + "\n";
     }
 
 }

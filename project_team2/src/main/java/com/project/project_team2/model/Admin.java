@@ -1,16 +1,18 @@
 package com.project.project_team2.model;
 
+import com.project.project_team2.model.option.AdminRole;
+
 public class Admin {
 
     private int id;
     private String userName;
     private String password;
-    private String role;
+    private AdminRole role;
 
     public Admin() {
     }
 
-    public Admin(int id, String userName, String password, String role) {
+    public Admin(int id, String userName, String password, AdminRole role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -41,17 +43,17 @@ public class Admin {
         this.password = password;
     }
 
-    public String getRole() {
+    public AdminRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(AdminRole role) {
         this.role = role;
     }
 
     @Override
     public String toString() {
-        return "Admin [ " + "id = " + id + ", userName = " + userName + ", password = " + password + ", role = " + role + ']' + "\n";
+        return "Admin [ " + "Id = " + id + ", UserName = " + userName + ", Password = " + password + ", Role = " + role + ']' + "\n";
     }
 
 }

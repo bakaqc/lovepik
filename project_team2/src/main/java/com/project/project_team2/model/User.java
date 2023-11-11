@@ -1,23 +1,28 @@
 package com.project.project_team2.model;
 
+import com.project.project_team2.model.option.UserGender;
+import com.project.project_team2.model.option.UserStatus;
+import java.time.LocalDateTime;
+
 public class User {
 
     private int id;
     private String fullName;
     private int yearOfBirth;
-    private String gender;
+    private UserGender gender;
     private String email;
     private String username;
     private String password;
     private String address;
-    private int status;
-    private String createdAt;
-    private String deletedAt;
+    private UserStatus status;
+    private LocalDateTime createdAt;
+    private LocalDateTime deletedAt;
 
     public User() {
     }
 
-    public User(int id, String fullName, int yearOfBirth, String gender, String email, String username, String password, String address, int status, String createdAt, String deletedAt) {
+    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email, String username,
+            String password, String address, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
         this.id = id;
         this.fullName = fullName;
         this.yearOfBirth = yearOfBirth;
@@ -55,11 +60,11 @@ public class User {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public String getGender() {
+    public UserGender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(UserGender gender) {
         this.gender = gender;
     }
 
@@ -95,36 +100,36 @@ public class User {
         this.address = address;
     }
 
-    public int getStatus() {
+    public UserStatus getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(UserStatus status) {
         this.status = status;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getDeletedAt() {
+    public LocalDateTime getDeletedAt() {
         return deletedAt;
     }
 
-    public void setDeletedAt(String deletedAt) {
+    public void setDeletedAt(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
     }
 
     @Override
     public String toString() {
-        return "User [ " + "id = " + id + ", fullName = " + fullName + ", yearOfBirth = " + yearOfBirth
-                + ", gender = " + gender + ", email = " + email + ", username = " + username + ", password = "
-                + password + ", address = " + address + ", status = " + status + ']' + ", created at = "
-                + createdAt + ", deleted at = " + deletedAt + "\n";
+        return "User [ " + "ID = " + id + ", Full Name = " + fullName + ", Year Of Birth = " + yearOfBirth
+                + ", Gender = " + gender + ", Email = " + email + ", Username = " + username + ", Password = "
+                + password + ", Address = " + address + ", status = " + status + ']' + ", Created At = "
+                + createdAt + ", Deleted At = " + deletedAt + "\n";
     }
 
 }

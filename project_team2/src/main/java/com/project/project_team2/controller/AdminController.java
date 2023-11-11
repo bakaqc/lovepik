@@ -8,8 +8,6 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {    
-        RequestDispatcher rd = request.getRequestDispatcher("/view/admin.jsp");
-        rd.forward(request, response);
     } 
 
     @Override

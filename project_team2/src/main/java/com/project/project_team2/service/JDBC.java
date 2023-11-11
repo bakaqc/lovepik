@@ -1,4 +1,4 @@
-package com.project.project_team2.db;
+package com.project.project_team2.service;
 
 import java.sql.*;
 
