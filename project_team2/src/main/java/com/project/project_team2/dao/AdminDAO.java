@@ -1,43 +1,37 @@
 package com.project.project_team2.dao;
 
+import com.project.project_team2.model.Admin;
 import com.project.project_team2.service.JDBC;
-import com.project.project_team2.model.Product;
-import com.project.project_team2.service.Convert;
+import com.project.project_team2.model.option.AdminRole;
 import java.sql.*;
 import java.util.*;
 
-public class AdminDAO implements DAO<Product> {
+public class AdminDAO implements DAO<Admin> {
 
     private static final AdminDAO instance = new AdminDAO();
 
     public static AdminDAO getInstance() {
         return instance;
     }
-    
-    
 
     @Override
-    public List<Product> selectAll() {
-        List<Product> list = new ArrayList<>();
+    public List<Admin> selectAll() {
+        List<Admin> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product");
+            PreparedStatement st = c.prepareStatement("SELECT * FROM admin");
 
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-                List<String> thumb = Convert.toList(rs.getString("thumb"));
-                pd.setThumb(thumb);
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
+                Admin ad = new Admin();
+                ad.setId(rs.getInt("id"));
+                ad.setUserName(rs.getString("username"));
+                ad.setPassword(rs.getString("password"));
+                ad.setRole(AdminRole.create(rs.getString("role")));
 
-                list.add(pd);
+                list.add(ad);
 
             }
 
@@ -50,27 +44,24 @@ public class AdminDAO implements DAO<Product> {
     }
 
     @Override
-    public List<Product> selectById(int id) {
-        List<Product> list = new ArrayList<>();
+    public List<Admin> selectById(String id) {
+        List<Admin> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE id = ?");
-            st.setInt(1, id);
+            PreparedStatement st = c.prepareStatement("SELECT * FROM admin WHERE id = ?");
+            st.setString(1, id);
 
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-//                pd.setThumb(rs.getString("thumb"));
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
+                Admin ad = new Admin();
+                ad.setId(rs.getInt("id"));
+                ad.setUserName(rs.getString("username"));
+                ad.setPassword(rs.getString("password"));
+                ad.setRole(AdminRole.create(rs.getString("role")));
 
-                list.add(pd);
+                list.add(ad);
 
             }
 
@@ -83,19 +74,60 @@ public class AdminDAO implements DAO<Product> {
     }
 
     @Override
-    public void insert(Product ob) {
+    public void insert(Admin ob) {
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO admin(username, password, role) VALUES (?, ?, ?)");
+            smt.setString(1, ob.getUserName());
+            smt.setString(2, ob.getPassword());
+            smt.setString(3, ob.getRole().toString());
+
+            smt.executeUpdate();
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     @Override
-    public void update(Product ob) {
+    public void update(Admin ob) {
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("UPDATE admin SET username = ?, password = ?, role = ? WHERE id = ?");
+            smt.setString(1, ob.getUserName());
+            smt.setString(2, ob.getPassword());
+            smt.setString(3, ob.getRole().toString());
+            smt.setInt(5, ob.getId());
+
+            smt.executeUpdate();
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("DELETE FROM admin WHERE id = ?");
+            smt.setString(1, id);
+
+            smt.executeUpdate();
+
+            JDBC.closeConnection(conn);
+            
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     public static void main(String[] args) {
-        getInstance().selectById(2);
+        getInstance().delete("5");
     }
-
 }

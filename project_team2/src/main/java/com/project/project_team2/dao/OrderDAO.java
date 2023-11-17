@@ -1,101 +1,43 @@
 package com.project.project_team2.dao;
 
+import com.project.project_team2.model.Order;
 import com.project.project_team2.service.JDBC;
 import com.project.project_team2.model.Product;
 import com.project.project_team2.service.Convert;
 import java.sql.*;
 import java.util.*;
 
-public class OrderDAO implements DAO<Product> {
+public class OrderDAO implements DAO<Order> {
 
     private static final OrderDAO instance = new OrderDAO();
 
     public static OrderDAO getInstance() {
         return instance;
     }
-    
-    
 
     @Override
-    public List<Product> selectAll() {
-        List<Product> list = new ArrayList<>();
-        try {
-            Connection c = JDBC.getConnection();
-
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product");
-
-            ResultSet rs = st.executeQuery();
-
-            while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-                List<String> thumb = Convert.toList(rs.getString("thumb"));
-                pd.setThumb(thumb);
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
-
-                list.add(pd);
-
-            }
-
-            c.close();
-        } catch (Exception e) {
-        }
-
-        System.out.println(list);
-        return list;
+    public List<Order> selectAll() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<Product> selectById(int id) {
-        List<Product> list = new ArrayList<>();
-        try {
-            Connection c = JDBC.getConnection();
-
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE id = ?");
-            st.setInt(1, id);
-
-            ResultSet rs = st.executeQuery();
-
-            while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-//                pd.setThumb(rs.getString("thumb"));
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
-
-                list.add(pd);
-
-            }
-
-            c.close();
-        } catch (Exception e) {
-        }
-
-        System.out.println(list);
-        return list;
+    public List<Order> selectById(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void insert(Product ob) {
+    public void insert(Order ob) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void update(Product ob) {
+    public void update(Order ob) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void delete(int id) {
-    }
-
-    public static void main(String[] args) {
-        getInstance().selectById(2);
+    public void delete(String id) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

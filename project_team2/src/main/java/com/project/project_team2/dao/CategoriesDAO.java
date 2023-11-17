@@ -1,43 +1,34 @@
 package com.project.project_team2.dao;
 
 import com.project.project_team2.service.JDBC;
-import com.project.project_team2.model.Product;
-import com.project.project_team2.service.Convert;
+import com.project.project_team2.model.Categories;
 import java.sql.*;
 import java.util.*;
 
-public class CategoriesDAO implements DAO<Product> {
+public class CategoriesDAO implements DAO<Categories> {
 
     private static final CategoriesDAO instance = new CategoriesDAO();
 
     public static CategoriesDAO getInstance() {
         return instance;
     }
-    
-    
 
     @Override
-    public List<Product> selectAll() {
-        List<Product> list = new ArrayList<>();
+    public List<Categories> selectAll() {
+        List<Categories> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product");
+            PreparedStatement st = c.prepareStatement("SELECT * FROM categories");
 
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-                List<String> thumb = Convert.toList(rs.getString("thumb"));
-                pd.setThumb(thumb);
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
+                Categories cat = new Categories();
+                cat.setId(rs.getInt("id"));
+                cat.setNameCAT(rs.getString("name"));
 
-                list.add(pd);
+                list.add(cat);
 
             }
 
@@ -50,27 +41,22 @@ public class CategoriesDAO implements DAO<Product> {
     }
 
     @Override
-    public List<Product> selectById(int id) {
-        List<Product> list = new ArrayList<>();
+    public List<Categories> selectById(String id) {
+        List<Categories> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE id = ?");
-            st.setInt(1, id);
+            PreparedStatement st = c.prepareStatement("SELECT * FROM categories WHERE id = ?");
+            st.setString(1, id);
 
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) {
-                Product pd = new Product();
-                pd.setId(rs.getInt("id"));
-                pd.setCategoryId(rs.getInt("category_id"));
-                pd.setName(rs.getString("name"));
-                pd.setBanners(rs.getString("banners"));
-//                pd.setThumb(rs.getString("thumb"));
-                pd.setPrice(rs.getInt("price"));
-                pd.setDetail(rs.getString("detail"));
+                Categories cat = new Categories();
+                cat.setId(rs.getInt("id"));
+                cat.setNameCAT(rs.getString("name"));
 
-                list.add(pd);
+                list.add(cat);
 
             }
 
@@ -83,19 +69,19 @@ public class CategoriesDAO implements DAO<Product> {
     }
 
     @Override
-    public void insert(Product ob) {
+    public void insert(Categories ob) {
     }
 
     @Override
-    public void update(Product ob) {
+    public void update(Categories ob) {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
     }
 
     public static void main(String[] args) {
-        getInstance().selectById(2);
+        getInstance().selectAll();
     }
 
 }

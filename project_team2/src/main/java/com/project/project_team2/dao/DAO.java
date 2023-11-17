@@ -6,11 +6,11 @@ public interface DAO<T> {
 
     public List<T> selectAll();
 
-    public List<T> selectById(int id);
+    public List<T> selectById(String id);
     
     public void insert (T ob);
     
     public void update (T ob);
     
-    public void delete (int id);
+    public void delete (String id);
 }

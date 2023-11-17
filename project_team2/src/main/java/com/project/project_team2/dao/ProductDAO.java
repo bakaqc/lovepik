@@ -48,13 +48,13 @@ public class ProductDAO implements DAO<Product> {
     }
 
     @Override
-    public List<Product> selectById(int id) {
+    public List<Product> selectById(String id) {
         List<Product> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
             PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE id = ?");
-            st.setInt(1, id);
+            st.setString(1, id);
 
             ResultSet rs = st.executeQuery();
 
@@ -125,12 +125,12 @@ public class ProductDAO implements DAO<Product> {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
         try {
             Connection conn = JDBC.getConnection();
 
             PreparedStatement smt = conn.prepareStatement("DELETE FROM product WHERE id = ?");
-            smt.setInt(1, id);
+            smt.setString(1, id);
 
             smt.executeUpdate();
 
@@ -140,9 +140,39 @@ public class ProductDAO implements DAO<Product> {
         }
     }
 
+    public List<Product> selectByCATId(String catID) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE category_id = ?");
+            st.setString(1, catID);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (Exception e) {
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     public static void main(String[] args) {
-        getInstance().selectById(31);
-//        getInstance().delete(31);
+        getInstance().selectByCATId("1");
     }
 
 }
