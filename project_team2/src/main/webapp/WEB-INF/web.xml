@@ -2,15 +2,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>HomeController</servlet-name>
-        <servlet-class>com.project.project_team2.controller.HomeController</servlet-class>
+        <servlet-class>com.bakaqc.flower.controller.HomeController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminController</servlet-name>
-        <servlet-class>com.project.project_team2.controller.AdminController</servlet-class>
+        <servlet-class>com.bakaqc.flower.controller.AdminController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CategoriesController</servlet-name>
-        <servlet-class>com.project.project_team2.controller.CategoriesController</servlet-class>
+        <servlet-class>com.bakaqc.flower.controller.CategoriesController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
