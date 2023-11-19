@@ -57,6 +57,11 @@
                     </div>
                     <div class="d-block w-100">
                         <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3 menu">
+                            <li class="nav-item mx-2 ">
+                                <a href="home" class="nav-link listmenu">
+                                    Home
+                                </a>
+                            </li>  
                             <c:forEach items="${listCAT}" var="o">
                                 <li class="nav-item mx-2 ${tag == o.id ? "active":""} ">
                                     <a href="categories?id=${o.id}" class="nav-link listmenu">
@@ -71,17 +76,10 @@
         </nav>
 
         <div class="container position-relative text-center">
-            <header class="position-relative text-center text-white mb-5">
-                <img src="./img/banner.png" alt="Banner" class="w-100">
-                <div class="position-absolute top-50 start-50 translate-middle-x w-100 px-3">
-                    <h1 class="display-4 shop-name">
-                        LovePik - Trao gửi yêu thương
-                    </h1>
-                    <a href="#new" class="btn btn-light but">
-                        Explore Now
-                    </a>
-                </div>
+            <header class="position-relative text-center text-white mb-5 banner">
+                <img src="./img/banner.png" alt="Banner" class="w-100" height="405">
             </header>
+            <h1>Most Popular</h1>
             <div class="listp">
                 <c:forEach items="${listP}" var="p">
                     <div class="col-sm-3">

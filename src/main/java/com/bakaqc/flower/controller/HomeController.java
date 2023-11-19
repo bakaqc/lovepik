@@ -16,7 +16,7 @@ public class HomeController extends HttpServlet {
             throws ServletException, IOException {
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().selectAll();
+        List<Product> listP = ProductDAO.getInstance().randomPd();
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);

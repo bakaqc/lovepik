@@ -174,8 +174,39 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
+    public List<Product> randomPd() {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY RAND() LIMIT 16");
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     public static void main(String[] args) {
-        getInstance().selectByCATId("1");
+        getInstance().randomPd();
     }
 
 }
