@@ -7,13 +7,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa sinh nh?t</a>
+                <a href="#" class="nav-link text-muted">Hoa sinh nháº­t</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa chúc m?ng</a>
+                <a href="#" class="nav-link text-muted">Hoa chÃºc má»«ng</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa tình yêu</a>
+                <a href="#" class="nav-link text-muted">Hoa tÃ¬nh yÃªu</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link text-muted">...</a>

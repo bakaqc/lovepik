@@ -82,6 +82,39 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
+    public List<Product> selectByName(String search) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM `product` WHERE name like ?");
+            st.setString(1, "%" + search + "%");
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                List<String> thumb = Convert.toList(rs.getString("thumb"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     @Override
     public void insert(Product ob) {
         try {
@@ -174,12 +207,13 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
-    public List<Product> randomPd() {
+    public List<Product> randomPd(int limit) {
         List<Product> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY RAND() LIMIT 16");
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY RAND() LIMIT ?");
+            st.setInt(1, limit);
 
             ResultSet rs = st.executeQuery();
 
@@ -206,7 +240,7 @@ public class ProductDAO implements DAO<Product> {
     }
 
     public static void main(String[] args) {
-        getInstance().randomPd();
+        getInstance().selectByName("hoa tu");
     }
 
 }

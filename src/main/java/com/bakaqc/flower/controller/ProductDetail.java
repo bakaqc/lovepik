@@ -9,20 +9,20 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class HomeController extends HttpServlet {
+public class ProductDetail extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        
+
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(16);
+        List<Product> listP = ProductDAO.getInstance().randomPd(8);
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/home.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/product_detail.jsp");
         rd.forward(request, response);
     }
 
