@@ -1,4 +1,5 @@
 # Flower Shop
+[![build](https://github.com/bakaqc/flower/actions/workflows/build.yml/badge.svg)](https://github.com/bakaqc/flower/actions/workflows/build.yml)
 ![GitHub top language](https://img.shields.io/github/languages/top/bakaqc/flower)
 ![GitHub repo size](https://img.shields.io/github/repo-size/bakaqc/flower)
 ![GitHub License](https://img.shields.io/github/license/bakaqc/flower)
