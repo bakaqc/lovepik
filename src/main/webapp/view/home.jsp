@@ -29,7 +29,7 @@
                             <div class="card m-2 card-pro">
 
                                 <div class="product">
-                                    <a href="#" class="product-img">
+                                    <a href ="detail?pid=${p.id}" class="product-img">
                                         <img src="${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
@@ -38,7 +38,7 @@
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text fw-bold namep">
+                                    <p class="card-text fw-bold namep"  >
                                         ${p.name}
                                     </p>
                                     <small class="text-secondary pricep">
@@ -51,7 +51,7 @@
                 </c:forEach>
             </div>
 
-            <a href="home/allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
+            <a href="/allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
 
         </div>
         <%@include file="common/footer.jsp" %>

@@ -164,15 +164,6 @@ a.buy {
     opacity: 0.9;
 }
 
-
-.main-section {
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, 5%);
-}
-
-
 .left-side-product-box img {
     width: 100%;
 }
@@ -202,8 +193,9 @@ a.buy {
 }
 
 .product-banner {
-    padding: 16px;
+    padding: 0px;
 }
+
 .product-name{
     color: orange;
     font-weight: bold;

@@ -1,4 +1,4 @@
-<div class ="footers ">
+<div class ="footers">
     <footer class="d-flex justify-content-between my-5 text-start flex-wrap home-footer">
         <ul class="nav flex-column">
             <li class="fw-bold nav-item">

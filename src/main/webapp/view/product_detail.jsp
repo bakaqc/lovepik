@@ -16,36 +16,31 @@
     </head>
     <body>
         <%@include file="common/header.jsp" %>
-
         <div class="container">
-            <div class="col-lg-8  p-3 main-section bg-white">
+            <div class="p-3 justify-content-center bg-white">
 
-                <div class="row border m-0">
+                <div class="row border m-2">
                     <div class="col-lg-4 left-side-product-box pb-3 product-banner">
-                        <img src="https://bizweb.dktcdn.net/100/347/446/files/bo-hoa-lan-cat-tuong-gia-hoa-len-cat-tuong.jpg?v=1564825969218" class="border p-3">
+                        <img src="${pro.banners}" alt="Product" class="border p-3 bann" height="500">
                     </div>
                     <div class="col-lg-8">
                         <div class="right-side-pro-detail  p-3 m-0">
                             <div class="row">
                                 <div class="col-lg-12 product-name">
-                                    <p class="m-0 p-0">Hoa Cát Tường</p>
+                                    <p class="m-0 p-0">${pro.name}</p>
                                 </div>
                                 <div class="col-lg-12 product-price">
-                                    <p class="m-0 p-0 price-pro">200000 VNĐ</p>
+                                    <p class="m-0 p-0 price-pro">${pro.price} VNĐ</p>
 
                                 </div>
                                 <div class="col-lg-12 pt-2 product-type">
-                                    <h5>Thể loại</h5>
-                                    <span>Hoa ngày Tết
-                                    </span>
+                                    <h5>Loại hoa</h5>
+                                    <span>${nameCAT}</span>
 
                                 </div>
                                 <div class="col-lg-12 pt-2 product-desc">
                                     <h5>Chi tiết sản phẩm</h5>
-                                    <span>Hoa Cát Tường biểu tượng đẹp đẽ của một ý chí sống kiên cường, nhiệt huyết 
-                                        và mang ý nghĩa tượng trưng cho một lời cầu chúc cho cuộc sống hạnh phúc và viên mãn. 
-                                    </span>
-
+                                    <span>${pro.detail}</span>
                                 </div>
 
                                 <div class="col-lg-12 product-amount">
@@ -75,7 +70,7 @@
                                     <div class="card m-2 card-pro">
 
                                         <div class="product">
-                                            <a href="#" class="product-img">
+                                            <a href ="detail?pid=${p.id}" class="product-img">
                                                 <img src="${p.banners}" alt="Product" class="card-img-top p-img"
                                                      height="200" >
                                             </a>
@@ -98,11 +93,10 @@
                     </div>
 
                 </div>
-
             </div>
 
         </div>
-        <%--<%@include file="common/footer.jsp" %>--%>
+        <%@include file="common/footer.jsp" %>
 
     </body>
 </html>
