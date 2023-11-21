@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 04:38 AM
+-- Generation Time: Nov 21, 2023 at 09:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -113,7 +113,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (1, 'Hoa sinh nhật'),
 (2, 'Hoa chúc mừng'),
 (3, 'Hoa tình yêu'),
-(4, 'Hoa tang lễ'),
+(4, 'Bánh kem'),
 (5, 'Hoa ngày Tết');
 
 -- --------------------------------------------------------
@@ -254,10 +254,10 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 (16, 1, 'Hoa Loa Kèn Đỏ', 'https://down-vn.img.susercontent.com/file/f4f3bffc5233a43a4bbed4120824ad12', '', 255000, 'Hoa Loa Kèn Đỏ biểu tượng cho lòng kiêu hãnh, sự tự hào của con người'),
 (17, 2, 'Hoa Tulip Trắng', 'https://8384f55340.vws.vegacdn.vn/image/cache/catalog/March%202023/bo-hoa-tulip-11-800x800.jpg.webp', '', 190000, 'Hoa Tulip Trắng là loại hoa có nhiều ý nghĩa tốt đẹp, nó đại diện cho tình yêu thuần khiết, niềm đam mê, sự bình yên, chiến thắng và sự tha thứ. '),
 (18, 5, 'Nụ Tầm Xuân', 'https://storage.googleapis.com/ops-shopee-files-live/live/shopee-blog/2022/11/f2c1e501-cam-nu-tam-xuan-ngay-tet.jpg', '', 500000, 'Nụ tầm xuân với nhiều chồi non trên thân cây, được xem là tượng trưng cho sự thịnh vượng nên được rất nhiều gia đình lựa chọn mua về nhà dịp đầu năm mới.'),
-(19, 4, 'Hoa Cúc', 'https://hoatuoialoha.com/wp-content/uploads/2022/11/gio-hoa-kinh-vieng.jpg', '', 120000, 'Hoa Cúc được xem là loại hoa truyền thống và được nhiều người chọn và sử dụng rất nhiều trong các tang lễ.'),
-(20, 4, 'Hoa Huệ Trắng', 'https://hoadamtang.com.vn/wp-content/uploads/2021/12/52-1.jpg', '', 185000, 'Hoa Huệ Trắng thể hiện sự thành kính đối với người đã khuất.'),
-(21, 4, 'Hoa Hồng Trắng', 'https://hoahanoi.com.vn/wp-content/uploads/2020/07/gio-hoa-hong-trang-dep-e1624939624773.jpg', '', 288000, 'Hoa Hồng Trắng mang ý nghĩa tôn vinh những đóng góp của người đã khuất.'),
-(22, 4, 'Hoa Nhài', 'https://hoavily.com/uploads/file/gioi-thieu-hoa-nhai-hoavily.jpg', '', 194000, 'Hoa Nhài tượng trưng cho sự thuần khiết, thanh cao và lòng thành kính.'),
+(19, 4, 'Gato Dâu Tây', 'https://titiphamcake.com/wp-content/uploads/2022/05/banh-gato-kem-e1652809190519-1024x827.jpg', '', 200000, 'Bánh gato đã quá quen thuộc với tất cả mọi người. Những chiếc bánh với nhiều mẫu mã hấp dấp cùng hương vị thơm ngon. Ngày nay, để phù hợp với nhu cầu của người sử dụng, bánh gato được cải tiến với nhiều vị kem mới theo sở thích từng người. \r\n\r\nĐể đánh giá được một chiếc bánh gato có ngon hay không bạn hãy nhìn vào phần bánh phải thật bông xốp, mềm, thơm. Phần kem trang trí bánh không quá béo ngậy gây cảm giác ngán cho người ăn, cũng không quá nhạt hoặc quá ngọt.'),
+(20, 4, 'Tiramisu Dâu Tây', 'https://friendshipcakes.com/wp-content/uploads/2023/08/7.png', '', 185000, 'Bánh Tiramisu được tạo nên bởi những lớp bánh quy xếp chồng lên nhau thành các lớp xen kẽ với các lớp kem, trứng, phô mai. Tạo nên hương vị vô cùng đặc biệt cho tiramisu. \r\n\r\nLớp bột cà phê, bột cacao hoặc các lớp cao cao chảy được phủ bên ngoài bánh trông vô cùng bắt mắt. Để tạo hương vị mới lạ, thợ làm bánh cũng có thể thay thế hoặc bổ sung một số nguyên liệu khác.'),
+(21, 4, 'Bánh Mousse Chanh Dây', 'https://cdn.tgdd.vn/Files/2021/07/22/1370141/cach-lam-banh-mousse-chanh-leo-muot-min-don-gian-tai-nha-202201051426510554.jpg', '', 290000, 'Bánh Mousse là sự kết hợp khéo léo giữa vị béo ngậy, man mát của kem tươi, cùng hương vị trái cây, trà xanh, chocolate,…tạo nên sự độc đáo của bánh.\r\n\r\nThành phần cơ bản của Mousse là một lớp bánh gato mỏng phía bên dưới bánh. Phần bánh được trộn cùng với những nguyên liệu như: Chocolate, Caramel, chanh leo, cam, phô mai nướng…\r\n\r\nChiếc bánh Mousse có ưu điểm là dễ làm, nhanh gọn và không cần sử dụng đến lò nướng. Nó được xem là lựa chọn hàng đầu cho những người mới làm bánh hay chưa thạo làm bánh sinh nhật. '),
+(22, 4, 'Bánh Nhung Đỏ', 'https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2021/09/r-v-1-696x520.jpg?fit=700%2C20000&quality=95&ssl=1', '', 230000, 'Bánh nhung đỏ là loại bánh có phần bánh gato màu đỏ tươi, đỏ sậm hoặc đỏ vừa, xen kẽ là lớp kem trắng muốt và phủ bên trên khắp bánh là phần vụn bánh màu đỏ. Bánh có màu đỏ đặc trưng và nổi bật giữa các loại bánh khác.'),
 (23, 2, 'Hoa Hồng Vàng', 'https://hoatuoidatviet.vn/upload/images/Bo-hoa-hong-vang-Sunny.jpg', '', 263000, 'Hoa Hồng Vàng biểu tượng cho tình bạn và niềm vui. Chúng tươi sáng, vui vẻ và khiến bạn muốn mỉm cười, chúng cũng mang một vẻ đẹp thanh lịch, tinh tế.'),
 (24, 2, 'Hoa Lưu Ly', 'https://hoatuoishop.com/wp-content/uploads/2019/12/hoa-tuoi-cuoi-hoi-2-911x1024.jpg', '', 230000, 'Hoa Lưu Ly hay còn gọi là hoa “Forget me not”, mang ý nghĩa “Xin đừng quên tôi.”'),
 (25, 3, 'Hoa Tường Vi Hồng', 'https://diachishophoa.com/uploads/sanpham/4twefsd-1557895359-nwgb3.jpg', '', 290000, 'Hoa Tường Vi Hồng mang nghĩa “Anh yêu em mãi mãi”.'),
@@ -265,7 +265,18 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 (27, 3, 'Hoa Violet', 'https://hoaviolet.com/image/bo-hoa-baby-tim-khong-lo-72762j.jpg', '', 320000, 'Hoa Violet mang ý nghĩa của sự khiêm tốn, sự yếu đuối và tình yêu thầm kín. Nó thể hiện sự tinh tế và sự nhạy cảm.'),
 (28, 5, 'Hoa Mai', 'https://product.hstatic.net/1000075734/product/z2263786970922_25fe09cfbbfd759d648ae503a46078de_a2d9c04c8ee040eba21092d04658f962_master.jpg', '', 400000, 'Hoa Mai là loài hoa mang lại sự may mắn, thịnh vượng, hạnh phúc trong suốt 1 năm.'),
 (29, 5, 'Hoa Đào', 'https://ironstyle.vn/uploads/cay%20hoa%20dao%202.jpg?1481185550102', '', 400000, 'Hoa Đào trưng bày trong nhà có thể xua đuổi tà ma, mang đến nguồn sinh khí ấm áp, màu hồng hạnh phúc, tình cảm gia đình khắng khít trong năm mới.'),
-(30, 5, 'Hoa Thuỷ Tiên', 'https://th.bing.com/th/id/R.cf739e8191c61038752054bc349a403b?rik=NrHnz9NtpXxxqg&pid=ImgRaw&r=0', '', 350000, 'Hoa Thuỷ Tiên là biểu tượng của sự giàu có, thịnh vượng, may mắn và hạnh phúc');
+(30, 5, 'Hoa Thuỷ Tiên', 'https://th.bing.com/th/id/R.cf739e8191c61038752054bc349a403b?rik=NrHnz9NtpXxxqg&pid=ImgRaw&r=0', '', 350000, 'Hoa Thuỷ Tiên là biểu tượng của sự giàu có, thịnh vượng, may mắn và hạnh phúc'),
+(33, 4, 'Cheesecake Trái cây', 'https://cdn.popsww.com/blog/sites/2/2022/06/cach_lam_banh_cheesecake_nhanh_chong_va_don_gian_nhat.jpg', '', 300000, 'Cheesecake Trái cây là bánh được làm từ creamcheese và whipping cream. Bánh cheesecake khác với các loại bánh khác ở chỗ là bánh này là thuộc dòng bánh lạnh. Còn các bánh khác thì đòi hỏi phải có lò nướng.'),
+(34, 4, 'Bánh Flan Gato', 'https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2021/09/flan-gato-1-696x464.jpg?fit=700%2C20000&quality=95&ssl=1', '', 50000, 'Bánh vô cùng khác biệt và có sự phức tạp nhất định nhờ vào sự kết hợp giữa flan và gato. Nhìn qua tưởng chừng rất khó nhưng cách làm thì đơn giản vô cùng. Bánh gồm 2 lớp, dưới cùng là lớp gato thường là vị sô-cô-la hoặc là vị va-ni. Bên trên là lớp bánh flan béo ngậy và trên cùng là một lớp đường caramel.'),
+(35, 4, 'Crepe ngàn lớp', 'https://i.bloganchoi.com/bloganchoi.com/wp-content/uploads/2021/09/crepe-ngan-lop-696x392.jpg?fit=700%2C20000&quality=95&ssl=1', '', 240000, 'Bánh Crepe thường được làm với chảo chống dính và nguyên liệu thì vô cùng đơn giản bao gồm sữa, trứng và bột mì và một số nguyên liệu phụ khác. Bánh crepe của Pháp được biến tấu thành bánh crepe trái cây và bánh Crepe ngàn lớp. Bánh Crepe trái cây là bánh có một lớp bánh mỏng sau đó thêm trái cây vào nhân bánh và cuộn lại hoặc gấp lại.'),
+(36, 2, 'Hoa Thược Dược', 'https://product.hstatic.net/1000105741/product/5b968b91-e3c9-40ba-b030-359cedd2c287_c3eb01c8b147444b862bf956b9ea9abe_master.jpg', '', 330000, 'Hoa thược dược gây ấn tượng với con người bởi vẻ đẹp rực rỡ,quý phái, sang trọng của nó với các loài hoa khác. Hoa thược dược còn có ý nghĩa may mắn và thành công, thường được mọi người mua làm quà tặng nhau.\r\n\r\n'),
+(37, 5, 'Cây Phát Tài', 'https://st.quantrimang.com/photos/image/2016/12/20/cay-canh-ngay-tet-7.jpg', '', 400000, 'Cây Phát Tàilà loài cây mang lại may mắn, tài lộc sung túc cho cả gia đình. Theo phong thủy, số lượng cây phát tài, phát lộc được trồng trong một chậu sẽ có ý nghĩa khác nhau. 2 cây: Tình duyên và hôn nhân.\r\n3 cây: Mang đến hạnh phúc, trường thọ, sự giàu có. 5 cây: Sức khỏe. 8 cây: Thịnh vượng, phát tài. 9 cây: May mắn.'),
+(38, 5, 'Hoa Trạng Nguyên', 'https://st.quantrimang.com/photos/image/2016/12/20/cay-canh-ngay-tet-9.jpg', '', 350000, 'Cây trạng nguyên là biểu tượng cho sự thành đạt, đỗ đạt trong con đường học hành. Với màu sắc đỏ thắm, cây trạng nguyên vừa mang lại hạnh phúc, may mắn vừa mang lại thành công cho các thành viên trong gia đình. Đặc biệt, những gia đình có con cháu sắp bước vào những cuộc thi cử quan trọng đều chọn cây hoa trạng nguyện bày trong nhà với hy vọng con cháu học giỏi, đỗ đạt cao.'),
+(39, 5, 'Hoa Đỗ Quyên', 'https://st.quantrimang.com/photos/image/2022/01/11/cay-canh-tet-1.jpg', '', 370000, 'Hoa đỗ quyên với sắc đỏ, sắc hồng giúp mang sắc xuân cho ngôi nhà của bạn. Ngoài ra, loài hoa này tượng trưng cho sự may mắn, phú quý và thành đạt, giúp hóa giải khí xấu cho gia đình.\r\nHoa đỗ quyên rất dễ trồng và chăm sóc. Vì vậy, đây là loài hoa thích hợp để lựa chọn trưng bày trong nhà trong dịp Tết Nguyên Đán sắp tới.'),
+(40, 5, 'Cây Kim Tiền', 'https://st.quantrimang.com/photos/image/2022/01/11/cay-canh-tet-2.jpg', '', 420000, 'Cây kim tiền được gọi là cây phát tài, tượng trưng cho sự may mắn, phát tài phát lộc và thịnh vượng. Vì vậy, nếu muốn lựa chọn cây cảnh trang trí Tết và mang lại may mắn, tài lộc cho gia đình trong năm mới thì đây là sự lựa chọn tuyệt vời cho bạn.'),
+(41, 4, 'Bông Lan Trứng Muối', 'https://www.eco-pro.vn/wp-content/uploads/2022/12/to-giay-dung-banh-bong-lan-trung-muoi.jpg', '', 150000, 'Nếu ai đã từng thưởng thức qua những chiếc bánh bông lan trứng muối chà bông phô mai thì chắc hẳn sẽ không bao giờ quên được cái hương vị của nó. Một chiếc bánh bông lan trứng muối ngon là sự kết tinh của vị mằn mặn bùi bùi của trứng muối cùng chà bông thêm vào đó là miếng phô mai béo béo hòa cùng vị ngọt thanh của chiếc bánh khiến ai cũng say mê.'),
+(42, 4, 'Bánh Kem Trái Cây ', 'https://birthdaylovecake.com/wp-content/uploads/2021/12/B%C3%A1nh-kem-trai-cay-1.jpg', '', 340000, 'Bánh là sự kết hợp giữa kem tươi ngọt béo và những miếng trái cây mọng nước, ngọt ngào, không quá ngấy, phù hợp khẩu vị nhiều người.\r\nTừ những quả trái cây tươi, chua ngọt hòa quyện với cốt bánh mềm mịn, béo ngậy. Nghe đến thôi cũng đã cảm thấy thơm ngon, hấp dẫn đúng không nào? Hãy cùng với chúng tôi để khám phá cách làm bánh kem trái cây ngon tuyệt hảo thôi nào!'),
+(43, 4, 'Bánh Poured Fondant', 'https://chefjob.vn/wp-content/uploads/2019/04/fondant-la-gi.jpg', '', 420000, 'Bánh Poured Fondant được làm từ đường nấu chảy, nước, bột ngô và bổ sung các hương liệu. Loại này thường được dùng để tạo lớp phủ cho bánh vì có độ láng mịn và dùng trong một số nhân của các loại bánh ngọt cỡ vừa như cupcake, pastry,...');
 
 -- --------------------------------------------------------
 
@@ -399,7 +410,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `user`
