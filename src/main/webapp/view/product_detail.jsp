@@ -34,12 +34,12 @@
 
                                 </div>
                                 <div class="col-lg-12 pt-2 product-type">
-                                    <h5>Loại hoa</h5>
+                                    <h5>Loại</h5>
                                     <span>${nameCAT}</span>
 
                                 </div>
                                 <div class="col-lg-12 pt-2 product-desc">
-                                    <h5>Chi tiết sản phẩm</h5>
+                                    <h5>Mô tả</h5>
                                     <span>${pro.detail}</span>
                                 </div>
 

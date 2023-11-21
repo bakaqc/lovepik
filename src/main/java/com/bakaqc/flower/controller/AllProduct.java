@@ -20,7 +20,7 @@ public class AllProduct extends HttpServlet {
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/home_nobanner.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/viewall.jsp");
         rd.forward(request, response);
     }
 

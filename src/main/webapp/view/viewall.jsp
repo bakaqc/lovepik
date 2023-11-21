@@ -26,7 +26,7 @@
                             <div class="card m-2 card-pro">
 
                                 <div class="product">
-                                    <a href="#" class="product-img">
+                                    <a href ="detail?pid=${p.id}" class="product-img">
                                         <img src="${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
