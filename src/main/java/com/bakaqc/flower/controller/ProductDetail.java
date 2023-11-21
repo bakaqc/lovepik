@@ -21,7 +21,7 @@ public class ProductDetail extends HttpServlet {
         Product p = ProductDAO.getInstance().getById(id);
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(8);
+        List<Product> listP = ProductDAO.getInstance().randomPd(4);
 
         request.setAttribute("pro", p);
         request.setAttribute("nameCAT", nameCAT);

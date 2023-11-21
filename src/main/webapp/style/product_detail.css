@@ -192,8 +192,17 @@ a.buy {
     }
 }
 
+.m-2.detail {
+    background-color: antiquewhite;
+}
+
 .product-banner {
-    padding: 0px;
+    padding: 12px;
+}
+
+.product-banner > img {
+    padding: 0px!important;
+    box-shadow: 0px 0px 10px 5px #F4A460;
 }
 
 .product-name{
@@ -202,7 +211,7 @@ a.buy {
 }
 
 .product-type {
-    margin-top: 40px;
+    margin-top: 15px;
     padding: 0 12px;
 }
 
@@ -215,8 +224,7 @@ a.buy {
 }
 
 .product-desc {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
     padding: 0 12px;
 }
 
@@ -228,6 +236,10 @@ a.buy {
     font-size: 20px;
 }
 
+.product-amount > h5 {
+    font-weight: bold;
+}
+
 .amount {
     height: 42px;
     font-size: 22px;
@@ -236,4 +248,30 @@ a.buy {
 .more {
     margin-top: 80px;
     padding: 0;
+}
+
+.call {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.call > h5{
+    font-weight: bold;
+}
+
+.call-now {
+    margin-left: 5px;
+    color: red;
+    font-size: 30px;
+    width: 100px;
+    text-align: center;
+}
+
+.ship {
+    margin: 20px 0px;
+    font-weight: bold;
+}
+.ship > h5 {
+    font-weight: bold;
 }

@@ -76,7 +76,7 @@
                 <ul class="navbar-nav d-flex justify-content-center align-items-center pt-3 menu">
                     <li class="nav-item mx-2 ">
                         <a href="home" class="nav-link listmenu">
-                            Home
+                            Trang Chủ
                         </a>
                     </li>  
                     <c:forEach items="${listCAT}" var="o">

@@ -21,7 +21,7 @@
             <header class="position-relative text-center text-white mb-5 banner">
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
-            <h1>Most Popular</h1>
+            <h1>Sản phẩm nổi bật</h1>
             <div class="listp">
                 <c:forEach items="${listP}" var="p">
                     <div class="col-sm-3">
@@ -34,7 +34,7 @@
                                              height="200" >
                                     </a>
                                     <a href="#" class="buy">
-                                        Add To Cart
+                                        Thêm vào Giỏ
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -42,7 +42,10 @@
                                         ${p.name}
                                     </p>
                                     <small class="text-secondary pricep">
-                                        ${p.price} VNĐ
+                                        <script>
+                                            var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
+                                            document.write(formattedPrice);
+                                        </script>
                                     </small>
                                 </div>
                             </div>
@@ -51,7 +54,7 @@
                 </c:forEach>
             </div>
 
-            <a href="allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
+            <a href="allproduct" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>
 
         </div>
         <%@include file="common/footer.jsp" %>

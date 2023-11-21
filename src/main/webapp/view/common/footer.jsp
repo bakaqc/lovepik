@@ -3,20 +3,23 @@
         <ul class="nav flex-column">
             <li class="fw-bold nav-item">
                 <a href="#" class="nav-link text-dark">
-                    Product
+                    Sản phẩm
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa sinh nhật</a>
+                <a href="#" class="nav-link text-dark">Hoa sinh nhật</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa chúc mừng</a>
+                <a href="#" class="nav-link text-dark">Hoa chúc mừng</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Hoa tình yêu</a>
+                <a href="#" class="nav-link text-dark">Hoa tình yêu</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">...</a>
+                <a href="#" class="nav-link text-dark">Bánh kem</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-dark">Hoa ngày Tết</a>
             </li>
 
             </li>
@@ -24,19 +27,16 @@
         </ul>
         <ul class="nav flex-column">
             <li class="fw-bold nav-item text-dark">
-                <a href="#" class="nav-link text-dark">Help</a>
+                <a href="#" class="nav-link text-dark">Trợ giúp</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Shopping Guide</a>
+                <a href="#" class="nav-link text-dark">Hotline:  1900</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Product Care</a>
+                <a href="https://github.com/bakaqc" target="_blank" class="nav-link text-dark">Github</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Contac Us</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Return Process</a>
+                <a href="https://www.facebook.com/dqchuongbk" target="_blank" class="nav-link text-dark">Facebook</a>
             </li>
         </ul>
         <ul class="nav flex-column">
@@ -44,10 +44,10 @@
                 <a href="#" class="nav-link text-dark">Content</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">About</a>
+                <a href="#" class="nav-link text-dark">About</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-muted">Blog</a>
+                <a href="#" class="nav-link text-dark">Blog</a>
             </li>
         </ul>        
     </footer>

@@ -19,30 +19,42 @@
         <div class="container">
             <div class="p-3 justify-content-center bg-white">
 
-                <div class="row border m-2">
+                <div class="row border m-2 detail">
                     <div class="col-lg-4 left-side-product-box pb-3 product-banner">
-                        <img src="${pro.banners}" alt="Product" class="border p-3 bann" height="500">
+                        <img src="${pro.banners}" alt="Product" class="p-3 bann" height="500">
                     </div>
                     <div class="col-lg-8">
-                        <div class="right-side-pro-detail  p-3 m-0">
+                        <div class="right-side-pro-detail p-3 m-0">
                             <div class="row">
                                 <div class="col-lg-12 product-name">
                                     <p class="m-0 p-0">${pro.name}</p>
                                 </div>
                                 <div class="col-lg-12 product-price">
-                                    <p class="m-0 p-0 price-pro">${pro.price} VNĐ</p>
+                                    <p class="m-0 p-0 price-pro">
+                                        <script>
+                                            var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${pro.price});
+                                            document.write(formattedPrice);
+                                        </script>
+                                    </p>
 
                                 </div>
+
                                 <div class="col-lg-12 pt-2 product-type">
-                                    <h5>Loại</h5>
+                                    <h5>Loại:</h5>
                                     <span>${nameCAT}</span>
 
                                 </div>
                                 <div class="col-lg-12 pt-2 product-desc">
-                                    <h5>Mô tả</h5>
+                                    <h5>Mô tả:</h5>
                                     <span>${pro.detail}</span>
                                 </div>
-
+                                <div class="col-lg-12 call">
+                                    <h5>Gọi ngay: </h5>
+                                    <h5 class="call-now">1900</h5>
+                                </div>   
+                                <div class="col-lg-12 ship">
+                                    <h5>Giao hàng nhanh trong khu vực Tỉnh Bình Định </h5>
+                                </div>   
                                 <div class="col-lg-12 product-amount">
                                     <h5>Số lượng :</h5>
                                     <input type="number" class="form-control text-center w-100 amount" value="1">
@@ -50,10 +62,10 @@
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100">Add To Cart</a>
+                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ</a>
                                         </div>
                                         <div class="col-lg-6">
-                                            <a href="#" class="btn btn-success w-100 shop-now">Shop Now</a>
+                                            <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +74,7 @@
                     </div>
                 </div>
                 <div class="container position-relative text-center more">
-                    <h1>More Product</h1>
+                    <h1>Sản phẩm khác</h1>
                     <div class="listp">
                         <c:forEach items="${listP}" var="p">
                             <div class="col-sm-3">
@@ -75,7 +87,7 @@
                                                      height="200" >
                                             </a>
                                             <a href="#" class="buy">
-                                                Add To Cart
+                                                Thêm vào Giỏ
                                             </a>
                                         </div>
                                         <div class="card-body">
@@ -83,7 +95,10 @@
                                                 ${p.name}
                                             </p>
                                             <small class="text-secondary pricep">
-                                                ${p.price} VNĐ
+                                                <script>
+                                                    var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
+                                                    document.write(formattedPrice);
+                                                </script>
                                             </small>
                                         </div>
                                     </div>
