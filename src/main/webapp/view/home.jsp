@@ -51,7 +51,7 @@
                 </c:forEach>
             </div>
 
-            <a href="/allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
+            <a href="allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
 
         </div>
         <%@include file="common/footer.jsp" %>
