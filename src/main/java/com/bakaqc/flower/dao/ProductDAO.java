@@ -82,6 +82,72 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
+    public Product getById(String id) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product WHERE id = ?");
+            st.setString(1, id);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                List<String> thumb = Convert.toList(rs.getString("thumb"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                return pd;
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return null;
+    }
+
+    public List<Product> selectByName(String search) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM `product` WHERE name like ?");
+            st.setString(1, "%" + search + "%");
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                List<String> thumb = Convert.toList(rs.getString("thumb"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     @Override
     public void insert(Product ob) {
         try {
@@ -174,8 +240,63 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
+    public String getNameCAT(String pid) {
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT categories.name FROM categories JOIN product ON categories.id = product.category_id WHERE product.id = ?");
+            st.setString(1, pid);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                return rs.getString("name");
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return null;
+    }
+
+    public List<Product> randomPd(int limit) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY RAND() LIMIT ?");
+            st.setInt(1, limit);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
     public static void main(String[] args) {
-        getInstance().selectByCATId("1");
+
+        System.out.println(getInstance().getNameCAT("30"));
     }
 
 }

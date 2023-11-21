@@ -12,16 +12,13 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="./style/home.css"> 
+            <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
     </head>
     <body>
         <%@include file="common/header.jsp" %>
 
         <div class="container position-relative text-center">
-            <header class="position-relative text-center text-white mb-5 banner">
-                <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
-            </header>
-            <h1>Most Popular</h1>
+          
             <div class="listp">
                 <c:forEach items="${listP}" var="p">
                     <div class="col-sm-3">
@@ -29,7 +26,7 @@
                             <div class="card m-2 card-pro">
 
                                 <div class="product">
-                                    <a href ="detail?pid=${p.id}" class="product-img">
+                                    <a href="#" class="product-img">
                                         <img src="${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
@@ -38,7 +35,7 @@
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <p class="card-text fw-bold namep"  >
+                                    <p class="card-text fw-bold namep">
                                         ${p.name}
                                     </p>
                                     <small class="text-secondary pricep">
@@ -50,8 +47,6 @@
                     </div>
                 </c:forEach>
             </div>
-
-            <a href="/allproduct" class="btn btn-outline-dark my-5 view-all">View All Products</a>
 
         </div>
         <%@include file="common/footer.jsp" %>

@@ -12,6 +12,14 @@
         <servlet-name>CategoriesController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.CategoriesController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AllProduct</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.AllProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductDetail</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.ProductDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -24,9 +32,23 @@
         <servlet-name>CategoriesController</servlet-name>
         <url-pattern>/categories</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllProduct</servlet-name>
+        <url-pattern>/home/allproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductDetail</servlet-name>
+        <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            15
         </session-timeout>
     </session-config>
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>
