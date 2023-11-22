@@ -55,6 +55,12 @@
 
 
                                         </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" name="address" id="form3Example4cdg" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example4cdg">Địa Chỉ</label>
+                                        </div>
+
                                         <div class="form-outline mb-4">
                                             <input type="text" name="email" id="form3Example3cg" class="form-control form-control-lg" />
                                             <label class="form-label" for="form3Example3cg">Email</label>
@@ -65,13 +71,15 @@
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="address" id="form3Example4cdg" class="form-control form-control-lg" />
-                                            <label class="form-label" for="form3Example4cdg">Địa Chỉ</label>
+                                            <input type="text" name="password" id="form3Example4cg" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example4cg">Nhập lại Mật Khẩu</label>
                                         </div>
+
+
 
                                         <div class="d-flex justify-content-center">
                                             <button type="button"
-                                                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" action="userregister" method="post" style="background-color: orange; font-weight: bold;">Đăng Kí</button>
+                                                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" action="userregister" method="post" style="background-color: orange; font-weight: bold;">Đăng Kí Ngay</button>
                                         </div>
 
                                         <p class="text-center text-muted mt-5 mb-0 login-here-pr">Đã có tài khoản? 

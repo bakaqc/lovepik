@@ -33,12 +33,9 @@ p {
 
 .login-here-pr > button{
     height: 50px;
-}
-
-.login-here-pr > button{
     background-color: orange;
     border-radius: 10px;
-
+    padding: 8px 16px!important;
 }
 
 .mt-5 {
@@ -48,4 +45,8 @@ p {
 .err {
     font-size: 20px;
     font-weight: bold;
+}
+
+.px-5 {
+    padding: 8px 16px!important;
 }

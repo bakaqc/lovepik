@@ -29,7 +29,7 @@
 
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
 
-                        <div class="card bg-dark text-white" style="border-radius: 1rem;border:solid 5px white;">
+                        <div class="card bg-dark text-white" style="border-radius: 15px;border:solid 5px white;">
 
                             <div class="card-body p-5 text-center " style="border-radius: 1rem;background-color: antiquewhite;border:solid 5px white;">
 
@@ -52,7 +52,7 @@
                                         </div>
 
                                         <div id="error-message" class="text-danger err">${errorMsg}</div>
-                                        <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập" style="font-weight: bold; color: black; background-color: orange;"/>
+                                        <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập Ngay" style="font-weight: bold; color: black; background-color: orange; "/>
 
 
                                     </div>

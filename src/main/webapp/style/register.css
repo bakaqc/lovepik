@@ -32,11 +32,8 @@ p {
 }
 
 .login-here-pr > button{
-    height: 50px;
-}
-
-.login-here-pr > button{
+    height: 48px;
     background-color: orange;
     border-radius: 10px;
-
 }
+
