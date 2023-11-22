@@ -16,7 +16,6 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex align-items-center">
                         <a href="home" class="nav-link mx-2 hotline">
@@ -42,31 +41,30 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="nav-item d-flex align-items-center">
-                                    <a href="#" class="nav-link mx-2">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </a>
-                                    <span class="badge rounded-pill bg-secondary">0</span>
-                                </li>
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
-                                <li class="nav-item d-flex align-items-center">
-                                    <a href="login" class="btn btn-light">
-                                        <i class="fas fa-sign-in"></i>
+                                <li class="nav-item d-flex align-items-center dropdown">
+                                    <a href="login" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         Đăng nhập
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="login">User</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#">Admin</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </c:if>
                         </ul>
-                        <!--                        <a href="#" class="nav-link mx-2">
-                                                    <i class="fas fa-user"></i>
-                                                    My Account
-                                                </a>-->
                     </li>
                     <li class="nav-item d-flex align-items-center">
                         <a href="#" class="nav-link mx-2">
-                            <i class="fas fa-shopping-cart"></i>
-                            Cart
+                            <i class="fas fa-shopping-cart"></i>                          
                         </a>
                         <span class="badge rounded-pill bg-secondary">0</span>
                     </li>

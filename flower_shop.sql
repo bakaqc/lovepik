@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2023 at 09:33 AM
+-- Generation Time: Nov 22, 2023 at 03:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -290,7 +290,6 @@ CREATE TABLE `user` (
   `year_of_birth` int(11) NOT NULL,
   `gender` enum('male','female') NOT NULL,
   `email` varchar(255) NOT NULL,
-  `username` varchar(30) NOT NULL,
   `password` varchar(64) NOT NULL,
   `address` longtext DEFAULT NULL,
   `status` enum('activate','deactivate') NOT NULL,
@@ -302,37 +301,37 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `full_name`, `year_of_birth`, `gender`, `email`, `username`, `password`, `address`, `status`, `create_at`, `delete_at`) VALUES
-(1, 'Vũ Ngọc Ánh', 1997, 'female', 'Anhvn@gmail.com', 'anhvn', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn, Bình Định', 'activate', '2022-11-16 10:41:46', NULL),
-(2, 'Đinh Quốc Chương', 1999, 'male', 'Chuongdq@gmail.com', 'chuongdq', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', ', 23 Phan Bội Châu,Quy Nhơn, Bình Định', 'activate', '2023-11-01 11:04:28', NULL),
-(3, 'Trịnh Minh Dương', 2000, 'male', 'Duongtm@gmail.com', 'duongtm', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '231 Lê Hồng Phong, Quy Nhơn, Bình Định', 'deactivate', '2023-11-01 08:04:40', '2023-11-15 11:08:24'),
-(4, 'Lê Đồng Tâm', 2002, 'male', 'Tamld@gmail.com', 'tamld', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Hùng Vương, Quy Nhơn, Bình Định', 'activate', '2023-09-06 11:04:53', NULL),
-(5, 'Phan Thu Thảo', 2001, 'female', 'Thaopt@gmail.com', 'thaopt', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '213 Âu Cơ, Quy Nhơn, Bình Định', 'activate', '2023-11-03 11:05:13', NULL),
-(6, 'Đường Mỹ Hà', 2003, 'female', 'Hadm@gmail.com', 'hadm', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '1112 Hùng Vương, Quy Nhơn, Bình Định', 'activate', '2023-11-04 11:05:25', NULL),
-(7, 'Nguyễn Tuấn Nghĩa', 2004, 'male', 'Nghiant@gmail.com', 'nghiant', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '21 Đào Duy Tử, Quy Nhơn, Bình Định', 'activate', '2023-09-07 11:06:50', NULL),
-(8, 'Bùi Quang Tuấn', 1992, 'male', 'Tuanbq@gmail.com', 'tuanbq', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'Hẻm 220 Nguyễn Thái Học, Quy Nhơn, Bình Định', 'deactivate', '2023-11-02 11:07:17', '2023-11-17 11:08:59'),
-(9, 'Trần Thu Ngân', 1998, 'female', 'Ngantt@gmail.com', 'ngantt', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '38 Võ Lai, Quy Nhơn, Bình Định', 'activate', '2023-09-06 11:07:38', NULL),
-(10, 'Nguyễn Thục Ngân', 2001, 'female', 'Ngannt@gmail.com', 'ngannt', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Trần Hưng Đạo, Quy Nhơn, Bình Định', 'activate', '2023-10-24 11:09:10', NULL),
-(11, 'Bùi Ngọc Bảo Trân', 2000, 'female', 'Tranbnb@gmail.com', 'tranbnb', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn', 'activate', '2023-10-12 11:09:22', NULL),
-(12, 'Phạm Ngọc Quyền', 1994, 'male', 'Quyenpn@gmail.com', 'quyenpn', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '17 Trần Thị Kỷ, thị xã An Nhơn, Bình Định', 'deactivate', '2023-10-10 11:09:47', '2023-11-16 11:19:22'),
-(13, 'Nguyễn Trung Dũng', 1999, 'male', 'Dungnt@gmail.com', 'dungnt', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '44 Tăng Bạt Hổ, huyện Tuy Phước, Bình Định', 'activate', '2023-10-23 11:10:51', NULL),
-(14, 'Nguyễn Tấn Kiệt', 2002, 'male', 'Kietnt@gmail.com', 'kietnt', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '521 Tây Sơn, tp.Quy Nhơn, Bình Định', 'activate', '2023-11-06 11:11:33', NULL),
-(15, 'Nguyễn Dương', 2000, 'male', 'Duongn@gmail.com', 'duongn', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '34 Nguyễn Trân, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-10-26 11:11:46', NULL),
-(16, 'Đoàn Nguyễn Huyền Trang', 2005, 'female', '', '', '12345', '22 Đào Duy Từ, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-03 11:11:57', NULL),
-(17, 'Đào Thanh Trúc', 2002, 'female', 'Trucdt@gmail.com', 'trucdt', '12345', '307 Nguyễn Thị Minh Khai, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-16 11:12:45', NULL),
-(18, 'Trương Thế Cảnh', 1997, 'male', 'Canhtt@gmail.com', 'canhtt', '12345', '5D Tăng Bạt Hổ, tp.Quy Nhơn, Bình Định ', 'activate', '2023-10-11 11:13:02', NULL),
-(19, 'Phạm Quốc Toàn', 2004, 'male', 'Toanpq@gmail.com', 'toanpq', '12345', '65 Quang Trung, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-09-22 11:13:29', NULL),
-(20, 'Phạm Thanh Trúc', 1990, 'female', 'Trucpt@gmail.com', 'trucpt', '12345', '295 Trần Phú, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-09-14 11:13:57', NULL),
-(21, 'Phan Bảo Nhi', 1999, 'female', 'Nhipb@gmail.com', 'nhipb', '12345', '1126 Hùng Vương, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-16 11:21:26', NULL),
-(22, 'Phan Mai Sơn', 2003, 'male', 'Sonpm@gmail.com', 'sonpm', '12345', '25 Nguyễn Thị Định, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-23 11:21:26', NULL),
-(23, 'Đặng Ngọc Hưng', 2001, 'male', 'Hungdn@gmail.com', 'hungdn', '12345', '71 Bùi Thị Xuân, huyện Tây Sơn, Bình Định', 'activate', '2023-10-30 11:21:26', NULL),
-(24, 'Lâm Mỹ Linh', 1996, 'female', 'Linhlm@gmail.com', 'linhlm', '12345', '94 Mai Xuân Thưởng, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-15 11:21:26', NULL),
-(25, 'Lê Thị Chí Thương', 1998, 'female', 'Thuongltc@gmail.com', 'thuongltc', '12345', '85/24 hoàng văn thụ, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-12 11:21:26', NULL),
-(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendkgmail.com', 'duyendk', '12345', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', 'activate', '2023-10-09 11:21:26', NULL),
-(27, 'Vũ Việt Thắng', 1991, 'male', 'Thangvt@gmail.com', 'thangvt', '12345', '333 Quang Trung, huyện Phù Cát, Bình Định', 'deactivate', '2023-09-13 11:20:34', '2023-11-15 11:20:51'),
-(28, 'Vũ Văn Dũng', 2000, 'male', 'Dungvv@gmail.com', 'dungvv', '12345', '57A Nguyễn Huệ, tp.Quy Nhơn, Bình Định', 'activate', '2023-11-07 11:20:01', NULL),
-(29, 'Phạm Đức Nghĩa', 2003, 'male', 'Nghiapd@gmail.com', 'nghiapd', '12345', '114B 31 tháng 3, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-05 11:21:26', NULL),
-(30, 'Lê Uyển Nhi', 2001, 'female', 'Nhilu@gmail.com', 'nhilu', '12345', 'Lô 01 Ngọc Hồi, huyện Tây Sơn, Bình Định', 'activate', '2023-10-01 11:21:26', NULL);
+INSERT INTO `user` (`id`, `full_name`, `year_of_birth`, `gender`, `email`, `password`, `address`, `status`, `create_at`, `delete_at`) VALUES
+(1, 'Vũ Ngọc Ánh', 1997, 'female', 'Anhvn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn, Bình Định', 'activate', '2022-11-16 10:41:46', NULL),
+(2, 'Đinh Quốc Chương', 1999, 'male', 'Chuongdq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', ', 23 Phan Bội Châu,Quy Nhơn, Bình Định', 'activate', '2023-11-01 11:04:28', NULL),
+(3, 'Trịnh Minh Dương', 2000, 'male', 'Duongtm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '231 Lê Hồng Phong, Quy Nhơn, Bình Định', 'deactivate', '2023-11-01 08:04:40', '2023-11-15 11:08:24'),
+(4, 'Lê Đồng Tâm', 2002, 'male', 'Tamld@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Hùng Vương, Quy Nhơn, Bình Định', 'activate', '2023-09-06 11:04:53', NULL),
+(5, 'Phan Thu Thảo', 2001, 'female', 'Thaopt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '213 Âu Cơ, Quy Nhơn, Bình Định', 'activate', '2023-11-03 11:05:13', NULL),
+(6, 'Đường Mỹ Hà', 2003, 'female', 'Hadm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '1112 Hùng Vương, Quy Nhơn, Bình Định', 'activate', '2023-11-04 11:05:25', NULL),
+(7, 'Nguyễn Tuấn Nghĩa', 2004, 'male', 'Nghiant@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '21 Đào Duy Tử, Quy Nhơn, Bình Định', 'activate', '2023-09-07 11:06:50', NULL),
+(8, 'Bùi Quang Tuấn', 1992, 'male', 'Tuanbq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'Hẻm 220 Nguyễn Thái Học, Quy Nhơn, Bình Định', 'deactivate', '2023-11-02 11:07:17', '2023-11-17 11:08:59'),
+(9, 'Trần Thu Ngân', 1998, 'female', 'Ngantt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '38 Võ Lai, Quy Nhơn, Bình Định', 'activate', '2023-09-06 11:07:38', NULL),
+(10, 'Nguyễn Thục Ngân', 2001, 'female', 'Ngannt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Trần Hưng Đạo, Quy Nhơn, Bình Định', 'activate', '2023-10-24 11:09:10', NULL),
+(11, 'Bùi Ngọc Bảo Trân', 2000, 'female', 'Tranbnb@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn', 'activate', '2023-10-12 11:09:22', NULL),
+(12, 'Phạm Ngọc Quyền', 1994, 'male', 'Quyenpn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '17 Trần Thị Kỷ, thị xã An Nhơn, Bình Định', 'deactivate', '2023-10-10 11:09:47', '2023-11-16 11:19:22'),
+(13, 'Nguyễn Trung Dũng', 1999, 'male', 'Dungnt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '44 Tăng Bạt Hổ, huyện Tuy Phước, Bình Định', 'activate', '2023-10-23 11:10:51', NULL),
+(14, 'Nguyễn Tấn Kiệt', 2002, 'male', 'Kietnt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '521 Tây Sơn, tp.Quy Nhơn, Bình Định', 'activate', '2023-11-06 11:11:33', NULL),
+(15, 'Nguyễn Dương', 2000, 'male', 'Duongn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '34 Nguyễn Trân, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-10-26 11:11:46', NULL),
+(16, 'Đoàn Nguyễn Huyền Trang', 2005, 'female', '', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '22 Đào Duy Từ, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-03 11:11:57', NULL),
+(17, 'Đào Thanh Trúc', 2002, 'female', 'Trucdt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '307 Nguyễn Thị Minh Khai, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-16 11:12:45', NULL),
+(18, 'Trương Thế Cảnh', 1997, 'male', 'Canhtt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '5D Tăng Bạt Hổ, tp.Quy Nhơn, Bình Định ', 'activate', '2023-10-11 11:13:02', NULL),
+(19, 'Phạm Quốc Toàn', 2004, 'male', 'Toanpq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '65 Quang Trung, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-09-22 11:13:29', NULL),
+(20, 'Phạm Thanh Trúc', 1990, 'female', 'Trucpt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '295 Trần Phú, thị xã Hoài Nhơn, Bình Định', 'activate', '2023-09-14 11:13:57', NULL),
+(21, 'Phan Bảo Nhi', 1999, 'female', 'Nhipb@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '1126 Hùng Vương, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-16 11:21:26', NULL),
+(22, 'Phan Mai Sơn', 2003, 'male', 'Sonpm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '25 Nguyễn Thị Định, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-23 11:21:26', NULL),
+(23, 'Đặng Ngọc Hưng', 2001, 'male', 'Hungdn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '71 Bùi Thị Xuân, huyện Tây Sơn, Bình Định', 'activate', '2023-10-30 11:21:26', NULL),
+(24, 'Lâm Mỹ Linh', 1996, 'female', 'Linhlm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '94 Mai Xuân Thưởng, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-15 11:21:26', NULL),
+(25, 'Lê Thị Chí Thương', 1998, 'female', 'Thuongltc@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '85/24 hoàng văn thụ, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-12 11:21:26', NULL),
+(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendkgmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', 'activate', '2023-10-09 11:21:26', NULL),
+(27, 'Vũ Việt Thắng', 1991, 'male', 'Thangvt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '333 Quang Trung, huyện Phù Cát, Bình Định', 'deactivate', '2023-09-13 11:20:34', '2023-11-15 11:20:51'),
+(28, 'Vũ Văn Dũng', 2000, 'male', 'Dungvv@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '57A Nguyễn Huệ, tp.Quy Nhơn, Bình Định', 'activate', '2023-11-07 11:20:01', NULL),
+(29, 'Phạm Đức Nghĩa', 2003, 'male', 'Nghiapd@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '114B 31 tháng 3, tp.Quy Nhơn, Bình Định', 'activate', '2023-10-05 11:21:26', NULL),
+(30, 'Lê Uyển Nhi', 2001, 'female', 'Nhilu@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'Lô 01 Ngọc Hồi, huyện Tây Sơn, Bình Định', 'activate', '2023-10-01 11:21:26', NULL);
 
 --
 -- Indexes for dumped tables
@@ -381,8 +380,7 @@ ALTER TABLE `product`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables

@@ -34,7 +34,6 @@ public class UserDAO implements DAO<User> {
                 user.setYearOfBirth(rs.getInt("year_of_birth"));
                 user.setGender(UserGender.create(rs.getString("gender")));
                 user.setEmail(rs.getString("email"));
-                user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setAddress(rs.getString("address"));
                 user.setStatus(UserStatus.create(rs.getString("status")));
@@ -54,7 +53,40 @@ public class UserDAO implements DAO<User> {
         return list;
     }
 
-    @Override
+    public User selectByEmail(String email) {
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM user WHERE email = ?");
+            st.setString(1, email);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setFullName(rs.getString("full_name"));
+                user.setYearOfBirth(rs.getInt("year_of_birth"));
+                user.setGender(UserGender.create(rs.getString("gender")));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                user.setAddress(rs.getString("address"));
+                user.setStatus(UserStatus.create(rs.getString("status")));
+                user.setCreatedAt(Convert.convert(rs.getTimestamp("create_at")));
+                user.setDeletedAt(Convert.convert(rs.getTimestamp("delete_at")));
+
+                return user;
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return null;
+    }
+
     public List<User> selectById(String id) {
         List<User> list = new ArrayList<>();
         try {
@@ -72,7 +104,6 @@ public class UserDAO implements DAO<User> {
                 user.setYearOfBirth(rs.getInt("year_of_birth"));
                 user.setGender(UserGender.create(rs.getString("gender")));
                 user.setEmail(rs.getString("email"));
-                user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setAddress(rs.getString("address"));
                 user.setStatus(UserStatus.create(rs.getString("status")));
@@ -97,12 +128,11 @@ public class UserDAO implements DAO<User> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("INSERT INTO `user` (`full_name`, `year_of_birth`, `gender`, `email`, `username`, `password`, `address`, `status`, `create_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
+            PreparedStatement smt = conn.prepareStatement("INSERT INTO `user` (`full_name`, `year_of_birth`, `gender`, `email`, `password`, `address`, `status`, `create_at`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
             smt.setString(1, ob.getFullName());
             smt.setInt(2, ob.getYearOfBirth());
             smt.setString(3, ob.getGender().toString());
             smt.setString(4, ob.getEmail());
-            smt.setString(5, ob.getUsername());
             smt.setString(6, ob.getPassword());
             smt.setString(7, ob.getAddress());
             smt.setString(8, ob.getStatus().toString());
@@ -157,7 +187,8 @@ public class UserDAO implements DAO<User> {
     }
 
     public static void main(String[] args) {
-        getInstance().selectAll();
+//        getInstance().selectAll();
+        System.out.println(getInstance().selectByEmail("abc.com"));
 
     }
 

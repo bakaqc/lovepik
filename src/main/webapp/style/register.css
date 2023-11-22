@@ -1,0 +1,42 @@
+.gradient-custom {
+    background-color: white;
+    ;
+}
+
+h2 {
+    color: orange;
+    font-size: 35px;
+}
+
+.gen {
+    margin-left: 15px;
+}
+p {
+    font-size: 20px;
+}
+.mb-4{
+    font-size: 20px;
+    text-align: left;
+}
+
+.mb-4 > label{
+    margin-left: 15px;
+}
+
+.mb-md-5 {
+    margin-bottom: 0px!important;
+}
+
+.text-body{
+    text-decoration: none!important;
+}
+
+.login-here-pr > button{
+    height: 50px;
+}
+
+.login-here-pr > button{
+    background-color: orange;
+    border-radius: 10px;
+
+}

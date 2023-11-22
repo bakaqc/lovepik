@@ -11,7 +11,6 @@ public class User {
     private int yearOfBirth;
     private UserGender gender;
     private String email;
-    private String username;
     private String password;
     private String address;
     private UserStatus status;
@@ -21,14 +20,13 @@ public class User {
     public User() {
     }
 
-    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email, String username,
+    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email,
             String password, String address, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
         this.id = id;
         this.fullName = fullName;
         this.yearOfBirth = yearOfBirth;
         this.gender = gender;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.address = address;
         this.status = status;
@@ -76,14 +74,6 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -127,7 +117,7 @@ public class User {
     @Override
     public String toString() {
         return "User [ " + "ID = " + id + ", Full Name = " + fullName + ", Year Of Birth = " + yearOfBirth
-                + ", Gender = " + gender + ", Email = " + email + ", Username = " + username + ", Password = "
+                + ", Gender = " + gender + ", Email = " + email + ", Password = "
                 + password + ", Address = " + address + ", status = " + status + ']' + ", Created At = "
                 + createdAt + ", Deleted At = " + deletedAt + "\n";
     }

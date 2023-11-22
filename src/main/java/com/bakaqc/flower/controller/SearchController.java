@@ -16,6 +16,9 @@ public class SearchController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+
         String search = request.getParameter("txt");
         List<Product> listN = ProductDAO.getInstance().selectByName(search);
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();

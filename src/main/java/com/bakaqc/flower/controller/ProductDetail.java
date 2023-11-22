@@ -16,6 +16,7 @@ public class ProductDetail extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        
         String id = request.getParameter("pid");
         String nameCAT =ProductDAO.getInstance().getNameCAT(id);
         Product p = ProductDAO.getInstance().getById(id);

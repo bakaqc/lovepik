@@ -14,7 +14,9 @@ public class CategoriesController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
+        
         String catID = request.getParameter("id");
         List<Product> list = ProductDAO.getInstance().selectByCATId(catID);
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();

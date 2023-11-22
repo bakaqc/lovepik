@@ -52,9 +52,7 @@ body {
     font-weight: bold;
 }
 
-.text-start {
-    background-color: antiquewhite;
-}
+
 
 h1 {
     font-size: 30px;
@@ -65,11 +63,6 @@ h1 {
     height: 100%;
     background-color: antiquewhite;
 
-}
-
-.text-start {
-    padding-left: 340px;
-    padding-right: 340px;
 }
 
 .test {
@@ -164,5 +157,8 @@ a.buy {
     opacity: 0.9;
 }
 
-
+.text-start {
+    background-color: antiquewhite;
+    padding: 0 400px!important;
+}
 
