@@ -41,13 +41,10 @@
         </ul>
         <ul class="nav flex-column">
             <li class="fw-bold nav-item text-dark">
-                <a href="#" class="nav-link text-dark">Content</a>
+                <a href="#" class="nav-link text-dark">Thông tin</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-dark">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Blog</a>
+                <a href="about" class="nav-link text-dark">Giới thiệu</a>
             </li>
         </ul>        
     </footer>
