@@ -8,9 +8,6 @@ h2 {
     font-size: 35px;
 }
 
-.gen {
-    margin-left: 15px;
-}
 p {
     font-size: 20px;
 }
@@ -21,6 +18,10 @@ p {
 
 .mb-4 > label{
     margin-left: 15px;
+}
+
+.mb-4 > select{
+    margin-left: 0!important;
 }
 
 .mb-md-5 {
@@ -37,3 +38,20 @@ p {
     border-radius: 10px;
 }
 
+.option {
+    margin-left: 0!important;
+}
+
+
+@media (prefers-reduced-motion: reduce){
+    .form-select {
+        height: 48px!important;
+        font-size: 20px!important;
+    }
+}
+
+.err {
+    margin-left: 15px!important;
+    font-size: 20px!important;
+    margin-bottom: 24px!important;
+}

@@ -3,6 +3,7 @@ package com.bakaqc.flower.model;
 import com.bakaqc.flower.model.option.UserGender;
 import com.bakaqc.flower.model.option.UserStatus;
 import java.time.LocalDateTime;
+import java.util.logging.Logger;
 
 public class User {
 
@@ -13,6 +14,7 @@ public class User {
     private String email;
     private String password;
     private String address;
+    private String phone_number;
     private UserStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime deletedAt;
@@ -20,8 +22,19 @@ public class User {
     public User() {
     }
 
-    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email,
-            String password, String address, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
+    public User(String fullName, int yearOfBirth, UserGender gender, String email, String password, String address, String phone_number, UserStatus status, LocalDateTime createdAt) {
+        this.fullName = fullName;
+        this.yearOfBirth = yearOfBirth;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.phone_number = phone_number;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
+
+    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email, String password, String address, String phone_number, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
         this.id = id;
         this.fullName = fullName;
         this.yearOfBirth = yearOfBirth;
@@ -29,6 +42,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.address = address;
+        this.phone_number = phone_number;
         this.status = status;
         this.createdAt = createdAt;
         this.deletedAt = deletedAt;
@@ -90,6 +104,14 @@ public class User {
         this.address = address;
     }
 
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
     public UserStatus getStatus() {
         return status;
     }
@@ -118,8 +140,8 @@ public class User {
     public String toString() {
         return "User [ " + "ID = " + id + ", Full Name = " + fullName + ", Year Of Birth = " + yearOfBirth
                 + ", Gender = " + gender + ", Email = " + email + ", Password = "
-                + password + ", Address = " + address + ", status = " + status + ']' + ", Created At = "
-                + createdAt + ", Deleted At = " + deletedAt + "\n";
+                + password + ", Address = " + address + ", Phone Number = " + phone_number + ", status = " + status + ", Created At = "
+                + createdAt + ", Deleted At = " + deletedAt + ']' + "\n";
     }
 
 }

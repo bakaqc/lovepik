@@ -44,9 +44,9 @@
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
                                 <li class="nav-item d-flex align-items-center dropdown">
-                                    <a href="login" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                         Đăng nhập
-                                    </a>
+                                    </a>                                    
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a class="dropdown-item" href="login">User</a>
@@ -55,7 +55,7 @@
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="#">Admin</a>
+                                            <a class="dropdown-item" href="admin_login">Admin</a>
                                         </li>
                                     </ul>
                                 </li>

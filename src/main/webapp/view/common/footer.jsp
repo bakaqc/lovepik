@@ -6,45 +6,51 @@
                     Sản phẩm
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Hoa sinh nhật</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Hoa chúc mừng</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Hoa tình yêu</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Bánh kem</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Hoa ngày Tết</a>
-            </li>
+            <!--            <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">Hoa sinh nhật</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">Hoa chúc mừng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">Hoa tình yêu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">Bánh kem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">Hoa ngày Tết</a>
+                        </li>-->
 
-            </li>
+            <c:forEach items="${listCAT}" var="o">
+                <li class="nav-item mx-0 ${tag == o.id ? "active":""} ">
+                    <a href="categories?id=${o.id}" class="nav-link listmenu">
+                        ${o.nameCAT}
+                    </a>
+                </li>  
+            </c:forEach>
 
         </ul>
         <ul class="nav flex-column">
             <li class="fw-bold nav-item text-dark">
                 <a href="#" class="nav-link text-dark">Trợ giúp</a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link text-dark">Hotline:  1900</a>
+            <li class="nav-item ">
+                <a href="home" class="nav-link text-blue">Hotline:  1900</a>
             </li>
-            <li class="nav-item">
-                <a href="https://github.com/bakaqc" target="_blank" class="nav-link text-dark">Github</a>
+            <li class="nav-item ">
+                <a href="https://github.com/bakaqc" target="_blank" class="nav-link text-blue">Github</a>
             </li>
-            <li class="nav-item">
-                <a href="https://www.facebook.com/dqchuongbk" target="_blank" class="nav-link text-dark">Facebook</a>
+            <li class="nav-item ">
+                <a href="https://www.facebook.com/dqchuongbk" target="_blank" class="nav-link text-blue">Facebook</a>
             </li>
         </ul>
         <ul class="nav flex-column">
             <li class="fw-bold nav-item text-dark">
                 <a href="#" class="nav-link text-dark">Thông tin</a>
             </li>
-            <li class="nav-item">
-                <a href="about" class="nav-link text-dark">Giới thiệu</a>
+            <li class="nav-item ">
+                <a href="about" class="nav-link text-blue">Giới thiệu</a>
             </li>
         </ul>        
     </footer>

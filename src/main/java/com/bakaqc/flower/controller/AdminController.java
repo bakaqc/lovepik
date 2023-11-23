@@ -11,6 +11,9 @@ public class AdminController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+
+        RequestDispatcher rd = request.getRequestDispatcher("/view/admin.jsp");
+        rd.forward(request, response);
     }
 
     @Override

@@ -14,12 +14,8 @@ public class LogOutController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        HttpSession session = request.getSession(false);
-
-        if (session != null) {
-            session.invalidate();
-        }
-
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
         response.sendRedirect("home");
     }
 

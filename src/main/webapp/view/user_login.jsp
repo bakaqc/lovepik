@@ -31,7 +31,10 @@
 
                         <div class="card bg-dark text-white" style="border-radius: 15px;border:solid 5px white;">
 
+
                             <div class="card-body p-5 text-center " style="border-radius: 1rem;background-color: antiquewhite;border:solid 5px white;">
+
+                                <h2>${success}</h2>
 
                                 <form action="login" method="post"> 
 
@@ -42,13 +45,15 @@
                                         <p class="text-black-50 mb-5">Vui lòng nhập Email và Mật Khẩu!</p>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="text" name="email" id="typeEmailX" class="form-control form-control-lg" required value="${email}"/>
                                             <label class="form-label" for="typeEmailX" style="color: black">Email</label>
+                                            <input type="text" name="email" id="typeEmailX" class="form-control form-control-lg" required value="${email}"/>
+
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
                                             <label class="form-label" for="typePasswordX" style="color: black">Mật Khẩu</label>
+                                            <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+
                                         </div>
 
                                         <div id="error-message" class="text-danger err">${errorMsg}</div>

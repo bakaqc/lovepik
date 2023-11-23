@@ -1,14 +1,14 @@
 package com.bakaqc.flower.controller;
 
-import com.bakaqc.flower.dao.UserDAO;
-import com.bakaqc.flower.model.User;
-import com.bakaqc.flower.model.option.UserStatus;
+import com.bakaqc.flower.dao.AdminDAO;
+import com.bakaqc.flower.model.Admin;
+import com.bakaqc.flower.model.option.AdminRole;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class LoginController extends HttpServlet {
+public class AdminLoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -16,7 +16,7 @@ public class LoginController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        RequestDispatcher rd = request.getRequestDispatcher("/view/user_login.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/view/admin_login.jsp");
         rd.forward(request, response);
     }
 
@@ -26,29 +26,27 @@ public class LoginController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        String email = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        User user = UserDAO.getInstance().selectByEmail(email);
+        Admin ad = AdminDAO.getInstance().selectByUserName(username);
 
-        if (user != null && user.getPassword().equals(Hash.hashCode(password)) && user.getStatus() == UserStatus.ACTIVATE) {
+        if (ad != null && ad.getPassword().equals(Hash.hashCode(password))) {
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            response.sendRedirect("home");
+            session.setAttribute("user", ad);
+            response.sendRedirect("admin");
 
             return;
         }
 
         String errorMsg = "Sai mật khẩu!";
-        if (user != null && user.getStatus() == UserStatus.DEACTIVATE) {
-            errorMsg = "Tài khoản đã bị khóa!";
-        }
-        if (user == null) {
+
+        if (ad == null) {
             errorMsg = "Tài khoản không tồn tại!";
-            email = null;
+            ad = null;
         }
 
-        request.setAttribute("email", email);
+        request.setAttribute("username", username);
         request.setAttribute("errorMsg", errorMsg);
 
         this.doGet(request, response);

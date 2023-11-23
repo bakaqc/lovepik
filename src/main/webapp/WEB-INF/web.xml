@@ -32,6 +32,10 @@
         <servlet-name>RegisterController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.RegisterController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLoginController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.AdminLoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginController</servlet-name>
+        <url-pattern>/admin_login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

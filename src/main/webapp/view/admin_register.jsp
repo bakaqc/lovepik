@@ -8,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Đăng Nhập Admin</title>
+        <title>Đăng Kí Admin</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -32,26 +32,33 @@
 
                                     <div class="mb-md-5 mt-md-4 pb-5">
 
-                                        <h2 class="fw-bold mb-2 text-uppercase">Đăng Nhập Admin</h2>
-                                        <p class="text-black-50 mb-5">Vui lòng nhập Tài khoản và Mật khẩu!</p>
-
+                                        <h2 class="fw-bold mb-2 text-uppercase">Đăng Kí Admin</h2>
+                                        <br>
                                         <div class="form-outline form-white mb-4">
-                                            <label class="form-label" for="typeEmailX" style="color: black">Tài khoản</label>
+                                            <label class="form-label" for="typeEmailX" style="color: black">Tài Khoản</label>
                                             <input type="username" name="username" id="typeEmailX" class="form-control form-control-lg" required value="${username}" />
 
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
-                                            <label class="form-label" for="typePasswordX" style="color: black">Mật khẩu</label>
+                                            <label class="form-label" for="typePasswordX" style="color: black">Mật Khẩu</label>
+                                            <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+
+                                        </div>
+
+                                        <div class="form-outline form-white mb-4">
+                                            <label class="form-label" for="typePasswordX" style="color: black">Nhập lại Mật Khẩu</label>
                                             <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
 
                                         </div>
 
                                         <div id="error-message" class="text-danger err">${errorMsg}</div>
-                                        <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập Ngay" action="admin" method="post" style="font-weight: bold; color: black; background-color: orange;"/>
+                                        <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Kí Ngay" action="admin" method="post" style="font-weight: bold; color: black; background-color: orange;"/>
 
                                     </div>
-
+                                    <%if (request.getAttribute("mess") != null) {%>
+                                    <p style="color: red"><%=request.getAttribute("mess")%></p>
+                                    <% }%>
                                 </form>
 
                             </div>
