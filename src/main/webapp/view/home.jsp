@@ -22,9 +22,9 @@
             <header class="position-relative text-center text-white mb-5 banner">
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
-            
+
             <h2>${success}</h2>
-            
+
             <h1>Sản phẩm nổi bật</h1>
             <div class="listp">
                 <c:forEach items="${listP}" var="p">
@@ -34,7 +34,7 @@
 
                                 <div class="product">
                                     <a href ="detail?pid=${p.id}" class="product-img">
-                                        <img src="${p.banners}" alt="Product" class="card-img-top p-img"
+                                        <img src="<%=request.getContextPath()%>/${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
                                     <a href="#" class="buy">

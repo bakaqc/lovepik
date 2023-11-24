@@ -21,7 +21,7 @@
 
                 <div class="row border m-2 detail">
                     <div class="col-lg-4 left-side-product-box pb-3 product-banner">
-                        <img src="${pro.banners}" alt="Product" class="p-3 bann" height="500">
+                        <img src="<%=request.getContextPath()%>/${pro.banners}" alt="Product" class="p-3 bann" height="500">
                     </div>
                     <div class="col-lg-8">
                         <div class="right-side-pro-detail p-3 m-0">

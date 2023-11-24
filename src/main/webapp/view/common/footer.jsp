@@ -5,22 +5,7 @@
                 <a href="#" class="nav-link text-dark">
                     Sản phẩm
                 </a>
-            </li>
-            <!--            <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Hoa sinh nhật</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Hoa chúc mừng</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Hoa tình yêu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Bánh kem</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-dark">Hoa ngày Tết</a>
-                        </li>-->
+        </li>
 
             <c:forEach items="${listCAT}" var="o">
                 <li class="nav-item mx-0 ${tag == o.id ? "active":""} ">
@@ -33,7 +18,7 @@
         </ul>
         <ul class="nav flex-column">
             <li class="fw-bold nav-item text-dark">
-                <a href="#" class="nav-link text-dark">Trợ giúp</a>
+                <a href="#" class="nav-link text-dark">Hỗ trợ</a>
             </li>
             <li class="nav-item ">
                 <a href="home" class="nav-link text-blue">Hotline:  1900</a>
