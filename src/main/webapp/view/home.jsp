@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>LovePik</title>
+        <title>LovePik | Trang chủ</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -23,9 +23,8 @@
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
 
-            <h2>${success}</h2>
+            <h1>Danh mục sản phẩm</h1>
 
-            <h1>Sản phẩm nổi bật</h1>
             <div class="listp">
                 <c:forEach items="${listP}" var="p">
                     <div class="col-sm-3">
@@ -58,7 +57,7 @@
                 </c:forEach>
             </div>
 
-            <a href="allproduct" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>
+            <a href="allproduct?index=1" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>
 
         </div>
         <%@include file="common/footer.jsp" %>

@@ -70,9 +70,6 @@ public class RegisterController extends HttpServlet {
                 UserDAO.getInstance().insert(us);
 
                 response.sendRedirect("login");
-//                String success = "Đăng Kí thành công! \n Vui lòng Đăng Nhập để tiếp tục";
-//                request.setAttribute("success", success);
-//                request.getRequestDispatcher("login").forward(request, response);
 
             } else {
 

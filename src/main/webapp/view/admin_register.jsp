@@ -8,11 +8,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Đăng Kí Admin</title>
+        <title>LovePik | Đăng Kí Admin</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/style/login.css" />
+        <!--<link rel="stylesheet" href="<%=request.getContextPath()%>/style/login.css" />-->
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/style/register.css" />
 
     </head>
     <body>
@@ -28,7 +29,7 @@
 
                             <div class="card-body p-5 text-center"style="border-radius: 1rem;background-color: antiquewhite;border:solid 5px white;">
 
-                                <form action="admin_login" method="post" > 
+                                <form action="admin_register" method="post" > 
 
                                     <div class="mb-md-5 mt-md-4 pb-5">
 
@@ -37,8 +38,8 @@
                                         <div class="form-outline form-white mb-4">
                                             <label class="form-label" for="typeEmailX" style="color: black">Tài Khoản</label>
                                             <input type="username" name="username" id="typeEmailX" class="form-control form-control-lg" required value="${username}" />
-
                                         </div>
+                                        <div id="error-message" class="text-danger err">${errorUN}</div>
 
                                         <div class="form-outline form-white mb-4">
                                             <label class="form-label" for="typePasswordX" style="color: black">Mật Khẩu</label>
@@ -48,11 +49,11 @@
 
                                         <div class="form-outline form-white mb-4">
                                             <label class="form-label" for="typePasswordX" style="color: black">Nhập lại Mật Khẩu</label>
-                                            <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+                                            <input type="password" name="re-password" id="typePasswordX" class="form-control form-control-lg" />
 
                                         </div>
 
-                                        <div id="error-message" class="text-danger err">${errorMsg}</div>
+                                        <div id="error-message" class="text-danger err">${errorPass}</div>
                                         <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Kí Ngay" action="admin" method="post" style="font-weight: bold; color: black; background-color: orange;"/>
 
                                     </div>

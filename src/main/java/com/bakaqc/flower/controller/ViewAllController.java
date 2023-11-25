@@ -9,26 +9,43 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class ProductDetail extends HttpServlet {
+public class ViewAllController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        
-        String id = request.getParameter("pid");
-        String nameCAT =ProductDAO.getInstance().getNameCAT(id);
-        Product p = ProductDAO.getInstance().getById(id);
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(4);
 
-        request.setAttribute("pro", p);
-        request.setAttribute("nameCAT", nameCAT);
+        int index = 1;
+        try {
+            String indexP = request.getParameter("index");
+            index = Integer.parseInt(indexP);
+        } catch (NumberFormatException ex) {
+            index = 1;
+        } catch (Exception ex) {
+            index = 1;
+        }
+
+        int limit = 12;
+        int offset = index;
+
+        List<Product> listP = ProductDAO.getInstance().pagingProduct(limit, offset);
+
+        int count = ProductDAO.getInstance().countProduct();
+        int endP = count / 12;
+        if (count % 12 != 0) {
+            endP++;
+        }
+
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/product_detail.jsp");
+        request.setAttribute("endP", endP);
+        request.setAttribute("tag", index);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/view/viewall.jsp");
         rd.forward(request, response);
     }
 

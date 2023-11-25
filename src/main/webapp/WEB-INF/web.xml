@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>DefaultFilter</filter-name>
+        <filter-class>com.bakaqc.flower.filter.DefaultFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>DefaultFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>HomeController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.HomeController</servlet-class>
@@ -13,12 +21,12 @@
         <servlet-class>com.bakaqc.flower.controller.CategoriesController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AllProduct</servlet-name>
-        <servlet-class>com.bakaqc.flower.controller.AllProduct</servlet-class>
+        <servlet-name>ViewAllController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.ViewAllController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ProductDetail</servlet-name>
-        <servlet-class>com.bakaqc.flower.controller.ProductDetail</servlet-class>
+        <servlet-class>com.bakaqc.flower.controller.ProductDetailController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AboutController</servlet-name>
@@ -36,6 +44,10 @@
         <servlet-name>AdminLoginController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.AdminLoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminRegisterController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.AdminRegisterController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -49,7 +61,7 @@
         <url-pattern>/categories</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AllProduct</servlet-name>
+        <servlet-name>ViewAllController</servlet-name>
         <url-pattern>/allproduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -71,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>AdminLoginController</servlet-name>
         <url-pattern>/admin_login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminRegisterController</servlet-name>
+        <url-pattern>/admin_register</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

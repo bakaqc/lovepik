@@ -48,6 +48,28 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
+    public int countProduct() {
+        int count = 0;
+
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT COUNT(*) FROM product");
+
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+            JDBC.closeConnection(c);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return count;
+    }
+
     @Override
     public List<Product> selectById(String id) {
         List<Product> list = new ArrayList<>();
@@ -294,9 +316,41 @@ public class ProductDAO implements DAO<Product> {
         return list;
     }
 
-    public static void main(String[] args) {
+    public List<Product> pagingProduct(int limit, int offset) {
+        List<Product> list = new ArrayList<>();
+        try {
+            Connection c = JDBC.getConnection();
 
-        System.out.println(getInstance().getNameCAT("30"));
+            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY id LIMIT ? OFFSET ?");
+            st.setInt(1, limit);
+            st.setInt(2, (offset - 1) * 12);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Product pd = new Product();
+                pd.setId(rs.getInt("id"));
+                pd.setCategoryId(rs.getInt("category_id"));
+                pd.setName(rs.getString("name"));
+                pd.setBanners(rs.getString("banners"));
+                pd.setPrice(rs.getInt("price"));
+                pd.setDetail(rs.getString("detail"));
+
+                list.add(pd);
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        System.out.println(list);
+        return list;
+    }
+
+    public static void main(String[] args) {
+        getInstance().pagingProduct(12, 2);
     }
 
 }
