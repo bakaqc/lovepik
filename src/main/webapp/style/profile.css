@@ -53,7 +53,15 @@ a.cart:hover {
   color: orange;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    font-weight: bold;
-    background-color: antiquewhite;
+.row {
+    margin-top: 20px;
+}
+
+.infor {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.tab-pane > input {
+    font-size: 20px;
 }

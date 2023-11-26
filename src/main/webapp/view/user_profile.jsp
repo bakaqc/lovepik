@@ -10,8 +10,8 @@
 
         <title>LovePik | Cài đặt</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/profile.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
     </head>
     <body>
@@ -33,7 +33,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row infor">
                 <div class="col-sm-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -161,78 +161,78 @@
                                         </button>
                                     </div>
                                 </div>   
-                                    
+
                             </form>
 
                         </div>
 
                         <div class="tab-pane" id="history">
 
-<!--                            <form class="form" action="##" method="post" id="registrationForm">
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="first_name">
-                                            <h4>Tên Sản Phẩm</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nhập Họ và Tên"title="enter your first name if any."/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="phone">
-                                            <h4>Năm Sinh</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Nhập Năm Sinh" title="enter your phone number if any." />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="email">
-                                            <h4>Giới Tính</h4>
-                                        </label>
-
-                                        <select name="" id="" class="form-control">
-                                            <option value="">Male (Nam)</option>
-                                            <option value="">Female (Nữ)</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Địa chỉ</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Nhập Địa Chỉ" title="enter your mobile number if any." />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Số Điện Thoại</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Nhập Số Điện Thoại" title="enter your mobile number if any." />
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="email">
-                                            <h4>Email</h4>
-                                        </label>
-
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Nhập Email" title="enter your email." />
-                                    </div>
-                                </div>
-
-                            </form>-->
+                            <!--                            <form class="form" action="##" method="post" id="registrationForm">
+                                                            <div class="form-group">
+                                                                <div class="col-xs-12">
+                                                                    <label for="first_name">
+                                                                        <h4>Tên Sản Phẩm</h4>
+                                                                    </label>
+                            
+                                                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nhập Họ và Tên"title="enter your first name if any."/>
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="form-group">
+                                                                <div class="col-xs-6">
+                                                                    <label for="phone">
+                                                                        <h4>Năm Sinh</h4>
+                                                                    </label>
+                            
+                                                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="Nhập Năm Sinh" title="enter your phone number if any." />
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="form-group">
+                                                                <div class="col-xs-6">
+                                                                    <label for="email">
+                                                                        <h4>Giới Tính</h4>
+                                                                    </label>
+                            
+                                                                    <select name="" id="" class="form-control">
+                                                                        <option value="">Male (Nam)</option>
+                                                                        <option value="">Female (Nữ)</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="form-group">
+                                                                <div class="col-xs-12">
+                                                                    <label for="mobile">
+                                                                        <h4>Địa chỉ</h4>
+                                                                    </label>
+                            
+                                                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Nhập Địa Chỉ" title="enter your mobile number if any." />
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="form-group">
+                                                                <div class="col-xs-12">
+                                                                    <label for="mobile">
+                                                                        <h4>Số Điện Thoại</h4>
+                                                                    </label>
+                            
+                                                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Nhập Số Điện Thoại" title="enter your mobile number if any." />
+                                                                </div>
+                                                            </div>
+                            
+                                                            <div class="form-group">
+                                                                <div class="col-xs-12">
+                                                                    <label for="email">
+                                                                        <h4>Email</h4>
+                                                                    </label>
+                            
+                                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Nhập Email" title="enter your email." />
+                                                                </div>
+                                                            </div>
+                            
+                                                        </form>-->
 
                         </div>
 

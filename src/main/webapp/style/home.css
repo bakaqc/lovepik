@@ -152,9 +152,9 @@ a.buy {
     text-decoration: none;
     background-color: antiquewhite;
     font-weight: bold;
-    font-size: 22px;
     color: orange;
     position: absolute;
+    height: 40px;
     width: 100%;
     bottom: -36px;
     transition: 0.25s ease-in-out;
