@@ -161,6 +161,11 @@ a.buy {
     opacity: 0.9;
 }
 
+.fa-solid {
+    margin: 8px auto;
+    font-size: 25px
+}
+
 .text-start {
     background-color: antiquewhite;
     padding: 0 400px!important;
