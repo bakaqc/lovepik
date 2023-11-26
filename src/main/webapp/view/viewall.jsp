@@ -55,7 +55,7 @@
             <div class="p-3 paging">  
 
                 <c:forEach begin="1" end="${endP}" var="i">
-                    <a class="page-item ${tag == i ? "active": ""}" href="${pageContext.request.contextPath}/allproduct?index=${i}">${i}</a>
+                    <a class="page-item ${index == i ? "active": ""}" href="${pageContext.request.contextPath}/allproduct?index=${i}">${i}</a>
                 </c:forEach>
 
             </div>

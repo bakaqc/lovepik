@@ -31,7 +31,7 @@
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a class="dropdown-item" href="#">Cài đặt</a>
+                                            <a class="dropdown-item" href="profile">Cài đặt</a>
                                         </li>
                                         <li>
                                             <hr class="dropdown-divider">

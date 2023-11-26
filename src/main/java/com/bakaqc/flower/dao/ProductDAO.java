@@ -168,6 +168,7 @@ public class ProductDAO implements DAO<Product> {
 
         System.out.println(list);
         return list;
+
     }
 
     @Override
@@ -350,7 +351,7 @@ public class ProductDAO implements DAO<Product> {
     }
 
     public static void main(String[] args) {
-        getInstance().pagingProduct(12, 2);
+        getInstance().selectByName("quoc");
     }
 
 }

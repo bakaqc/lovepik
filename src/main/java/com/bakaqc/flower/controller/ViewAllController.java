@@ -43,7 +43,7 @@ public class ViewAllController extends HttpServlet {
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);
         request.setAttribute("endP", endP);
-        request.setAttribute("tag", index);
+        request.setAttribute("index", index);
 
         RequestDispatcher rd = request.getRequestDispatcher("/view/viewall.jsp");
         rd.forward(request, response);

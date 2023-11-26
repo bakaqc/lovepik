@@ -25,36 +25,55 @@
 
             <h1>Danh mục sản phẩm</h1>
 
+            <h3 class="not-found">${notFound}</h3>
+
             <div class="listp">
+
                 <c:forEach items="${listP}" var="p">
+
                     <div class="col-sm-3">
+
                         <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row my-5" id="new"> 
+
                             <div class="card m-2 card-pro">
 
                                 <div class="product">
+
                                     <a href ="detail?pid=${p.id}" class="product-img">
                                         <img src="<%=request.getContextPath()%>/${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
+
                                     <a href="#" class="buy">
                                         Thêm vào Giỏ
                                     </a>
+
                                 </div>
+
                                 <div class="card-body">
+
                                     <p class="card-text fw-bold namep"  >
                                         ${p.name}
                                     </p>
+
                                     <small class="text-secondary pricep">
                                         <script>
                                             var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
                                             document.write(formattedPrice);
                                         </script>
                                     </small>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </c:forEach>
+
+
             </div>
 
             <a href="allproduct?index=1" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>

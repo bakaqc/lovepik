@@ -167,20 +167,24 @@ a.buy {
 }
 
 .paging{
+    display: flex;
+    justify-content: center;
     word-spacing: 20px;
+
 }
 
 .paging a{
-    display: inline-block;
     font-size: 25px;
     text-decoration: none;
     color: black;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
 }
 
 .paging a.page-item:hover{
     color: orange;
-    background-color: #DDDDDD;
-    width: 40px;
+    background-color: #EEEEEE;
+    width: 50px;
 }
 
 .paging a.page-item.active{
@@ -190,3 +194,6 @@ a.buy {
     width: 50px;
 }
 
+h3{
+    margin: 40px;
+}
