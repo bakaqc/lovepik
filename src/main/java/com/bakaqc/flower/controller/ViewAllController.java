@@ -9,7 +9,7 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class AllProduct extends HttpServlet {
+public class ViewAllController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -17,11 +17,34 @@ public class AllProduct extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
-        List<Product> listP = ProductDAO.getInstance().selectAll();
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
+
+        int index = 1;
+        try {
+            String indexP = request.getParameter("index");
+            index = Integer.parseInt(indexP);
+        } catch (NumberFormatException ex) {
+            index = 1;
+        } catch (Exception ex) {
+            index = 1;
+        }
+
+        int limit = 12;
+        int offset = index;
+
+        List<Product> listP = ProductDAO.getInstance().pagingProduct(limit, offset);
+
+        int count = ProductDAO.getInstance().countProduct();
+        int endP = count / 12;
+        if (count % 12 != 0) {
+            endP++;
+        }
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);
+        request.setAttribute("endP", endP);
+        request.setAttribute("index", index);
+
         RequestDispatcher rd = request.getRequestDispatcher("/view/viewall.jsp");
         rd.forward(request, response);
     }

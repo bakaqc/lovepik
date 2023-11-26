@@ -1,0 +1,67 @@
+.shop-name:hover {
+  background-color: antiquewhite;
+  color: orange;
+}
+
+.shop-name > a {
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.shop-name > a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+.col-xs-12 {
+  margin-top: 20px;
+}
+
+.col-xs-6 {
+  margin-top: 20px;
+}
+
+.return {
+  margin-top: 20px;
+  width: 180px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  color: black;
+  font-size: 18px;
+}
+
+.return:hover {
+  background-color: orange;
+}
+
+.return > a {
+  color: black;
+}
+
+.return > a:hover {
+  text-decoration: none;
+}
+
+a.cart {
+  text-decoration: none;
+  color: black;
+}
+
+a.cart:hover {
+  text-decoration: none;
+  color: orange;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+.infor {
+    margin-top: 40px;
+    font-size: 18px;
+}
+
+.tab-pane > input {
+    font-size: 20px;
+}

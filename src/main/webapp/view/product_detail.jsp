@@ -8,10 +8,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Product Detail</title>
+        <title>LovePik | Thông tin sản phẩm</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/product_detail.css" />
     </head>
     <body>
@@ -62,7 +63,7 @@
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ</a>
+                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
                                         </div>
                                         <div class="col-lg-6">
                                             <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
@@ -74,7 +75,7 @@
                     </div>
                 </div>
                 <div class="container position-relative text-center more">
-                    <h1>Sản phẩm khác</h1>
+                    <h1>Sản phẩm liên quan</h1>
                     <div class="listp">
                         <c:forEach items="${listP}" var="p">
                             <div class="col-sm-3">
@@ -87,7 +88,7 @@
                                                      height="200" >
                                             </a>
                                             <a href="#" class="buy">
-                                                Thêm vào Giỏ
+                                                <i class="fa-solid fa-cart-shopping"></i>
                                             </a>
                                         </div>
                                         <div class="card-body">

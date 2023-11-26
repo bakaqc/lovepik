@@ -20,16 +20,21 @@ public class SearchController extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         String search = request.getParameter("txt");
-        List<Product> listN = ProductDAO.getInstance().selectByName(search);
+        List<Product> listP = ProductDAO.getInstance().selectByName(search);
+        if (listP.isEmpty()) {
+            String err = "Không tìm thấy sản phẩm " + "'" + search + "'";
+            request.setAttribute("notFound", err);
+
+        } else {
+            request.setAttribute("listP", listP);
+        }
+
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(16);
 
         request.setAttribute("listCAT", listCAT);
-        request.setAttribute("listP", listP);
-        request.setAttribute("listP", listN);
+
         request.setAttribute("txtS", search);
-        RequestDispatcher rd = request.getRequestDispatcher("/view/home.jsp");
-        rd.forward(request, response);
+        request.getRequestDispatcher("/view/home.jsp").forward(request, response);
 
     }
 

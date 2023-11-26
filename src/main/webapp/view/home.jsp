@@ -8,10 +8,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>LovePik</title>
+        <title>LovePik | Trang chủ</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">   
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
 
     </head>
@@ -23,42 +23,60 @@
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
 
-            <h2>${success}</h2>
+            <h1>Danh mục sản phẩm</h1>
 
-            <h1>Sản phẩm nổi bật</h1>
+            <h3 class="not-found">${notFound}</h3>
+
             <div class="listp">
+
                 <c:forEach items="${listP}" var="p">
+
                     <div class="col-sm-3">
+
                         <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row my-5" id="new"> 
+
                             <div class="card m-2 card-pro">
 
                                 <div class="product">
+
                                     <a href ="detail?pid=${p.id}" class="product-img">
                                         <img src="<%=request.getContextPath()%>/${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
+
                                     <a href="#" class="buy">
-                                        Thêm vào Giỏ
+                                        <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
+
                                 </div>
+
                                 <div class="card-body">
+
                                     <p class="card-text fw-bold namep"  >
                                         ${p.name}
                                     </p>
+
                                     <small class="text-secondary pricep">
                                         <script>
                                             var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
                                             document.write(formattedPrice);
                                         </script>
                                     </small>
+
                                 </div>
+
                             </div>
+
                         </div>
+
                     </div>
+
                 </c:forEach>
+
+
             </div>
 
-            <a href="allproduct" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>
+            <a href="allproduct?index=1" class="btn btn-outline-dark my-5 view-all">Tất cả sản phẩm</a>
 
         </div>
         <%@include file="common/footer.jsp" %>

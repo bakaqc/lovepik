@@ -8,11 +8,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>LovePik</title>
+        <title>LovePik | Tất cả sản phẩm</title>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
+
     </head>
     <body>
         <%@include file="common/header.jsp" %>
@@ -31,7 +32,7 @@
                                              height="200" >
                                     </a>
                                     <a href="#" class="buy">
-                                        Add To Cart
+                                        <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -39,7 +40,10 @@
                                         ${p.name}
                                     </p>
                                     <small class="text-secondary pricep">
-                                        ${p.price} VNĐ
+                                        <script>
+                                            var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
+                                            document.write(formattedPrice);
+                                        </script>
                                     </small>
                                 </div>
                             </div>
@@ -48,7 +52,16 @@
                 </c:forEach>
             </div>
 
+            <div class="p-3 paging">  
+
+                <c:forEach begin="1" end="${endP}" var="i">
+                    <a class="page-item ${index == i ? "active": ""}" href="${pageContext.request.contextPath}/allproduct?index=${i}">${i}</a>
+                </c:forEach>
+
+            </div>
+
         </div>
+
         <%@include file="common/footer.jsp" %>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

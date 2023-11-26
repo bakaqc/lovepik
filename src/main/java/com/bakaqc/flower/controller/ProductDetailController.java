@@ -9,7 +9,7 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class ProductDetail extends HttpServlet {
+public class ProductDetailController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,12 +22,12 @@ public class ProductDetail extends HttpServlet {
         Product p = ProductDAO.getInstance().getById(id);
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(4);
+        List<Product> list = ProductDAO.getInstance().randomById(id,4);
 
         request.setAttribute("pro", p);
         request.setAttribute("nameCAT", nameCAT);
         request.setAttribute("listCAT", listCAT);
-        request.setAttribute("listP", listP);
+        request.setAttribute("listP", list);
         RequestDispatcher rd = request.getRequestDispatcher("/view/product_detail.jsp");
         rd.forward(request, response);
     }
