@@ -32,7 +32,7 @@
                                              height="200" >
                                     </a>
                                     <a href="#" class="buy">
-                                        Add To Cart
+                                        <i class="fa-solid fa-cart-shopping"></i>
                                     </a>
                                 </div>
                                 <div class="card-body">

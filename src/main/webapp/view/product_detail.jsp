@@ -63,7 +63,7 @@
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ</a>
+                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
                                         </div>
                                         <div class="col-lg-6">
                                             <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="container position-relative text-center more">
-                    <h1>Sản phẩm khác</h1>
+                    <h1>Sản phẩm liên quan</h1>
                     <div class="listp">
                         <c:forEach items="${listP}" var="p">
                             <div class="col-sm-3">
@@ -88,7 +88,7 @@
                                                      height="200" >
                                             </a>
                                             <a href="#" class="buy">
-                                                Thêm vào Giỏ
+                                                <i class="fa-solid fa-cart-shopping"></i>
                                             </a>
                                         </div>
                                         <div class="card-body">
