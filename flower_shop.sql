@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2023 at 03:51 PM
+-- Generation Time: Nov 27, 2023 at 12:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -246,10 +246,10 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 (8, 3, 'Hoa Lan Hồ Điệp', 'img/product_img/hoa-lan-ho-diep.png', '', 290000, 'Hoa Lan Hồ Điệp biểu tượng cho tình yêu mãnh liệt, Hoa Lan Hồ Điệp còn mang ý nghĩa cho sự giàu có, vương giả, sang trọng và cuộc sống sung túc.'),
 (9, 1, 'Hoa Tulip Xanh', 'img/product_img/hoa-tulip-xanh.png', '', 285000, 'Hoa Tulip Xanh có ý nghĩa của sự yên bình, khoan thai trong cuộc sống.'),
 (10, 5, 'Hoa Đồng Tiền', 'img/product_img/hoa-dong-tien.png', '', 245000, 'Hoa Đồng Tiền có ý nghĩa về sự may mắn, tin tưởng và thịnh vượng.'),
-(11, 3, 'Hoa Baby', 'img/product_img/hoa-baby.png', '', 267000, 'Hoa Baby là biểu tượng ý nghĩa cho tình yêu lâu dài.'),
+(11, 3, 'Hoa Baby', 'img/product_img/hoa-baby.png', '', 340000, 'Hoa Baby là biểu tượng ý nghĩa cho tình yêu lâu dài.'),
 (12, 1, 'Hoa Cẩm Tú Cầu ', 'img/product_img/hoa-cam-tu-cau.png', '', 290000, 'Hoa Cẩm Tú Cầu mang ý nghĩa mưu cầu hạnh phúc, cầu cho người nhận có được cuộc sống luôn vui vẻ, bình an.'),
 (13, 1, 'Hoa Sơn Trà', 'img/product_img/hoa-son-tra.png', '', 272000, 'Hoa Sơn Trà tượng trưng cho khát vọng, cho mơ ước của lứa tuổi thanh thiếu niên.'),
-(14, 3, 'Hoa Hồng Xanh', 'img/product_img/hoa-hong-xanh.png', '', 283000, 'Hoa Hồng Xanh là loại hoa tượng trưng cho tình yêu vĩnh hằng, mối tình cảm cao quý và sâu đậm.'),
+(14, 3, 'Hoa Hồng Xanh', 'img/product_img/hoa-hong-xanh.png', '', 600000, 'Hoa Hồng Xanh là loại hoa tượng trưng cho tình yêu vĩnh hằng, mối tình cảm cao quý và sâu đậm.'),
 (15, 2, 'Hoa Ly Vàng', 'img/product_img/hoa-ly-vang.png', '', 174000, 'Hoa Ly Vàng là biểu tượng mang nhiều tầng nghĩa khác nhau, vì màu sắc có một số ý nghĩa tích cực gắn liền. Chúng bao gồm hạnh phúc, lòng trung thành, khởi đầu mới, cảm giác tươi mới và ánh nắng mặt trời.'),
 (16, 1, 'Hoa Loa Kèn Đỏ', 'img/product_img/hoa-loa-ken-do.png', '', 255000, 'Hoa Loa Kèn Đỏ biểu tượng cho lòng kiêu hãnh, sự tự hào của con người'),
 (17, 2, 'Hoa Tulip Trắng', 'img/product_img/hoa-tulip-trang.png', '', 190000, 'Hoa Tulip Trắng là loại hoa có nhiều ý nghĩa tốt đẹp, nó đại diện cho tình yêu thuần khiết, niềm đam mê, sự bình yên, chiến thắng và sự tha thứ. '),
@@ -262,21 +262,22 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 (24, 2, 'Hoa Lưu Ly', 'img/product_img/hoa-luu-ly.png', '', 230000, 'Hoa Lưu Ly hay còn gọi là hoa “Forget me not”, mang ý nghĩa “Xin đừng quên tôi.”'),
 (25, 3, 'Hoa Tường Vi Hồng', 'img/product_img/hoa-tuong-vi-hong.png', '', 290000, 'Hoa Tường Vi Hồng mang nghĩa “Anh yêu em mãi mãi”.'),
 (26, 3, 'Hoa Mẫu Đơn', 'img/product_img/hoa-mau-don.png', '', 300000, 'Hoa Mẫu Đơn mang ý nghĩa một tình yêu bất diệt, trường tồn với thời gian.'),
-(27, 3, 'Hoa Violet', 'img/product_img/hoa-violet.png', '', 320000, 'Hoa Violet mang ý nghĩa của sự khiêm tốn, sự yếu đuối và tình yêu thầm kín. Nó thể hiện sự tinh tế và sự nhạy cảm.'),
+(27, 3, 'Hoa Violet', 'img/product_img/hoa-violet.png', '', 460000, 'Hoa Violet mang ý nghĩa của sự khiêm tốn, sự yếu đuối và tình yêu thầm kín. Nó thể hiện sự tinh tế và sự nhạy cảm.'),
 (28, 5, 'Hoa Mai', 'img/product_img/hoa-mai.png', '', 400000, 'Hoa Mai là loài hoa mang lại sự may mắn, thịnh vượng, hạnh phúc trong suốt 1 năm.'),
 (29, 5, 'Hoa Đào', 'img/product_img/hoa-dao.png', '', 400000, 'Hoa Đào trưng bày trong nhà có thể xua đuổi tà ma, mang đến nguồn sinh khí ấm áp, màu hồng hạnh phúc, tình cảm gia đình khắng khít trong năm mới.'),
 (30, 5, 'Hoa Thuỷ Tiên', 'img/product_img/hoa-thuy-tien.png', '', 350000, 'Hoa Thuỷ Tiên là biểu tượng của sự giàu có, thịnh vượng, may mắn và hạnh phúc'),
 (33, 4, 'Cheesecake Trái cây', 'img/product_img/cheesecake-trai-cay.png', '', 300000, 'Cheesecake Trái Cây là bánh được làm từ creamcheese và whipping cream. Bánh cheesecake khác với các loại bánh khác ở chỗ là bánh này là thuộc dòng bánh lạnh. Còn các bánh khác thì đòi hỏi phải có lò nướng.'),
-(34, 4, 'Bánh Flan Gato', 'img/product_img/banh-flan-gato.png', '', 50000, 'Bánh Flan Gato vô cùng khác biệt và có sự phức tạp nhất định nhờ vào sự kết hợp giữa flan và gato. Nhìn qua tưởng chừng rất khó nhưng cách làm thì đơn giản vô cùng. Bánh gồm 2 lớp, dưới cùng là lớp gato thường là vị sô-cô-la hoặc là vị va-ni. Bên trên là lớp bánh flan béo ngậy và trên cùng là một lớp đường caramel.'),
-(35, 4, 'Crepe ngàn lớp', 'img/product_img/crepe-ngan-lop.png', '', 0, 'Bánh Crepe thường được làm với chảo chống dính và nguyên liệu thì vô cùng đơn giản bao gồm sữa, trứng và bột mì và một số nguyên liệu phụ khác. Bánh crepe của Pháp được biến tấu thành bánh crepe trái cây và bánh Crepe ngàn lớp. Bánh Crepe trái cây là bánh có một lớp bánh mỏng sau đó thêm trái cây vào nhân bánh và cuộn lại hoặc gấp lại.'),
+(34, 4, 'Bánh Flan Gato', 'img/product_img/banh-flan-gato.png', '', 150000, 'Bánh Flan Gato vô cùng khác biệt và có sự phức tạp nhất định nhờ vào sự kết hợp giữa flan và gato. Nhìn qua tưởng chừng rất khó nhưng cách làm thì đơn giản vô cùng. Bánh gồm 2 lớp, dưới cùng là lớp gato thường là vị sô-cô-la hoặc là vị va-ni. Bên trên là lớp bánh flan béo ngậy và trên cùng là một lớp đường caramel.'),
+(35, 4, 'Crepe ngàn lớp', 'img/product_img/crepe-ngan-lop.png', '', 250000, 'Bánh Crepe thường được làm với chảo chống dính và nguyên liệu thì vô cùng đơn giản bao gồm sữa, trứng và bột mì và một số nguyên liệu phụ khác. Bánh crepe của Pháp được biến tấu thành bánh crepe trái cây và bánh Crepe ngàn lớp. Bánh Crepe trái cây là bánh có một lớp bánh mỏng sau đó thêm trái cây vào nhân bánh và cuộn lại hoặc gấp lại.'),
 (36, 2, 'Hoa Thược Dược', 'img/product_img/hoa-thuoc-duoc.png', '', 330000, 'Hoa thược dược gây ấn tượng với con người bởi vẻ đẹp rực rỡ,quý phái, sang trọng của nó với các loài hoa khác. Hoa thược dược còn có ý nghĩa may mắn và thành công, thường được mọi người mua làm quà tặng nhau.\r\n\r\n'),
 (37, 5, 'Cây Phát Tài', 'img/product_img/cay-phat-tai.png', '', 400000, 'Cây Phát Tài là loài cây mang lại may mắn, tài lộc sung túc cho cả gia đình. Theo phong thủy, số lượng cây phát tài, phát lộc được trồng trong một chậu sẽ có ý nghĩa khác nhau. 2 cây: Tình duyên và hôn nhân.\n3 cây: Mang đến hạnh phúc, trường thọ, sự giàu có. 5 cây: Sức khỏe. 8 cây: Thịnh vượng, phát tài. 9 cây: May mắn.'),
 (38, 5, 'Hoa Trạng Nguyên', 'img/product_img/hoa-trang-nguyen.png', '', 350000, 'Cây Trạng Nguyên là biểu tượng cho sự thành đạt, đỗ đạt trong con đường học hành. Với màu sắc đỏ thắm, cây trạng nguyên vừa mang lại hạnh phúc, may mắn vừa mang lại thành công cho các thành viên trong gia đình. Đặc biệt, những gia đình có con cháu sắp bước vào những cuộc thi cử quan trọng đều chọn cây hoa trạng nguyện bày trong nhà với hy vọng con cháu học giỏi, đỗ đạt cao.'),
 (39, 5, 'Hoa Đỗ Quyên', 'img/product_img/hoa-do-quyen.png', '', 370000, 'Hoa Đỗ Quyên với sắc đỏ, sắc hồng giúp mang sắc xuân cho ngôi nhà của bạn. Ngoài ra, loài hoa này tượng trưng cho sự may mắn, phú quý và thành đạt, giúp hóa giải khí xấu cho gia đình.\nHoa đỗ quyên rất dễ trồng và chăm sóc. Vì vậy, đây là loài hoa thích hợp để lựa chọn trưng bày trong nhà trong dịp Tết Nguyên Đán sắp tới.'),
 (40, 5, 'Cây Kim Tiền', 'img/product_img/cay-kim-tien.png', '', 420000, 'Cây Kim Tiền được gọi là cây phát tài, tượng trưng cho sự may mắn, phát tài phát lộc và thịnh vượng. Vì vậy, nếu muốn lựa chọn cây cảnh trang trí Tết và mang lại may mắn, tài lộc cho gia đình trong năm mới thì đây là sự lựa chọn tuyệt vời cho bạn.'),
 (41, 4, 'Bông Lan Trứng Muối', 'img/product_img/bong-lan-trung-muoi.png', '', 150000, 'Nếu ai đã từng thưởng thức qua những chiếc bánh bông lan trứng muối chà bông phô mai thì chắc hẳn sẽ không bao giờ quên được cái hương vị của nó. Một chiếc bánh bông lan trứng muối ngon là sự kết tinh của vị mằn mặn bùi bùi của trứng muối cùng chà bông thêm vào đó là miếng phô mai béo béo hòa cùng vị ngọt thanh của chiếc bánh khiến ai cũng say mê.'),
-(42, 4, 'Bánh Kem Trái Cây ', 'img/product_img/banh-kem-trai-cay.png', '', 340000, 'Bánh Kem Trái Cây là sự kết hợp giữa kem tươi ngọt béo và những miếng trái cây mọng nước, ngọt ngào, không quá ngấy, phù hợp khẩu vị nhiều người.\nTừ những quả trái cây tươi, chua ngọt hòa quyện với cốt bánh mềm mịn, béo ngậy. Nghe đến thôi cũng đã cảm thấy thơm ngon, hấp dẫn đúng không nào? Hãy cùng với chúng tôi để khám phá cách làm bánh kem trái cây ngon tuyệt hảo thôi nào!'),
-(43, 4, 'Bánh Poured Fondant', 'img/product_img/banh-poured-fondant.png', '', 420000, 'Bánh Poured Fondant được làm từ đường nấu chảy, nước, bột ngô và bổ sung các hương liệu. Loại này thường được dùng để tạo lớp phủ cho bánh vì có độ láng mịn và dùng trong một số nhân của các loại bánh ngọt cỡ vừa như cupcake, pastry,...');
+(42, 4, 'Bánh Kem Trái Cây ', 'img/product_img/banh-kem-trai-cay.png', '', 440000, 'Bánh Kem Trái Cây là sự kết hợp giữa kem tươi ngọt béo và những miếng trái cây mọng nước, ngọt ngào, không quá ngấy, phù hợp khẩu vị nhiều người.\nTừ những quả trái cây tươi, chua ngọt hòa quyện với cốt bánh mềm mịn, béo ngậy. Nghe đến thôi cũng đã cảm thấy thơm ngon, hấp dẫn đúng không nào? Hãy cùng với chúng tôi để khám phá cách làm bánh kem trái cây ngon tuyệt hảo thôi nào!'),
+(43, 4, 'Bánh Poured Fondant', 'img/product_img/banh-poured-fondant.png', '', 420000, 'Bánh Poured Fondant được làm từ đường nấu chảy, nước, bột ngô và bổ sung các hương liệu. Loại này thường được dùng để tạo lớp phủ cho bánh vì có độ láng mịn và dùng trong một số nhân của các loại bánh ngọt cỡ vừa như cupcake, pastry,...'),
+(44, 1, 'Bó Hồng Tươi', 'img/product_img/bo-hong-tuoi.png', '', 550000, 'Bó Hồng Tươi tặng sinh nhật đẹp, giao hoa tận nơi, với nhiều mẫu đẹp, điện hoa uy tín, giá rẻ, cam kết chất lượng, miễn phí vận chuyển nội thành');
 
 -- --------------------------------------------------------
 
@@ -411,7 +412,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `user`
