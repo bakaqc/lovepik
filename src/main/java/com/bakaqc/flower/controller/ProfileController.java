@@ -1,5 +1,6 @@
 package com.bakaqc.flower.controller;
 
+import com.bakaqc.flower.dao.OrderDAO;
 import com.bakaqc.flower.model.User;
 import java.io.*;
 import javax.servlet.*;
@@ -12,7 +13,14 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+
+        HttpSession session = request.getSession();
+        User us = (User) session.getAttribute("user");
+        int amountSold = OrderDAO.getInstance().quantitySold(us.getId());
+        int amountCan = OrderDAO.getInstance().amountCanceled(us.getId());
         
+        request.setAttribute("amountS", amountSold);
+        request.setAttribute("amountC", amountCan);
         request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
     }
 

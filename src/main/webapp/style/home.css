@@ -156,9 +156,9 @@ a.buy {
     position: absolute;
     height: 40px;
     width: 100%;
-    bottom: -36px;
+    bottom: -40px;
     transition: 0.25s ease-in-out;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .fa-solid {

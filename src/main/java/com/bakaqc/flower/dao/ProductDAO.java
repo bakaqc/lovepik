@@ -285,12 +285,12 @@ public class ProductDAO implements DAO<Product> {
         return null;
     }
 
-    public List<Product> randomPd(int limit) {
+    public List<Product> randProduct(int limit) {
         List<Product> list = new ArrayList<>();
         try {
             Connection c = JDBC.getConnection();
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY RAND() LIMIT ?");
+            PreparedStatement st = c.prepareStatement("SELECT * FROM ( SELECT p.*, ROW_NUMBER() OVER (PARTITION BY p.category_id ORDER BY RAND()) as row_num FROM product p ) AS ranked WHERE row_num <= ? ORDER BY RAND();");
             st.setInt(1, limit);
 
             ResultSet rs = st.executeQuery();

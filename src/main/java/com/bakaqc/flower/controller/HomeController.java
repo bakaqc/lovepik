@@ -18,7 +18,7 @@ public class HomeController extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().randomPd(8);
+        List<Product> listP = ProductDAO.getInstance().randProduct(2);
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);

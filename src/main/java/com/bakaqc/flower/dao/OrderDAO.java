@@ -82,6 +82,52 @@ public class OrderDAO implements DAO<Order> {
         return list;
     }
 
+    public int quantitySold(int userID ) {
+        int amount = 0;
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT o.id, o.user_id, d.amount FROM `data_order` d JOIN `order` o ON d.order_id = o.id WHERE o.status <> 'canceled' AND o.user_id  = ?");
+            smt.setInt(1, userID);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                amount = rs.getInt("amount");
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return amount;
+    }
+    
+    public int amountCanceled(int userID ) {
+        int amount = 0;
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT o.id, o.user_id, d.amount FROM `data_order` d JOIN `order` o ON d.order_id = o.id WHERE o.status = 'canceled' AND o.user_id  = ?");
+            smt.setInt(1, userID);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                amount = rs.getInt("amount");
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return amount;
+    }
+
     @Override
     public void insert(Order ob) {
         try {
@@ -141,7 +187,7 @@ public class OrderDAO implements DAO<Order> {
     }
 
     public static void main(String[] args) {
-        getInstance().selectAll();
-//        getInstance().delete("31");
+        System.out.println(getInstance().amountCanceled(4));
+
     }
 }
