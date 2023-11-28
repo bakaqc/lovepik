@@ -247,21 +247,11 @@
                                                 </div>
                                                 <div class="d-flex justify-content-center" style="align-items: center;">
                                                     <ul class="pagination mt-3 mb-0">
-                                                        <li class="disabled page-item">
-                                                            <a href="#" class="page-link">‹</a>
-                                                        </li>
+
                                                         <li class="active page-item">
                                                             <a href="#" class="page-link">1</a>
                                                         </li>
-                                                        <li class="page-item">
-                                                            <a href="#" class="page-link">2</a>
-                                                        </li>
-                                                        <li class="page-item">
-                                                            <a href="#" class="page-link">3</a>
-                                                        </li>
-                                                        <li class="page-item">
-                                                            <a href="#" class="page-link">›</a>
-                                                        </li>
+
                                                     </ul>
                                                 </div>
                                             </div>
@@ -300,8 +290,13 @@
                                         <label for="phone">
                                             <h4>Giới Tính</h4>
                                         </label>
-
-                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender.toString() == 'male' ? 'Nam' : 'Nữ'}" style="font-size: 18px;"/>
+                                                                                
+                                        <select name="gender" class="form-control form-select" aria-label=".form-select-lg example" style="font-size: 18px;">
+                                            <option value="male">Nam</option>
+                                            <option value="female">Nữ</option>
+                                        </select>
+                                        
+                                        <!--<input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender.toString() == 'male' ? 'Nam' : 'Nữ'}" style="font-size: 18px;"/>-->
                                     </div>
                                 </div>
 

@@ -219,6 +219,7 @@ public class OrderDAO implements DAO<Order> {
         System.out.println(list);
         return list;
     }
+    
 
     public static void main(String[] args) {
         getInstance().historyBuy(2);
