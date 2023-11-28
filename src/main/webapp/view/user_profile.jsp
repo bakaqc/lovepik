@@ -73,7 +73,7 @@
 
 
                 <div class="col-sm-10" style="background-color: white!important;">
-                    <ul class="nav nav-tabs" style="margin-top: 40px; ">
+                    <ul class="nav nav-tabs" style="margin-top: 30px; ">
                         <li class="active">
                             <a data-toggle="tab" href="#home">Thông tin </a>
                         </li>
@@ -97,7 +97,7 @@
                                             <h4>Họ và Tên</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="first_name" id="first_name" value="${sessionScope.user.fullName}"  style="font-size: 18px;"/>
+                                        <input disabled="" type="text" class="form-control" name="first_name" id="first_name" value="${sessionScope.user.fullName}"  style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -107,7 +107,7 @@
                                             <h4>Năm Sinh</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.yearOfBirth}" style="font-size: 18px;"/>
+                                        <input disabled="" type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.yearOfBirth}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -117,7 +117,7 @@
                                             <h4>Giới Tính</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender}" style="font-size: 18px;"/>
+                                        <input disabled="" type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender.toString() == 'male' ? 'Nam' : 'Nữ'}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -127,7 +127,7 @@
                                             <h4>Email</h4>
                                         </label>
 
-                                        <input type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}" style="font-size: 18px;"/>
+                                        <input disabled="" type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -137,7 +137,7 @@
                                             <h4>Số Điện Thoại</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.phone_number}" style="font-size: 18px;"/>
+                                        <input disabled="" type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.phone_number}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -147,18 +147,17 @@
                                             <h4>Địa chỉ</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.address}" style="font-size: 18px;"/>
+                                        <input disabled="" type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.address}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-xs-4 align-items-center"  style="margin-bottom: 40px;">
                                         <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" type="submit">
-                                            <i class=""></i> Chỉnh sửa thông tin
+                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('change')" type="button">
+                                            Chỉnh sửa thông tin
                                         </button>
                                     </div>
-
                                 </div>   
 
                             </form>
@@ -182,131 +181,66 @@
                                                     <table class="table table-bordered text-center">
                                                         <thead>
                                                             <tr>
-                                                                <th>Ảnh Sản Phẩm</th>
-                                                                <th class="max-width">Tên Sản Phẩm</th>
-                                                                <th class="">Số Lượng</th>
-                                                                <th class="sortable">Ngày Mua</th>
-                                                                <th class="sortable">Trạng Thái</th>
-                                                                <th class="">Giá</th>
+                                                                <th style="text-align: center;">Ảnh Sản Phẩm</th>
+                                                                <th class="max-width" style="text-align: center;">Tên Sản Phẩm</th>
+                                                                <th class="" style="text-align: center;">Số Lượng</th>
+                                                                <th class="" style="text-align: center;">Giá</th>
+                                                                <th class="sortable" style="text-align: center;">Thanh toán</th>
+                                                                <th class="sortable" style="text-align: center;">Trạng Thái</th>
+                                                                <th class="sortable" style="text-align: center;">Ngày Mua</th>
                                                             </tr>
                                                         </thead>
 
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="align-middle text-center">
-                                                                    <div
-                                                                        class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
-                                                                        style="
-                                                                        width: 135px;
-                                                                        height: 150px;
-                                                                        border-radius: 5px;
-                                                                        background-image: url(./img/product_img/hoa-hong.png);
-                                                                        background-size: 135px 150px;
-                                                                        background-repeat: no-repeat;
-                                                                        margin: 7px auto;
-                                                                        ">                                                                            
-                                                                    </div>
-                                                                </td>
+                                                        <c:forEach items="${listBuy}" var="b">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="align-middle text-center">
+                                                                        <div
+                                                                            class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
+                                                                            style="
+                                                                            width: 100px;
+                                                                            height: 110px;
+                                                                            border-radius: 5px;
+                                                                            background-image: url(<%=request.getContextPath()%>/${b.bannersP});
+                                                                            background-size: 100px 110px;
+                                                                            background-repeat: no-repeat;
+                                                                            margin: 7px auto;
+                                                                            ">                                                                            
+                                                                        </div>
+                                                                    </td>
 
-                                                                <td class="text-nowrap align-middle">Hoa Hồng</td>
+                                                                    <td class="text-nowrap" style="vertical-align: middle;">${b.nameP}</td>
 
-                                                                <td class="text-nowrap align-middle">
-                                                                    <span>1</span>
-                                                                </td>
+                                                                    <td class="text-nowrap" style="vertical-align: middle;">
+                                                                        <span>${b.amountP}</span>
+                                                                    </td>
 
-                                                                <td class="text-center align-middle">
-                                                                    <span>13:30 27/11/2023</span>
-                                                                </td>
+                                                                    <td class="text-center" style="vertical-align: middle;">
+                                                                        <span>
+                                                                            <script>
+                                                                                var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${b.totalPriceP});
+                                                                                document.write(formattedPrice);
+                                                                            </script>
+                                                                        </span>
+                                                                    </td>
 
-                                                                <td class="text-center align-middle">
-                                                                    <span>Shipping</span>
-                                                                </td>
+                                                                    <td class="text-center" style="vertical-align: middle;">
+                                                                        <span>${b.paymentP.toString() == 'MoMo' ? 'MoMo' : 'Thanh toán khi nhận hàng'}</span>
+                                                                    </td>
 
-                                                                <td class="text-center align-middle">
-                                                                    <span>400.000đ</span>
-                                                                </td>
+                                                                    <td class="text-center" style="vertical-align: middle;">
+                                                                        <span>${b.statusP}</span>
+                                                                    </td>
 
-                                                            </tr>
+                                                                    <td class="text-center" style="vertical-align: middle;">
+                                                                        <span>${b.createAtP}</span>
+                                                                    </td>
 
-                                                        </tbody>
+                                                                </tr>
 
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="align-middle text-center">
-                                                                    <div
-                                                                        class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
-                                                                        style="
-                                                                        width: 135px;
-                                                                        height: 150px;
-                                                                        border-radius: 5px;
-                                                                        background-image: url(./img/product_img/hoa-hong.png);
-                                                                        background-size: 135px 150px;
-                                                                        background-repeat: no-repeat;
-                                                                        margin: 7px auto;
-                                                                        ">                                                                            
-                                                                    </div>
-                                                                </td>
+                                                            </tbody>
+                                                        </c:forEach>
 
-                                                                <td class="text-nowrap align-middle">Hoa Hồng</td>
-
-                                                                <td class="text-nowrap align-middle">
-                                                                    <span>1</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>13:30 27/11/2023</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>Shipping</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>400.000đ</span>
-                                                                </td>
-
-                                                            </tr>
-
-                                                        </tbody>
-
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="align-middle text-center">
-                                                                    <div
-                                                                        class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
-                                                                        style="
-                                                                        width: 135px;
-                                                                        height: 150px;
-                                                                        border-radius: 5px;
-                                                                        background-image: url(./img/product_img/hoa-hong.png);
-                                                                        background-size: 135px 150px;
-                                                                        background-repeat: no-repeat;
-                                                                        margin: 7px auto;
-                                                                        ">                                                                            
-                                                                    </div>
-                                                                </td>
-
-                                                                <td class="text-nowrap align-middle">Hoa Hồng</td>
-
-                                                                <td class="text-nowrap align-middle">
-                                                                    <span>1</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>13:30 27/11/2023</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>Shipping</span>
-                                                                </td>
-
-                                                                <td class="text-center align-middle">
-                                                                    <span>400.000đ</span>
-                                                                </td>
-
-                                                            </tr>
-
-                                                        </tbody>
 
                                                     </table>
 
@@ -367,7 +301,7 @@
                                             <h4>Giới Tính</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender}" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender.toString() == 'male' ? 'Nam' : 'Nữ'}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
@@ -399,7 +333,7 @@
                                         <input type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.address}" style="font-size: 18px;"/>
                                     </div>
                                 </div>
-                                    
+
                                 <div class="form-group">
                                     <div class="col-xs-4">
                                         <label for="mobile">
@@ -409,7 +343,7 @@
                                         <input type="password" class="form-control" name="mobile" id="mobile" value="" style="font-size: 18px;"/>
                                     </div>
                                 </div>
-                                    
+
                                 <div class="form-group">
                                     <div class="col-xs-4">
                                         <label for="mobile">
@@ -419,7 +353,7 @@
                                         <input type="text" class="form-control" name="mobile" id="mobile" value="" style="font-size: 18px;"/>
                                     </div>
                                 </div>
-                                    
+
                                 <div class="form-group">
                                     <div class="col-xs-4">
                                         <label for="mobile">
@@ -452,6 +386,7 @@
 
         </div>
 
+        <script src="<%=request.getContextPath()%>/js/profile.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>

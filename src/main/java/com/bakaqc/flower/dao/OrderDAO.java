@@ -1,5 +1,6 @@
 package com.bakaqc.flower.dao;
 
+import com.bakaqc.flower.model.HistoryBuy;
 import com.bakaqc.flower.model.Order;
 import com.bakaqc.flower.model.option.OrderStatus;
 import com.bakaqc.flower.model.option.Payment;
@@ -82,7 +83,7 @@ public class OrderDAO implements DAO<Order> {
         return list;
     }
 
-    public int quantitySold(int userID ) {
+    public int quantitySold(int userID) {
         int amount = 0;
 
         try {
@@ -104,8 +105,8 @@ public class OrderDAO implements DAO<Order> {
 
         return amount;
     }
-    
-    public int amountCanceled(int userID ) {
+
+    public int amountCanceled(int userID) {
         int amount = 0;
 
         try {
@@ -186,8 +187,41 @@ public class OrderDAO implements DAO<Order> {
         }
     }
 
+    public List<HistoryBuy> historyBuy(int userId) {
+
+        List<HistoryBuy> list = new ArrayList<>();
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT o.user_id, p.banners, p.name, d.amount, o.total_price, o.payment, o.status, o.create_at "
+                    + "FROM `data_order` d JOIN `order` o ON d.order_id = o.id JOIN `product` p ON d.product_id = p.id WHERE o.user_id = ? ORDER BY o.id DESC");
+            smt.setInt(1, userId);
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                HistoryBuy hb = new HistoryBuy();
+                hb.setBannersP(rs.getString("banners"));
+                hb.setNameP(rs.getString("name"));
+                hb.setAmountP(rs.getInt("amount"));
+                hb.setTotalPriceP(rs.getInt("total_price"));
+                hb.setPaymentP(Payment.create(rs.getString("payment")));
+                hb.setStatusP(OrderStatus.create(rs.getString("status")));
+                hb.setCreateAtP(Convert.convert(rs.getTimestamp("create_at")));
+
+                list.add(hb);
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(list);
+        return list;
+    }
+
     public static void main(String[] args) {
-        System.out.println(getInstance().amountCanceled(4));
+        getInstance().historyBuy(2);
 
     }
 }
