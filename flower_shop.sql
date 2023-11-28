@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 09:43 AM
+-- Generation Time: Nov 28, 2023 at 10:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -163,7 +163,9 @@ INSERT INTO `data_order` (`order_id`, `product_id`, `amount`) VALUES
 (28, 10, 1),
 (29, 1, 1),
 (30, 15, 1),
-(32, 44, 1);
+(32, 44, 1),
+(33, 14, 1),
+(34, 20, 2);
 
 -- --------------------------------------------------------
 
@@ -214,8 +216,10 @@ INSERT INTO `order` (`id`, `user_id`, `total_price`, `payment`, `status`, `creat
 (27, 4, 290000, 'MoMo', 'canceled', '2023-11-27 08:00:00'),
 (28, 3, 245000, 'MoMo', 'canceled', '2023-11-28 08:00:00'),
 (29, 2, 350000, 'MoMo', 'canceled', '2023-11-29 08:00:00'),
-(30, 1, 280000, 'COD', 'canceled', '2023-11-30 08:00:00'),
-(32, 1, 550000, 'MoMo', 'shipping', '2023-11-22 15:39:31');
+(30, 1, 280000, 'COD', 'canceled', '2023-11-16 08:00:00'),
+(32, 1, 550000, 'MoMo', 'shipping', '2023-11-17 15:39:31'),
+(33, 1, 600000, 'COD', 'done', '2023-11-18 15:51:43'),
+(34, 1, 370000, 'MoMo', 'shipping', '2023-11-22 15:53:02');
 
 -- --------------------------------------------------------
 
@@ -408,7 +412,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `product`
