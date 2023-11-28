@@ -3,6 +3,12 @@ package com.bakaqc.flower.controller;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.bakaqc.flower.dao.OrderDAO;
+import com.bakaqc.flower.dao.ProductDAO;
+import com.bakaqc.flower.dao.UserDAO;
+import com.bakaqc.flower.model.Order;
+import com.bakaqc.flower.model.User;
+import java.util.*;
 
 public class AdminController extends HttpServlet {
 
@@ -11,6 +17,16 @@ public class AdminController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        OrderDAO orderDAO = new OrderDAO();
+        List<Order> orders = orderDAO.selectAll();
+        UserDAO userDAO = new UserDAO();
+        List<User> users = userDAO.selectAll();
+        ProductDAO productDAO = new ProductDAO();
+        int productNum = productDAO.selectAll().size();
+        request.setAttribute("numPro", productNum);
+        request.setAttribute("users", users);
+        request.setAttribute("orders", orders);
+        request.getSession().setAttribute("isActive", 0);
 
         RequestDispatcher rd = request.getRequestDispatcher("/view/admin.jsp");
         rd.forward(request, response);
