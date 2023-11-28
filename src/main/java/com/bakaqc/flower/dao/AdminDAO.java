@@ -158,6 +158,31 @@ public class AdminDAO implements DAO<Admin> {
         }
     }
 
+    public Admin login(String username, String password) {
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("select * from admin where username = ? and password = ?");
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Admin ad = new Admin();
+                ad.setId(rs.getInt("id"));
+                ad.setUserName(rs.getString("username"));
+                ad.setPassword(rs.getString("password"));
+                ad.setRole(AdminRole.create(rs.getString("role")));
+                return ad;
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         System.out.println(getInstance().selectByUserName("superadmin"));
     }
