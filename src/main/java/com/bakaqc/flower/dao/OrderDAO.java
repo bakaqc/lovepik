@@ -89,7 +89,7 @@ public class OrderDAO implements DAO<Order> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("SELECT o.id, o.user_id, d.amount FROM `data_order` d JOIN `order` o ON d.order_id = o.id WHERE o.status <> 'canceled' AND o.user_id  = ?");
+            PreparedStatement smt = conn.prepareStatement("SELECT o.id, o.user_id, d.amount FROM `data_order` d JOIN `order` o ON d.order_id = o.id WHERE o.status = 'done' AND o.user_id  = ?");
             smt.setInt(1, userID);
 
             ResultSet rs = smt.executeQuery();
