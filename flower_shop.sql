@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 02:16 AM
+-- Generation Time: Nov 28, 2023 at 09:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -133,36 +133,37 @@ CREATE TABLE `data_order` (
 --
 
 INSERT INTO `data_order` (`order_id`, `product_id`, `amount`) VALUES
-(1, 8, 2),
-(2, 9, 2),
-(3, 4, 2),
-(4, 6, 3),
-(5, 5, 4),
-(6, 2, 5),
-(7, 3, 6),
-(8, 11, 2),
+(1, 8, 1),
+(2, 9, 1),
+(3, 4, 1),
+(4, 6, 1),
+(5, 5, 1),
+(6, 2, 1),
+(7, 3, 1),
+(8, 11, 1),
 (9, 14, 1),
-(10, 15, 3),
-(11, 17, 2),
-(12, 18, 6),
-(13, 19, 9),
-(14, 20, 11),
-(15, 21, 6),
-(16, 25, 2),
-(17, 26, 2),
-(18, 27, 7),
-(19, 28, 2),
-(20, 29, 3),
-(21, 30, 2),
-(22, 24, 2),
-(23, 22, 4),
-(24, 16, 2),
-(25, 23, 6),
-(26, 13, 2),
-(27, 12, 2),
-(28, 10, 2),
-(29, 1, 2),
-(30, 15, 1);
+(10, 15, 1),
+(11, 17, 1),
+(12, 18, 1),
+(13, 19, 2),
+(14, 20, 1),
+(15, 21, 1),
+(16, 25, 1),
+(17, 26, 1),
+(18, 27, 1),
+(19, 28, 1),
+(20, 29, 1),
+(21, 30, 1),
+(22, 24, 1),
+(23, 22, 1),
+(24, 16, 1),
+(25, 23, 1),
+(26, 13, 1),
+(27, 12, 1),
+(28, 10, 1),
+(29, 1, 1),
+(30, 15, 1),
+(32, 44, 1);
 
 -- --------------------------------------------------------
 
@@ -184,36 +185,37 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`id`, `user_id`, `total_price`, `payment`, `status`, `create_at`) VALUES
-(1, 30, 400000, 'MoMo', 'processing', '2023-11-01 08:00:00'),
-(2, 29, 500000, 'COD', 'processing', '2023-11-02 08:00:00'),
-(3, 28, 800000, 'COD', 'processing', '2023-11-03 08:00:00'),
-(4, 27, 500000, 'MoMo', 'processing', '2023-11-04 08:00:00'),
-(5, 26, 500000, 'MoMo', 'processing', '2023-11-05 08:00:00'),
-(6, 25, 100000, 'MoMo', 'processing', '2023-11-06 08:00:00'),
-(7, 24, 200000, 'MoMo', 'shipping', '2023-11-07 08:00:00'),
-(8, 23, 300000, 'MoMo', 'shipping', '2023-11-08 08:00:00'),
-(9, 22, 700000, 'COD', 'shipping', '2023-11-09 08:00:00'),
-(10, 21, 400000, 'COD', 'shipping', '2023-11-10 08:00:00'),
-(11, 20, 600000, 'COD', 'shipping', '2023-11-11 08:00:00'),
-(12, 19, 700000, 'MoMo', 'shipping', '2023-11-12 08:00:00'),
-(13, 18, 800000, 'COD', 'shipping', '2023-11-13 08:00:00'),
-(14, 17, 500000, 'MoMo', 'shipping', '2023-11-14 08:00:00'),
-(15, 16, 500000, 'MoMo', 'shipping', '2023-11-15 08:00:00'),
-(16, 15, 900000, 'MoMo', 'done', '2023-11-16 08:00:00'),
-(17, 14, 500000, 'MoMo', 'done', '2023-11-17 08:00:00'),
-(18, 13, 500000, 'COD', 'done', '2023-11-18 08:00:00'),
-(19, 12, 500000, 'MoMo', 'done', '2023-11-19 08:00:00'),
-(20, 11, 500000, 'COD', 'done', '2023-11-20 08:00:00'),
-(21, 10, 800000, 'COD', 'done', '2023-11-21 08:00:00'),
-(22, 9, 500000, 'MoMo', 'done', '2023-11-22 08:00:00'),
-(23, 8, 200000, 'MoMo', 'done', '2023-11-23 08:00:00'),
-(24, 7, 300000, 'MoMo', 'done', '2023-11-24 08:00:00'),
-(25, 6, 500000, 'MoMo', 'done', '2023-11-25 08:00:00'),
-(26, 5, 400000, 'COD', 'done', '2023-11-26 08:00:00'),
-(27, 4, 600000, 'MoMo', 'canceled', '2023-11-27 08:00:00'),
-(28, 3, 700000, 'MoMo', 'canceled', '2023-11-28 08:00:00'),
-(29, 2, 800000, 'MoMo', 'canceled', '2023-11-29 08:00:00'),
-(30, 1, 900000, 'COD', 'canceled', '2023-11-30 08:00:00');
+(1, 30, 290000, 'MoMo', 'processing', '2023-11-01 08:00:00'),
+(2, 29, 285000, 'COD', 'processing', '2023-11-02 08:00:00'),
+(3, 28, 365000, 'COD', 'processing', '2023-11-03 08:00:00'),
+(4, 27, 280000, 'MoMo', 'processing', '2023-11-04 08:00:00'),
+(5, 26, 275000, 'MoMo', 'processing', '2023-11-05 08:00:00'),
+(6, 25, 240000, 'MoMo', 'processing', '2023-11-06 08:00:00'),
+(7, 24, 310000, 'MoMo', 'shipping', '2023-11-07 08:00:00'),
+(8, 23, 340000, 'MoMo', 'shipping', '2023-11-08 08:00:00'),
+(9, 22, 600000, 'COD', 'shipping', '2023-11-09 08:00:00'),
+(10, 21, 280000, 'COD', 'shipping', '2023-11-10 08:00:00'),
+(11, 20, 390000, 'COD', 'shipping', '2023-11-11 08:00:00'),
+(12, 19, 500000, 'MoMo', 'shipping', '2023-11-12 08:00:00'),
+(13, 18, 400000, 'COD', 'shipping', '2023-11-13 08:00:00'),
+(14, 17, 185000, 'MoMo', 'shipping', '2023-11-14 08:00:00'),
+(15, 16, 290000, 'MoMo', 'shipping', '2023-11-15 08:00:00'),
+(16, 15, 290000, 'MoMo', 'done', '2023-11-16 08:00:00'),
+(17, 14, 300000, 'MoMo', 'done', '2023-11-17 08:00:00'),
+(18, 13, 460000, 'COD', 'done', '2023-11-18 08:00:00'),
+(19, 12, 400000, 'MoMo', 'done', '2023-11-19 08:00:00'),
+(20, 11, 420000, 'COD', 'done', '2023-11-20 08:00:00'),
+(21, 10, 350000, 'COD', 'done', '2023-11-21 08:00:00'),
+(22, 9, 230000, 'MoMo', 'done', '2023-11-22 08:00:00'),
+(23, 8, 230000, 'MoMo', 'done', '2023-11-23 08:00:00'),
+(24, 7, 255000, 'MoMo', 'done', '2023-11-24 08:00:00'),
+(25, 6, 270000, 'MoMo', 'done', '2023-11-25 08:00:00'),
+(26, 5, 275000, 'COD', 'done', '2023-11-26 08:00:00'),
+(27, 4, 290000, 'MoMo', 'canceled', '2023-11-27 08:00:00'),
+(28, 3, 245000, 'MoMo', 'canceled', '2023-11-28 08:00:00'),
+(29, 2, 350000, 'MoMo', 'canceled', '2023-11-29 08:00:00'),
+(30, 1, 280000, 'COD', 'canceled', '2023-11-30 08:00:00'),
+(32, 1, 550000, 'MoMo', 'shipping', '2023-11-22 15:39:31');
 
 -- --------------------------------------------------------
 
@@ -248,23 +250,23 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 (10, 5, 'Hoa Đồng Tiền', 'img/product_img/hoa-dong-tien.png', '', 245000, 'Hoa Đồng Tiền có ý nghĩa về sự may mắn, tin tưởng và thịnh vượng.'),
 (11, 3, 'Hoa Baby', 'img/product_img/hoa-baby.png', '', 340000, 'Hoa Baby là biểu tượng ý nghĩa cho tình yêu lâu dài.'),
 (12, 1, 'Hoa Cẩm Tú Cầu ', 'img/product_img/hoa-cam-tu-cau.png', '', 290000, 'Hoa Cẩm Tú Cầu mang ý nghĩa mưu cầu hạnh phúc, cầu cho người nhận có được cuộc sống luôn vui vẻ, bình an.'),
-(13, 1, 'Hoa Sơn Trà', 'img/product_img/hoa-son-tra.png', '', 272000, 'Hoa Sơn Trà tượng trưng cho khát vọng, cho mơ ước của lứa tuổi thanh thiếu niên.'),
+(13, 1, 'Hoa Sơn Trà', 'img/product_img/hoa-son-tra.png', '', 275000, 'Hoa Sơn Trà tượng trưng cho khát vọng, cho mơ ước của lứa tuổi thanh thiếu niên.'),
 (14, 3, 'Hoa Hồng Xanh', 'img/product_img/hoa-hong-xanh.png', '', 600000, 'Hoa Hồng Xanh là loại hoa tượng trưng cho tình yêu vĩnh hằng, mối tình cảm cao quý và sâu đậm.'),
-(15, 2, 'Hoa Ly Vàng', 'img/product_img/hoa-ly-vang.png', '', 174000, 'Hoa Ly Vàng là biểu tượng mang nhiều tầng nghĩa khác nhau, vì màu sắc có một số ý nghĩa tích cực gắn liền. Chúng bao gồm hạnh phúc, lòng trung thành, khởi đầu mới, cảm giác tươi mới và ánh nắng mặt trời.'),
+(15, 2, 'Hoa Ly Vàng', 'img/product_img/hoa-ly-vang.png', '', 280000, 'Hoa Ly Vàng là biểu tượng mang nhiều tầng nghĩa khác nhau, vì màu sắc có một số ý nghĩa tích cực gắn liền. Chúng bao gồm hạnh phúc, lòng trung thành, khởi đầu mới, cảm giác tươi mới và ánh nắng mặt trời.'),
 (16, 1, 'Hoa Loa Kèn Đỏ', 'img/product_img/hoa-loa-ken-do.png', '', 255000, 'Hoa Loa Kèn Đỏ biểu tượng cho lòng kiêu hãnh, sự tự hào của con người'),
-(17, 2, 'Hoa Tulip Trắng', 'img/product_img/hoa-tulip-trang.png', '', 190000, 'Hoa Tulip Trắng là loại hoa có nhiều ý nghĩa tốt đẹp, nó đại diện cho tình yêu thuần khiết, niềm đam mê, sự bình yên, chiến thắng và sự tha thứ. '),
+(17, 2, 'Hoa Tulip Trắng', 'img/product_img/hoa-tulip-trang.png', '', 390000, 'Hoa Tulip Trắng là loại hoa có nhiều ý nghĩa tốt đẹp, nó đại diện cho tình yêu thuần khiết, niềm đam mê, sự bình yên, chiến thắng và sự tha thứ. '),
 (18, 5, 'Nụ Tầm Xuân', 'img/product_img/nu-tam-xuan.png', '', 500000, 'Nụ Tầm Xuân với nhiều chồi non trên thân cây, được xem là tượng trưng cho sự thịnh vượng nên được rất nhiều gia đình lựa chọn mua về nhà dịp đầu năm mới.'),
 (19, 4, 'Gato Dâu Tây', 'img/product_img/gato-dau-tay.png', '', 200000, 'Bánh Gato đã quá quen thuộc với tất cả mọi người. Những chiếc bánh với nhiều mẫu mã hấp dấp cùng hương vị thơm ngon. Ngày nay, để phù hợp với nhu cầu của người sử dụng, bánh gato được cải tiến với nhiều vị kem mới theo sở thích từng người. \n\nĐể đánh giá được một chiếc bánh gato có ngon hay không bạn hãy nhìn vào phần bánh phải thật bông xốp, mềm, thơm. Phần kem trang trí bánh không quá béo ngậy gây cảm giác ngán cho người ăn, cũng không quá nhạt hoặc quá ngọt.'),
 (20, 4, 'Tiramisu Dâu Tây', 'img/product_img/tiramisu-dau-tay.png', '', 185000, 'Bánh Tiramisu được tạo nên bởi những lớp bánh quy xếp chồng lên nhau thành các lớp xen kẽ với các lớp kem, trứng, phô mai. Tạo nên hương vị vô cùng đặc biệt cho tiramisu. \r\n\r\nLớp bột cà phê, bột cacao hoặc các lớp cao cao chảy được phủ bên ngoài bánh trông vô cùng bắt mắt. Để tạo hương vị mới lạ, thợ làm bánh cũng có thể thay thế hoặc bổ sung một số nguyên liệu khác.'),
 (21, 4, 'Bánh Mousse Chanh Dây', 'img/product_img/banh-mousse-chanh-day.png', '', 290000, 'Bánh Mousse là sự kết hợp khéo léo giữa vị béo ngậy, man mát của kem tươi, cùng hương vị trái cây, trà xanh, chocolate,…tạo nên sự độc đáo của bánh.\r\n\r\nThành phần cơ bản của Mousse là một lớp bánh gato mỏng phía bên dưới bánh. Phần bánh được trộn cùng với những nguyên liệu như: Chocolate, Caramel, chanh leo, cam, phô mai nướng…\r\n\r\nChiếc bánh Mousse có ưu điểm là dễ làm, nhanh gọn và không cần sử dụng đến lò nướng. Nó được xem là lựa chọn hàng đầu cho những người mới làm bánh hay chưa thạo làm bánh sinh nhật. '),
 (22, 4, 'Bánh Nhung Đỏ', 'img/product_img/banh-nhung-do.png', '', 230000, 'Bánh Nhung Đỏ là loại bánh có phần bánh gato màu đỏ tươi, đỏ sậm hoặc đỏ vừa, xen kẽ là lớp kem trắng muốt và phủ bên trên khắp bánh là phần vụn bánh màu đỏ. Bánh có màu đỏ đặc trưng và nổi bật giữa các loại bánh khác.'),
-(23, 2, 'Hoa Hồng Vàng', 'img/product_img/hoa-hong-vang.png', '', 263000, 'Hoa Hồng Vàng biểu tượng cho tình bạn và niềm vui. Chúng tươi sáng, vui vẻ và khiến bạn muốn mỉm cười, chúng cũng mang một vẻ đẹp thanh lịch, tinh tế.'),
+(23, 2, 'Hoa Hồng Vàng', 'img/product_img/hoa-hong-vang.png', '', 270000, 'Hoa Hồng Vàng biểu tượng cho tình bạn và niềm vui. Chúng tươi sáng, vui vẻ và khiến bạn muốn mỉm cười, chúng cũng mang một vẻ đẹp thanh lịch, tinh tế.'),
 (24, 2, 'Hoa Lưu Ly', 'img/product_img/hoa-luu-ly.png', '', 230000, 'Hoa Lưu Ly hay còn gọi là hoa “Forget me not”, mang ý nghĩa “Xin đừng quên tôi.”'),
 (25, 3, 'Hoa Tường Vi Hồng', 'img/product_img/hoa-tuong-vi-hong.png', '', 290000, 'Hoa Tường Vi Hồng mang nghĩa “Anh yêu em mãi mãi”.'),
 (26, 3, 'Hoa Mẫu Đơn', 'img/product_img/hoa-mau-don.png', '', 300000, 'Hoa Mẫu Đơn mang ý nghĩa một tình yêu bất diệt, trường tồn với thời gian.'),
 (27, 3, 'Hoa Violet', 'img/product_img/hoa-violet.png', '', 460000, 'Hoa Violet mang ý nghĩa của sự khiêm tốn, sự yếu đuối và tình yêu thầm kín. Nó thể hiện sự tinh tế và sự nhạy cảm.'),
 (28, 5, 'Hoa Mai', 'img/product_img/hoa-mai.png', '', 400000, 'Hoa Mai là loài hoa mang lại sự may mắn, thịnh vượng, hạnh phúc trong suốt 1 năm.'),
-(29, 5, 'Hoa Đào', 'img/product_img/hoa-dao.png', '', 400000, 'Hoa Đào trưng bày trong nhà có thể xua đuổi tà ma, mang đến nguồn sinh khí ấm áp, màu hồng hạnh phúc, tình cảm gia đình khắng khít trong năm mới.'),
+(29, 5, 'Hoa Đào', 'img/product_img/hoa-dao.png', '', 420000, 'Hoa Đào trưng bày trong nhà có thể xua đuổi tà ma, mang đến nguồn sinh khí ấm áp, màu hồng hạnh phúc, tình cảm gia đình khắng khít trong năm mới.'),
 (30, 5, 'Hoa Thuỷ Tiên', 'img/product_img/hoa-thuy-tien.png', '', 350000, 'Hoa Thuỷ Tiên là biểu tượng của sự giàu có, thịnh vượng, may mắn và hạnh phúc'),
 (33, 4, 'Cheesecake Trái cây', 'img/product_img/cheesecake-trai-cay.png', '', 300000, 'Cheesecake Trái Cây là bánh được làm từ creamcheese và whipping cream. Bánh cheesecake khác với các loại bánh khác ở chỗ là bánh này là thuộc dòng bánh lạnh. Còn các bánh khác thì đòi hỏi phải có lò nướng.'),
 (34, 4, 'Bánh Flan Gato', 'img/product_img/banh-flan-gato.png', '', 150000, 'Bánh Flan Gato vô cùng khác biệt và có sự phức tạp nhất định nhờ vào sự kết hợp giữa flan và gato. Nhìn qua tưởng chừng rất khó nhưng cách làm thì đơn giản vô cùng. Bánh gồm 2 lớp, dưới cùng là lớp gato thường là vị sô-cô-la hoặc là vị va-ni. Bên trên là lớp bánh flan béo ngậy và trên cùng là một lớp đường caramel.'),
@@ -406,7 +408,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `product`
