@@ -1,56 +1,64 @@
+.snippet{
+    background-color: antiquewhite!important;
+}
+
 .shop-name:hover {
-  background-color: antiquewhite;
-  color: orange;
+    background-color: antiquewhite;
+    color: orange;
 }
 
 .shop-name > a {
-  color: orange;
-  font-weight: bold;
-  text-decoration: none;
+    color: orange;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .shop-name > a:hover {
-  color: orange;
-  text-decoration: none;
+    color: orange;
+    text-decoration: none;
 }
 
 .col-xs-12 {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .col-xs-6 {
-  margin-top: 20px;
+    margin-top: 20px;
+}
+
+.col-xs-4 {
+    margin-top: 20px;
 }
 
 .return {
-  margin-top: 20px;
-  width: 180px;
-  border-radius: 10px;
-  background-color: antiquewhite;
-  color: black;
-  font-size: 18px;
+    margin-top: 20px;
+    width: 180px;
+    border-radius: 10px;
+    background-color: orange;
+    color: black;
+    font-size: 18px;
 }
 
 .return:hover {
-  background-color: orange;
+    background-color: white;
 }
 
 .return > a {
-  color: black;
+    color: black;
 }
 
 .return > a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a.cart {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 a.cart:hover {
-  text-decoration: none;
-  color: orange;
+    text-decoration: none;
+    color: orange;
 }
 
 .row {
@@ -64,4 +72,8 @@ a.cart:hover {
 
 .tab-pane > input {
     font-size: 20px;
+}
+
+.setup {
+    font-size: 18px!important;
 }
