@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2023 at 12:47 PM
+-- Generation Time: Nov 28, 2023 at 02:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -329,7 +329,7 @@ INSERT INTO `user` (`id`, `full_name`, `year_of_birth`, `gender`, `email`, `pass
 (23, 'Đặng Ngọc Hưng', 2001, 'male', 'Hungdn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '71 Bùi Thị Xuân, huyện Tây Sơn, Bình Định', '02567308668', 'activate', '2023-10-30 11:21:26', NULL),
 (24, 'Lâm Mỹ Linh', 1996, 'female', 'Linhlm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '94 Mai Xuân Thưởng, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-15 11:21:26', NULL),
 (25, 'Lê Thị Chí Thương', 1998, 'female', 'Thuongltc@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '85/24 hoàng văn thụ, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-12 11:21:26', NULL),
-(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendkgmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', '02567308668', 'activate', '2023-10-09 11:21:26', NULL),
+(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendk@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', '02567308668', 'activate', '2023-10-09 11:21:26', NULL),
 (27, 'Vũ Việt Thắng', 1991, 'male', 'Thangvt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '333 Quang Trung, huyện Phù Cát, Bình Định', '02567308668', 'deactivate', '2023-09-13 11:20:34', '2023-11-15 11:20:51'),
 (28, 'Vũ Văn Dũng', 2000, 'male', 'Dungvv@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '57A Nguyễn Huệ, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-07 11:20:01', NULL),
 (29, 'Phạm Đức Nghĩa', 2003, 'male', 'Nghiapd@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '114B 31 tháng 3, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-05 11:21:26', NULL),
