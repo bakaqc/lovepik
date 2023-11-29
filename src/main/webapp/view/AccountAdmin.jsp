@@ -6,7 +6,7 @@
 <html>
     <head>
         <title>Quản trị Admin</title>
-        <meta charset="utf-8">
+       <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Main CSS-->
@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css">
     </head>
     <body onload="time()" class="app sidebar-mini rtl">
         <jsp:include page="navbaradmin.jsp"/>
@@ -36,14 +35,20 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
-                           <div class="row element-button">
-                                    <div class="col-sm-2">
-                                        <a class="btn btn-add btn-sm" href="#" title="Thêm"><i class="fas fa-plus"></i>
-                                            Tạo mới tài khoản
-                                        </a>
-                                    </div>
+                            <div class="row element-button">
+                                <div class="col-sm-2">
+                                    <a class="btn btn-add btn-sm" href="#" title="Thêm" data-toggle="modal" data-target="#ModalAdd"><i class="fas fa-plus"></i>
+                                        Tạo mới tài khoản
+                                    </a>
                                 </div>
-                           
+                            </div>
+                            <form action="${pageContext.request.contextPath}/admin/list-account">
+                                <select name="status" id="custom-select-filter-1" onchange="this.form.submit()">
+                                    <option value="0">Please select status</option>
+                                    <option value="1" ${requestScope.status == 1 ? 'selected' : ''}>Hoạt Động</option>
+                                    <option value="2" ${requestScope.status == 2 ? 'selected' : ''}>Không Hoạt Động</option>
+                                </select>
+                            </form>
                             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
                                    id="sampleTable">
                                 <thead>
@@ -56,30 +61,29 @@
                                         <th>Giới tính</th>
                                         <th>Email</th>
                                         <th>Trạng Thái</th>
-                                             <th width="100">Tính năng</th>
-                                         </tr>
+                                        <th width="100">Tính năng</th>
+
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${requestScope.users}" var="item">
                                         <tr>
                                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
-                                            <td>#${item.id}</td>
+                                            <td name="id">#${item.id}</td>
                                             <td>${item.getFullName()}</td>
                                             <td>${item.getAddress()}</td>
                                             <td>${item.getYearOfBirth()}</td>
                                             <td>${item.gender.toString() == 'male' ? 'Nam' : 'Nữ'}</td>
                                             <td>${item.email}</td>
                                             <td>${item.status.toString() == 'activate' ? 'Hoạt Động' : 'Không Hoạt Động'}</td>
-                                          
-                                                <td class="table-td-center">
-                                                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                                            onclick="deleteUser(${item.id})"><i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
-                                                            data-toggle="modal" data-target="#ModalUP${item.id}"><i class="fas fa-edit"></i>
-                                                    </button>
-                                                </td>
-                                           
+                                            <td class="table-td-center">
+                                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                                        onclick="deleteUser(${item.id})"><i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                                                        data-toggle="modal" data-target="#ModalUP${item.id}"><i class="fas fa-edit"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     <div class="modal fade" id="ModalUP${item.id}"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
                                          data-keyboard="false">
@@ -129,13 +133,13 @@
                                                                 <label class="control-label">Trạng thái</label>
                                                                 <div class="row">
                                                                     <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="active" ${item.status.toString() == 'activate' ? 'checked' : ''}>
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate" ${item.status.toString() == 'activate' ? 'checked' : ''}>
                                                                         <label class="form-check-label" for="gridRadios1">
                                                                             Hoạt Động
                                                                         </label>
                                                                     </div>
                                                                     <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactive" ${item.status.toString() == 'deactivate' ? 'checked' : ''}>
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactivate" ${item.status.toString() == 'deactivate' ? 'checked' : ''}>
                                                                         <label class="form-check-label" for="gridRadios2">
                                                                             Không Hoạt Động
                                                                         </label>
@@ -160,7 +164,7 @@
                                     </div>
                                 </c:forEach>
                                 </tbody>
-                                <div class="modal fade" id="ModalUP${item.id}"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                                <div class="modal fade" id="ModalAdd"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
                                      data-keyboard="false">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -187,6 +191,10 @@
                                                             <input class="form-control" type="number" name="year" required min="1900" max="2023">
                                                         </div>
                                                         <div class="form-group col-md-6">
+                                                            <label class="control-label">Phone</label>
+                                                            <input class="form-control" type="text" name="phone" required >
+                                                        </div>
+                                                        <div class="form-group col-md-6">
                                                             <label class="control-label">Địa chỉ email</label>
                                                             <input class="form-control" type="email" name="email" required >
                                                         </div>
@@ -211,7 +219,7 @@
                                                             <label class="control-label">Trạng thái</label>
                                                             <div class="row">
                                                                 <div class="form-check col-sm-6">
-                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="active">
+                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate">
                                                                     <label class="form-check-label" for="gridRadios1">
                                                                         Hoạt Động
                                                                     </label>
@@ -257,7 +265,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <!-- Data table plugin-->
         <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="..  /js/plugins/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script type="text/javascript">$('#sampleTable').DataTable();</script>
         <script>
@@ -276,7 +284,7 @@
                 swal({
                     title: "Cảnh báo",
                     text: "Bạn có chắc chắn là muốn xóa tài khoản này?",
-                    buttons: ["Hủy bỏ", "Đồng ý"],
+                    buttons: ["Hủy bỏ", "Đồng ý"]
                 }).then((willDelete) => {
                     if (willDelete) {
                         $.ajax({
@@ -287,8 +295,8 @@
                             },
                             success: function (data, textStatus, jqXHR) {
                                 swal("Đã xóa thành công.!", {
-                                    window.reload();
                                 });
+                                location.reload();
                             }
                         })
                     }

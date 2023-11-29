@@ -182,7 +182,7 @@ public class ProductDAO implements DAO<Product> {
             smt.setInt(1, ob.getCategoryID());
             smt.setString(2, ob.getName());
             smt.setString(3, ob.getBanners());
-            smt.setString(4, Convert.toJson(ob.getThumb()));
+            smt.setString(4, ob.getThumb() != null ? Convert.toJson(ob.getThumb()) : "");
             smt.setInt(5, ob.getPrice());
             smt.setString(6, ob.getDetail());
 
@@ -203,7 +203,7 @@ public class ProductDAO implements DAO<Product> {
             smt.setInt(1, ob.getCategoryID());
             smt.setString(2, ob.getName());
             smt.setString(3, ob.getBanners());
-            smt.setString(4, Convert.toJson(ob.getThumb()));
+            smt.setString(4, ob.getThumb() != null ? Convert.toJson(ob.getThumb()) : "");
             smt.setInt(5, ob.getPrice());
             smt.setString(6, ob.getDetail());
             smt.setInt(7, ob.getId());

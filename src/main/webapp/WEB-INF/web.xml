@@ -84,6 +84,18 @@
         <servlet-name>CreateProductController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.CreateProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminListController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.AdminListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.AdminDeleteController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateAccountAdminController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.CreateAccountAdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -159,6 +171,18 @@
     <servlet-mapping>
         <servlet-name>CreateProductController</servlet-name>
         <url-pattern>/admin/create-product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminListController</servlet-name>
+        <url-pattern>/admin/list-admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteController</servlet-name>
+        <url-pattern>/admin/deleteAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAccountAdminController</servlet-name>
+        <url-pattern>/admin/createAccountAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
