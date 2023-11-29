@@ -328,7 +328,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-12">
                                         <label for="email">
                                             <h4>Email</h4>
                                         </label>
@@ -340,7 +340,7 @@
                                 <div id="error-message" class="text-danger err">${errEmail}</div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-12">
                                         <label for="mobile">
                                             <h4>Số Điện Thoại</h4>
                                         </label>
@@ -379,12 +379,12 @@
                                         </button>
                                     </div>
 
-<!--                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
+                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
                                         <br />
                                         <button class="btn btn-lg btn-cancel col-xs-12" type="button">
                                             <i class=""></i> Hủy thay đổi
                                         </button>
-                                    </div>-->
+                                    </div>
 
                                 </div>   
 
