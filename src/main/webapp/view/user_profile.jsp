@@ -83,7 +83,11 @@
                         </li>
 
                         <li>
-                            <a data-toggle="tab" href="#change">Chỉnh sửa thông tin</a>
+                            <a data-toggle="tab" href="#changeInfo">Chỉnh sửa thông tin</a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#changePass">Đổi mật khẩu</a>
                         </li>
                     </ul>
 
@@ -152,10 +156,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-4 align-items-center"  style="margin-bottom: 40px;">
+                                    <div class="col-xs-6 align-items-center"  style="margin-bottom: 30px;">
                                         <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('change')" type="button">
+                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('changeInfo')" type="button">
                                             Chỉnh sửa thông tin
+                                        </button>
+                                    </div>
+
+                                    <div class="col-xs-6 align-items-center"  style="margin-bottom: 30px;">
+                                        <br />
+                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('changePass')" type="button">
+                                            Đổi mật khẩu
                                         </button>
                                     </div>
                                 </div>   
@@ -191,7 +202,7 @@
                                                             </tr>
                                                         </thead>
 
-                                                        <c:forEach items="${listBuy}" var="b">
+                                                        <c:forEach items="${listHB}" var="b">
                                                             <tbody>
                                                                 <tr>
                                                                     <td class="align-middle text-center">
@@ -229,7 +240,18 @@
                                                                     </td>
 
                                                                     <td class="text-center" style="vertical-align: middle;">
-                                                                        <span>${b.statusP}</span>
+                                                                        <c:if test="${b.statusP.toString() == 'processing'}">
+                                                                            <span class="badge bg-info">Chờ xử lý</span>
+                                                                        </c:if>
+                                                                        <c:if test="${b.statusP.toString() == 'shipping'}">
+                                                                            <span class="badge bg-warning">Đang vận chuyển</span>
+                                                                        </c:if>
+                                                                        <c:if test="${b.statusP.toString() == 'done'}">
+                                                                            <span class="badge bg-success">Đã hoàn thành</span>
+                                                                        </c:if>
+                                                                        <c:if test="${b.statusP.toString() == 'canceled'}">
+                                                                            <span class="badge bg-danger">Đã hủy</span>
+                                                                        </c:if>
                                                                     </td>
 
                                                                     <td class="text-center" style="vertical-align: middle;">
@@ -245,14 +267,10 @@
                                                     </table>
 
                                                 </div>
-                                                <div class="d-flex justify-content-center" style="align-items: center;">
-                                                    <ul class="pagination mt-3 mb-0">
-
-                                                        <li class="active page-item">
-                                                            <a href="#" class="page-link">1</a>
-                                                        </li>
-
-                                                    </ul>
+                                                <div class="d-flex justify-content-center pag" style="align-items: center;">
+                                                    <c:forEach begin="1" end="${endP}" var="i">
+                                                        <a class="page-item ${index == i ? "active": ""}" href="${pageContext.request.contextPath}/profile?index=${i}">${i}</a>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                         </div>
@@ -262,16 +280,16 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane" id="change">
+                        <div class="tab-pane" id="changeInfo">
 
-                            <form class="form" action="" method="post" id="registrationForm">
+                            <form class="form" action="profile" method="post" id="changeInfoForm">                                     
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <label for="first_name">
                                             <h4>Họ và Tên</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="first_name" id="first_name" value="${sessionScope.user.fullName}"  style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="fullName" id="fullName" value="${sessionScope.user.fullName}"  style="font-size: 18px;" required/>
                                     </div>
                                 </div>
 
@@ -281,7 +299,7 @@
                                             <h4>Năm Sinh</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.yearOfBirth}" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="yearOfBirth" id="yearOfBirth" value="${sessionScope.user.yearOfBirth}" style="font-size: 18px;" required/>
                                     </div>
                                 </div>
 
@@ -290,13 +308,22 @@
                                         <label for="phone">
                                             <h4>Giới Tính</h4>
                                         </label>
-                                                                                
-                                        <select name="gender" class="form-control form-select" aria-label=".form-select-lg example" style="font-size: 18px;">
-                                            <option value="male">Nam</option>
-                                            <option value="female">Nữ</option>
-                                        </select>
-                                        
-                                        <!--<input type="text" class="form-control" name="phone" id="phone" value="${sessionScope.user.gender.toString() == 'male' ? 'Nam' : 'Nữ'}" style="font-size: 18px;"/>-->
+
+                                        <div class="row" style="margin-top: 0;">                                                             
+                                            <div class="form-check col-sm-2">
+                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" ${sessionScope.user.gender.toString() == 'male' ? 'checked' : ''}>
+                                                <label class="form-check-label" for="gridRadios1">
+                                                    Nam
+                                                </label>
+                                            </div>
+                                            <div class="form-check col-sm-2">
+                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" ${sessionScope.user.gender.toString() == 'female' ? 'checked' : ''}>
+                                                <label class="form-check-label" for="gridRadios2">
+                                                    Nữ
+                                                </label>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -306,16 +333,19 @@
                                             <h4>Email</h4>
                                         </label>
 
-                                        <input type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}" style="font-size: 18px;"/>
+                                        <input disabled type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}" style="font-size: 18px;" required/>
                                     </div>
                                 </div>
+
+                                <div id="error-message" class="text-danger err">${errEmail}</div>
+
                                 <div class="form-group">
                                     <div class="col-xs-6">
                                         <label for="mobile">
                                             <h4>Số Điện Thoại</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.phone_number}" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="${sessionScope.user.phone_number}" style="font-size: 18px;" required/>
                                     </div>
                                 </div>
 
@@ -325,45 +355,89 @@
                                             <h4>Địa chỉ</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="${sessionScope.user.address}" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="address" id="address" value="${sessionScope.user.address}" style="font-size: 18px;" required/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12">
+                                        <label for="mobile">
+                                            <h4>Xác nhận Mật khẩu</h4>
+                                        </label>
+
+                                        <input type="password" class="form-control" name="password" id="password" value="" style="font-size: 18px;"/>
+                                    </div>
+                                </div>
+
+                                <div id="error-message" class="text-danger err">${errPass}</div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
+                                        <br />
+                                        <button class="btn btn-lg btn-success col-xs-12" type="submit">
+                                            <i class=""></i> Lưu thay đổi
+                                        </button>
+                                    </div>
+
+<!--                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
+                                        <br />
+                                        <button class="btn btn-lg btn-cancel col-xs-12" type="button">
+                                            <i class=""></i> Hủy thay đổi
+                                        </button>
+                                    </div>-->
+
+                                </div>   
+
+                            </form>
+
+                        </div>
+
+                        <div class="tab-pane" id="changePass">
+
+                            <form class="form" action="" method="post" id="registrationForm">                                     
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
                                         <label for="mobile">
                                             <h4>Mật khẩu cũ</h4>
                                         </label>
 
-                                        <input type="password" class="form-control" name="mobile" id="mobile" value="" style="font-size: 18px;"/>
+                                        <input type="password" class="form-control" name="password" id="password" value="" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12">
                                         <label for="mobile">
                                             <h4>Mật khẩu mới</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="newPassword" id="newPassword" value="" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12">
                                         <label for="mobile">
                                             <h4>Nhập lại Mật khẩu mới</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="mobile" id="mobile" value="" style="font-size: 18px;"/>
+                                        <input type="text" class="form-control" name="rePassword" id="rePassword" value="" style="font-size: 18px;"/>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <div class="col-xs-4"  style="margin-bottom: 40px;">
+                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
                                         <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" type="submit">
+                                        <button class="btn btn-lg btn-success col-xs-12" type="button">
                                             <i class=""></i> Lưu thay đổi
+                                        </button>
+                                    </div>
+
+                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
+                                        <br />
+                                        <button class="btn btn-lg btn-cancel col-xs-12" type="button">
+                                            <i class=""></i> Hủy thay đổi
                                         </button>
                                     </div>
 

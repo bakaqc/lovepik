@@ -358,7 +358,7 @@ public class ProductDAO implements DAO<Product> {
 
             PreparedStatement st = c.prepareStatement("SELECT * FROM product ORDER BY id LIMIT ? OFFSET ?");
             st.setInt(1, limit);
-            st.setInt(2, (offset - 1) * 12);
+            st.setInt(2, (offset - 1) * limit);
 
             ResultSet rs = st.executeQuery();
 
