@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class JDBC {
 
-    private static String DBURL = "jdbc:mysql://localhost:3333/flower_shop";
+    private static String DBURL = "jdbc:mysql://localhost:3306/flower_shop";
     private static String USERNAME = "root";
     private static String PASSWORD = "";
 
