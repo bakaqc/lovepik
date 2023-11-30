@@ -192,6 +192,23 @@ public class UserDAO implements DAO<User> {
         }
     }
 
+    public void changePass(int id, String newPassword) {
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("UPDATE `user` SET `password` = ? WHERE `user`.`id` = ?");
+            smt.setString(1, newPassword);
+            smt.setInt(2, id);
+
+            smt.executeUpdate();
+
+            JDBC.closeConnection(conn);
+
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
     public static void main(String[] args) {
 //        getInstance().selectById("4");
 

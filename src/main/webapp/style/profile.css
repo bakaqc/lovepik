@@ -39,6 +39,16 @@
     font-size: 18px;
 }
 
+.nav-tabs > li.active {
+    font-weight: bold;
+}
+
+.btn-cancel{
+    color: white;
+    background-color: #FF3333;
+    border-color: #FF3333;
+}
+
 .return:hover {
     background-color: white;
 }
@@ -76,4 +86,104 @@ a.cart:hover {
 
 .setup {
     font-size: 18px!important;
+}
+
+.pag{
+    display: flex;
+    justify-content: center;
+    word-spacing: 20px;
+    margin-bottom: 30px
+
+}
+
+.pag a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+
+}
+
+.pag a.page-item:hover{
+    background-color: #EEEEEE;
+    width: 45px;
+}
+
+.pag a.page-item.active{
+    font-weight: bold;
+    color: black;
+    background-color: orange;
+    width: 45px;
+}
+
+.bg-success {
+    font-size: 18px;
+    background-color: #bfefc4 !important;
+    color: black !important;
+}
+
+a.bg-success:hover, a.bg-success:focus,
+button.bg-success:hover,
+button.bg-success:focus {
+    background-color: #1e7e34 !important;
+}
+
+.bg-info {
+    font-size: 18px;
+    background-color: #b6bef5 !important;
+    color: black !important;
+}
+
+a.bg-info:hover, a.bg-info:focus,
+button.bg-info:hover,
+button.bg-info:focus {
+    background-color: #117a8b !important;
+}
+
+.bg-warning {
+    font-size: 18px;
+    background-color: #f2f98a !important;
+    color: black !important;
+}
+
+a.bg-warning:hover, a.bg-warning:focus,
+button.bg-warning:hover,
+button.bg-warning:focus {
+    background-color: #d39e00 !important;
+}
+
+.bg-danger {
+    font-size: 18px;
+    background-color: #f9c9cd !important;
+    color: black !important;
+}
+
+a.bg-danger:hover, a.bg-danger:focus,
+button.bg-danger:hover,
+button.bg-danger:focus {
+    background-color: #bd2130 !important;
+}
+
+.text-danger{
+    color: red!important;
+}
+
+.err {
+    margin-top: 15px!important;
+    /*margin-left: 15px!important;*/
+    font-size: 18px!important;
+}
+
+.save {
+    margin: 0;
+}
+
+.can {
+    margin: 0;
+}
+
+.row {
+    margin-top: 0;
 }

@@ -35,7 +35,7 @@ public class ViewAllController extends HttpServlet {
         List<Product> listP = ProductDAO.getInstance().pagingProduct(limit, offset);
 
         int count = ProductDAO.getInstance().countProduct();
-        int endP = count / 12;
+        int endP = count / limit;
         if (count % 12 != 0) {
             endP++;
         }

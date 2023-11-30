@@ -174,29 +174,29 @@ a.buy {
 .paging{
     display: flex;
     justify-content: center;
-    word-spacing: 20px;
+    word-spacing: 30px;
 
 }
 
 .paging a{
-    font-size: 25px;
+    font-size: 20px;
     text-decoration: none;
     color: black;
+    border-radius: 5px;
     padding: 8px 16px;
     transition: background-color 0.3s;
 }
 
 .paging a.page-item:hover{
-    color: orange;
     background-color: #EEEEEE;
-    width: 50px;
+    width: 45px;
 }
 
 .paging a.page-item.active{
     font-weight: bold;
-    color: orange;
-    background-color: antiquewhite;
-    width: 50px;
+    color: black;
+    background-color: orange;
+    width: 45px;
 }
 
 h3{

@@ -104,7 +104,8 @@ public class HistoryBuy {
 
     @Override
     public String toString() {
-        return "HistoryBuy{" + "userID=" + userID + ", bannersP=" + bannersP + ", nameP=" + nameP + ", amountP=" + amountP + ", totalPriceP=" + totalPriceP + ", paymentP=" + paymentP + ", statusP=" + statusP + ", createAtP=" + createAtP + '}';
+        return "HistoryBuy{" + "userID=" + userID + ", bannersP=" + bannersP + ", nameP=" + nameP + ", amountP=" + amountP 
+                + ", totalPriceP=" + totalPriceP + ", paymentP=" + paymentP + ", statusP=" + statusP + ", createAtP=" + createAtP + "\n" + '}' ;
     }
        
     
