@@ -165,3 +165,25 @@ button.bg-danger:hover,
 button.bg-danger:focus {
     background-color: #bd2130 !important;
 }
+
+.text-danger{
+    color: red!important;
+}
+
+.err {
+    margin-top: 15px!important;
+    /*margin-left: 15px!important;*/
+    font-size: 18px!important;
+}
+
+.save {
+    margin: 0;
+}
+
+.can {
+    margin: 0;
+}
+
+.row {
+    margin-top: 0;
+}

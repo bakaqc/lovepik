@@ -52,6 +52,14 @@
         <servlet-name>UserProfileController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.ProfileController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProfileController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.EditProfileController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.ChangePassController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -95,6 +103,14 @@
     <servlet-mapping>
         <servlet-name>UserProfileController</servlet-name>
         <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileController</servlet-name>
+        <url-pattern>/profile/edit_profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassController</servlet-name>
+        <url-pattern>/profile/change_pass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

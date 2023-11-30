@@ -18,7 +18,7 @@
         <div class="container bootstrap snippet" style="width: 1500px;">
             <div class="row">
                 <div class="col-sm-8 acc" style="padding-left: 20px;">
-                    <h2 style="font-weight: bold;">${sessionScope.user.fullName}</h2>
+                    <h2 style="font-weight: bold;">Khách hàng: ${sessionScope.user.fullName}</h2>
                 </div>
 
                 <div class="col-sm-2">
@@ -34,6 +34,9 @@
                 </div>
 
             </div>
+            <br>
+            <br>
+            <br>
             <div class="row infor">
                 <div class="col-sm-2">
                     <div class="panel panel-default">
@@ -82,19 +85,14 @@
                             <a data-toggle="tab" href="#history">Lịch sử mua hàng</a>
                         </li>
 
-                        <li>
-                            <a data-toggle="tab" href="#changeInfo">Chỉnh sửa thông tin</a>
-                        </li>
-
-                        <li>
-                            <a data-toggle="tab" href="#changePass">Đổi mật khẩu</a>
-                        </li>
                     </ul>
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="home">
 
                             <form class="form" action="" method="post" id="registrationForm">
+                                <h3 style="color: green; text-align: center;">${success}</h3>
+
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <label for="first_name">
@@ -158,16 +156,23 @@
                                 <div class="form-group">
                                     <div class="col-xs-6 align-items-center"  style="margin-bottom: 30px;">
                                         <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('changeInfo')" type="button">
-                                            Chỉnh sửa thông tin
-                                        </button>
+                                        <a href="${pageContext.request.contextPath}/profile/edit_profile"> 
+                                            <button class="btn btn-lg btn-success col-xs-12" type="button">
+
+                                                Chỉnh sửa thông tin
+
+                                            </button>
+                                        </a>
                                     </div>
 
                                     <div class="col-xs-6 align-items-center"  style="margin-bottom: 30px;">
                                         <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" onclick="activateTab('changePass')" type="button">
-                                            Đổi mật khẩu
-                                        </button>
+                                        <a href="${pageContext.request.contextPath}/profile/change_pass"> 
+                                            <button class="btn btn-lg btn-success col-xs-12" type="button">
+                                                Đổi mật khẩu
+                                            </button>
+                                        </a>
+
                                     </div>
                                 </div>   
 
@@ -278,173 +283,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="tab-pane" id="changeInfo">
-
-                            <form class="form" action="profile" method="post" id="changeInfoForm">                                     
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="first_name">
-                                            <h4>Họ và Tên</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="fullName" id="fullName" value="${sessionScope.user.fullName}"  style="font-size: 18px;" required/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="phone">
-                                            <h4>Năm Sinh</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="yearOfBirth" id="yearOfBirth" value="${sessionScope.user.yearOfBirth}" style="font-size: 18px;" required/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6">
-                                        <label for="phone">
-                                            <h4>Giới Tính</h4>
-                                        </label>
-
-                                        <div class="row" style="margin-top: 0;">                                                             
-                                            <div class="form-check col-sm-2">
-                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" ${sessionScope.user.gender.toString() == 'male' ? 'checked' : ''}>
-                                                <label class="form-check-label" for="gridRadios1">
-                                                    Nam
-                                                </label>
-                                            </div>
-                                            <div class="form-check col-sm-2">
-                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" ${sessionScope.user.gender.toString() == 'female' ? 'checked' : ''}>
-                                                <label class="form-check-label" for="gridRadios2">
-                                                    Nữ
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="email">
-                                            <h4>Email</h4>
-                                        </label>
-
-                                        <input disabled type="email" class="form-control" name="email" id="email" value="${sessionScope.user.email}" style="font-size: 18px;" required/>
-                                    </div>
-                                </div>
-
-                                <div id="error-message" class="text-danger err">${errEmail}</div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Số Điện Thoại</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" value="${sessionScope.user.phone_number}" style="font-size: 18px;" required/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Địa chỉ</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="address" id="address" value="${sessionScope.user.address}" style="font-size: 18px;" required/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Xác nhận Mật khẩu</h4>
-                                        </label>
-
-                                        <input type="password" class="form-control" name="password" id="password" value="" style="font-size: 18px;"/>
-                                    </div>
-                                </div>
-
-                                <div id="error-message" class="text-danger err">${errPass}</div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
-                                        <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" type="submit">
-                                            <i class=""></i> Lưu thay đổi
-                                        </button>
-                                    </div>
-
-                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
-                                        <br />
-                                        <button class="btn btn-lg btn-cancel col-xs-12" type="button">
-                                            <i class=""></i> Hủy thay đổi
-                                        </button>
-                                    </div>
-
-                                </div>   
-
-                            </form>
-
-                        </div>
-
-                        <div class="tab-pane" id="changePass">
-
-                            <form class="form" action="" method="post" id="registrationForm">                                     
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Mật khẩu cũ</h4>
-                                        </label>
-
-                                        <input type="password" class="form-control" name="password" id="password" value="" style="font-size: 18px;"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Mật khẩu mới</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="newPassword" id="newPassword" value="" style="font-size: 18px;"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-12">
-                                        <label for="mobile">
-                                            <h4>Nhập lại Mật khẩu mới</h4>
-                                        </label>
-
-                                        <input type="text" class="form-control" name="rePassword" id="rePassword" value="" style="font-size: 18px;"/>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
-                                        <br />
-                                        <button class="btn btn-lg btn-success col-xs-12" type="button">
-                                            <i class=""></i> Lưu thay đổi
-                                        </button>
-                                    </div>
-
-                                    <div class="col-xs-6"  style="margin-bottom: 30px;">
-                                        <br />
-                                        <button class="btn btn-lg btn-cancel col-xs-12" type="button">
-                                            <i class=""></i> Hủy thay đổi
-                                        </button>
-                                    </div>
-
-                                </div>   
-
-                            </form>
-
                         </div>
 
                     </div>

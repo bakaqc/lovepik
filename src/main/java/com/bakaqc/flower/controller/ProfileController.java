@@ -57,41 +57,6 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
 
-        HttpSession session = request.getSession();
-        User us = (User) session.getAttribute("user");
-
-        String newName = request.getParameter("fullName");
-        int newYearOfBirth = Integer.parseInt(request.getParameter("newYearOfBirth"));
-        String newGender = request.getParameter("gender");
-        String newPhoneNumber = request.getParameter("phoneNumber");
-        String newAddress = request.getParameter("address");
-        String conPassword = Hash.hashCode(request.getParameter("password"));
-
-        if (conPassword == null) {
-            String errPass = "Vui lòng xác nhận mật khẩu để thay đổi thông tin";
-            request.setAttribute("errPass", errPass);
-
-            request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
-        } else {
-            if (conPassword.equals(us.getPassword())) {
-                us.setFullName(newName);
-                us.setYearOfBirth(newYearOfBirth);
-                us.setGender(UserGender.create(newGender));
-                us.setPhone_number(newPhoneNumber);
-                us.setAddress(newAddress);
-
-                UserDAO.getInstance().update(us);
-                response.sendRedirect("/view/user_profile.jsp");
-
-            } else {
-                String errPass = "Xác nhận mật khẩu không đúng! Vui lòng kiểm tra lại.";
-                request.setAttribute("errPass", errPass);
-
-                request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
-            }
-        }
     }
 }
