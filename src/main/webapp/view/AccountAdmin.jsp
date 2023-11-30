@@ -110,7 +110,7 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Địa chỉ email</label>
-                                                                <input class="form-control" type="email" name="email" required value="${item.email}">
+                                                                <input disabled class="form-control" type="email" name="email" required value="${item.email}">
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Giới tính</label>
