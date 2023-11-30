@@ -30,12 +30,10 @@ public class AdminLoginController extends HttpServlet {
         String password = request.getParameter("password");
 
         Admin ad = AdminDAO.getInstance().selectByUserName(username);
-
         if (ad != null && ad.getPassword().equals(Hash.hashCode(password))) {
             HttpSession session = request.getSession();
             session.setAttribute("user", ad);
             response.sendRedirect("admin");
-
             return;
         }
 

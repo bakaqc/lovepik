@@ -1,21 +1,26 @@
 package com.bakaqc.flower.controller;
 
-import com.bakaqc.flower.dao.ProductDAO;
+import com.bakaqc.flower.dao.AdminDAO;
+import com.bakaqc.flower.model.Admin;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteProductController extends HttpServlet {
+public class AdminListController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String id = request.getParameter("id");
-            ProductDAO.getInstance().delete(id);
+            AdminDAO adminDAO = new AdminDAO();
+            List<Admin> list = adminDAO.selectAll();
+            request.setAttribute("list", list);
+            request.getSession().setAttribute("isActive", 3);
+            request.getRequestDispatcher("/view/manageAdmin.jsp").forward(request, response);
         }
     }
 
@@ -34,5 +39,10 @@ public class DeleteProductController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

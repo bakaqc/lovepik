@@ -1,40 +1,44 @@
 package com.bakaqc.flower.controller;
 
-import com.bakaqc.flower.dao.CategoriesDAO;
-import com.bakaqc.flower.dao.ProductDAO;
-import com.bakaqc.flower.model.Categories;
-import com.bakaqc.flower.model.Product;
+import com.bakaqc.flower.dao.AdminDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminProductController extends HttpServlet {
+public class AdminDeleteController extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String id = request.getParameter("id");
+            AdminDAO adminDAO = new AdminDAO();
+            adminDAO.delete(id);
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        CategoriesDAO categoriesDAO = new CategoriesDAO();
-        List<Categories> categorieses = categoriesDAO.selectAll();
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = productDAO.selectAll();
-        request.setAttribute("categories", categorieses);
-        request.setAttribute("products", products);
-        request.getSession().setAttribute("isActive", 2);
-        request.getRequestDispatcher("/view/ProductAdmin.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-
     }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

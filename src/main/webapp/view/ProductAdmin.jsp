@@ -37,15 +37,13 @@
                 <div class="col-md-12">
                     <div class="tile">
                         <div class="tile-body">
-
                             <div class="row element-button">
                                 <div class="col-sm-2">
-                                    <a class="btn btn-add btn-sm" href="#" title="Thêm"><i class="fas fa-plus"></i>
+                                    <a class="btn btn-add btn-sm" href="#" title="Thêm" data-toggle="modal" data-target="#AddProduct"><i class="fas fa-plus"></i>
                                         Tạo mới sản phẩm
                                     </a>
                                 </div>
                             </div>
-
                             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
                                    id="sampleTable">
                                 <thead>
@@ -65,7 +63,7 @@
                                             <td width="10"><input type="checkbox" name="check1" value="1"></td>
                                             <td>#${item.id}</td>
                                             <td>${item.name}</td>
-                                            <td><img class="img-card-person" style="width: 50px" src="${item.banners}" alt=""></td>
+                                            <td><img class="img-card-person" style="width: 50px" src="<%=request.getContextPath()%>/${item.banners}" alt=""></td>
                                             <td>
                                                 <c:forEach items="${requestScope.categories}" var="temp">
                                                     <c:if test="${item.getCategoryId() == temp.id}">
@@ -82,7 +80,6 @@
                                                         data-toggle="modal" data-target="#EditProduct${item.id}"><i class="fas fa-edit"></i>
                                                 </button>
                                             </td>
-
                                         </tr>
                                     <div class="modal fade" id="EditProduct${item.id}"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
                                          data-keyboard="false">
@@ -117,7 +114,7 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Ảnh</label>
-                                                                <img src="<%=request.getContextPath()%>/${item.banners}" style="width: 60px" alt="alt" id="image${item.id}"/>
+                                                                <img src="<%=request.getContextPath()%>/img/product_img/${item.banners}" style="width: 60px" alt="alt" id="image${item.id}"/>
                                                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" onclick="preview(${item.id})">
                                                             </div>
                                                             <div class="form-group col-md-12">
@@ -138,7 +135,7 @@
                                     </div>
                                 </c:forEach>
                                 </tbody>
-                                <div class="modal fade" id="ModalUP${item.id}"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                                <div class="modal fade" id="AddProduct"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
                                      data-keyboard="false">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -170,7 +167,7 @@
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Ảnh</label>
-                                                            <img style="width: 60px" alt="alt" id="previewImage"/>
+                                                            <img src="<%=request.getContextPath()%>/img/product_img/${item.banners}" style="width: 60px" alt="alt" id="previewImage"/>
                                                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required="" onclick="previewImage()">
                                                         </div>
                                                         <div class="form-group col-md-12">
@@ -206,7 +203,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
         <!-- Data table plugin-->
         <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="..  /js/plugins/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script type="text/javascript">$('#sampleTable').DataTable();</script>
         <script>
@@ -236,8 +233,8 @@
                             },
                             success: function (data, textStatus, jqXHR) {
                                 swal("Đã xóa thành công.!", {
-                                    window.reload();
                                 });
+                                location.reload();
                             }
                         })
                     }

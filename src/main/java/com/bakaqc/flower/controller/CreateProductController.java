@@ -14,17 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 10,
         maxRequestSize = 1024 * 1024 * 11)
 public class CreateProductController extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             ProductDAO productDAO = new ProductDAO();
             Product product = new Product();
             String name = request.getParameter("name");
@@ -37,33 +36,33 @@ public class CreateProductController extends HttpServlet {
             product.setCategoryID(Integer.parseInt(categoryID));
             product.setPrice(Integer.parseInt(price));
             product.setDetail(detail);
+            product.setBanners(image);
             productDAO.insert(product);
             String url = request.getHeader("referer");
             response.sendRedirect(url);
         }
     }
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
     }
-
-    
-   
 
     public String uploadFile(HttpServletRequest request) throws IOException, ServletException {
         String fileName = "";
         int length = getServletContext().getRealPath("/").length();
-        String uploadPath = new StringBuilder(getServletContext().getRealPath("/")).delete(length - 10, length - 4).toString() + File.separator + "img";
+        String uploadPath = new StringBuilder(getServletContext().getRealPath("/")) + File.separator + "img";
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
