@@ -18,11 +18,6 @@
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex align-items-center">
-                        <a href="home" class="nav-link mx-2 hotline">
-                            Hotline: 1900 
-                        </a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
                         <ul class="navbar-nav">
                             <c:if test="${sessionScope.user != null}">
                                 <li class="nav-item d-flex align-items-center dropdown">
@@ -58,6 +53,9 @@
                                             <a class="dropdown-item" href="admin_login">Admin</a>
                                         </li>
                                     </ul>
+                                    <a href="register" class="nav-link mx-2 nav-link" style="color: black" aria-expanded="false">
+                                        Đăng kí
+                                    </a>   
                                 </li>
                             </c:if>
                         </ul>
@@ -89,4 +87,3 @@
         </div>
     </div>
 </nav>
-                            

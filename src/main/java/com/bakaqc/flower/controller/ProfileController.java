@@ -1,12 +1,8 @@
 package com.bakaqc.flower.controller;
 
 import com.bakaqc.flower.dao.DataOrderDAO;
-import com.bakaqc.flower.dao.OrderDAO;
-import com.bakaqc.flower.dao.UserDAO;
 import com.bakaqc.flower.model.HistoryBuy;
 import com.bakaqc.flower.model.User;
-import com.bakaqc.flower.model.option.UserGender;
-import com.bakaqc.flower.service.Hash;
 import java.io.*;
 import java.util.List;
 import javax.servlet.*;

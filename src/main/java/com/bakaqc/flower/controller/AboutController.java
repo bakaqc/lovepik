@@ -17,7 +17,6 @@ public class AboutController extends HttpServlet {
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
 
         request.setAttribute("listCAT", listCAT);
-
         request.getRequestDispatcher("/view/about.jsp").forward(request, response);
     }
 

@@ -5,7 +5,6 @@ import com.bakaqc.flower.model.User;
 import com.bakaqc.flower.model.option.UserGender;
 import com.bakaqc.flower.model.option.UserStatus;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +16,6 @@ public class UpdateAccountController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
-
     }
 
     @Override

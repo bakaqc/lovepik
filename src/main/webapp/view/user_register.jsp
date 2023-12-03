@@ -37,7 +37,7 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg">Năm Sinh</label>
-                                            <input name="yearOfBirth" type="number"  id="yearOfBirth" min="1900" max="2023" class="form-control form-control-lg" required value="${yearOfBirth}"/>
+                                            <input name="yearOfBirth" type="number" id="yearOfBirth" min="1900" max="2023" class="form-control form-control-lg" required value="${yearOfBirth}"/>
                                         </div>
 
                                         <div class="form-outline mb-4">
@@ -56,15 +56,17 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Số Điện Thoại</label>
-                                            <input name="phone_number" type="text"  id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
+                                            <input name="phone_number" type="number"  id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg">Email</label>
-                                            <input name="email" type="text" id="email" class="form-control form-control-lg" required value="${email}"/>
+                                            <input name="email" type="email" id="email" class="form-control form-control-lg" required value="${email}"/>
+
+                                            <div id="error-message" class="text-danger err" style="color: red;">${errorEmail}</div>
                                         </div>
 
-                                        <div id="error-message" class="text-danger err">${errorEmail}</div>
+
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cg">Mật Khẩu</label>
@@ -74,9 +76,11 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cg">Nhập lại Mật Khẩu</label>
                                             <input name="re-password" type="password" id="form3Example4cg" class="form-control form-control-lg" required/>
+
+                                            <div id="error-message" class="text-danger err" style="color: red;">${errorPass}</div>
                                         </div>
 
-                                        <div id="error-message" class="text-danger err">${errorPass}</div>
+
 
                                         <div class="d-flex justify-content-center">
                                             <button type="submit"                                                  
@@ -105,6 +109,6 @@
 
         </section>
 
-        <script src="<%=request.getContextPath()%>/js/register.js"></script>
+        <!--<script src="<%=request.getContextPath()%>/js/register.js"></script>-->
     </body>
 </html>
