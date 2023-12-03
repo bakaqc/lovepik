@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AdminListController extends HttpServlet {
+public class AdminOrderController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -19,8 +19,8 @@ public class AdminListController extends HttpServlet {
             AdminDAO adminDAO = new AdminDAO();
             List<Admin> list = adminDAO.selectAll();
             request.setAttribute("list", list);
-            request.getSession().setAttribute("isActive", 4);
-            request.getRequestDispatcher("/view/manageAdmin.jsp").forward(request, response);
+            request.getSession().setAttribute("isActive", 3);
+            request.getRequestDispatcher("/view/OrderAdmin.jsp").forward(request, response);
         }
     }
 

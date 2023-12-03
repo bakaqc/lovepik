@@ -26,16 +26,19 @@
 
     <hr>
     <ul class="app-menu">
-        <li><a class="app-menu__item ${sessionScope.isActive == 0 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin"><i class='app-menu__icon bx bx-tachometer'></i><span
-                    class="app-menu__label">Bảng điều khiển</span></a></li>
-        <li><a class="app-menu__item ${sessionScope.isActive == 1 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-account"><i class='app-menu__icon bx bx-id-card'></i> <span
-                    class="app-menu__label">Quản lý tài khoản</span></a></li>
+        <li><a class="app-menu__item ${sessionScope.isActive == 0 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin"><i class='app-menu__icon bx bx-tachometer' style="color: black"></i><span
+                    class="app-menu__label " style="color: black">Bảng điều khiển</span></a></li>
+        <li><a class="app-menu__item ${sessionScope.isActive == 1 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-account"><i class='app-menu__icon bx bx-id-card' style="color: black"></i> <span
+                    class="app-menu__label" style="color: black">Quản lý tài khoản</span></a></li>
         <li><a class="app-menu__item ${sessionScope.isActive == 2 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-product"><i
-                    class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
+                    class='app-menu__icon bx bx-purchase-tag-alt' style="color: black"></i><span class="app-menu__label" style="color: black">Quản lý sản phẩm</span></a>
+        </li>
+        <li><a class="app-menu__item ${sessionScope.isActive == 3 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-order"><i
+                    class='app-menu__icon bx bx-purchase-tag-alt' style="color: black"></i><span class="app-menu__label" style="color: black">Quản lý đơn hàng</span></a>
         </li>
         <c:if test="${sessionScope.user.role.toString() == 'SuperAdmin'}">
-            <li><a class="app-menu__item ${sessionScope.isActive == 3 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-admin"><i
-                        class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý admin</span></a>
+            <li><a class="app-menu__item ${sessionScope.isActive == 4 ? 'active' : ''}" href="${pageContext.request.contextPath}/admin/list-admin"><i
+                       class='app-menu__icon bx bx-id-card' style="color: black"></i><span class="app-menu__label" style="color: black">Quản lý admin</span></a>
             </li>
         </c:if>
     </ul>
