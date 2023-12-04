@@ -2,7 +2,6 @@ package com.bakaqc.flower.controller;
 
 import com.bakaqc.flower.dao.AdminDAO;
 import com.bakaqc.flower.model.Admin;
-import com.bakaqc.flower.model.option.AdminRole;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
 import javax.servlet.*;
@@ -37,13 +36,15 @@ public class AdminLoginController extends HttpServlet {
             return;
         }
 
-        String errorMsg = "Sai mật khẩu!";
-
         if (ad == null) {
-            errorMsg = "Tài khoản không tồn tại!";
+            String errorUSN = "Tài khoản không tồn tại!";
             ad = null;
+
+            request.setAttribute("errorUSN", errorUSN);
+            this.doGet(request, response);
         }
 
+        String errorMsg = "Sai mật khẩu!";
         request.setAttribute("username", username);
         request.setAttribute("errorMsg", errorMsg);
 

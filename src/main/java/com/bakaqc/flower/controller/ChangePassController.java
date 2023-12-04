@@ -1,9 +1,12 @@
 package com.bakaqc.flower.controller;
 
+import com.bakaqc.flower.dao.CategoriesDAO;
 import com.bakaqc.flower.dao.UserDAO;
+import com.bakaqc.flower.model.Categories;
 import com.bakaqc.flower.model.User;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -14,7 +17,9 @@ public class ChangePassController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
 
+        request.setAttribute("listCAT", listCAT);
         request.getRequestDispatcher("/view/user_change_pass.jsp").forward(request, response);
     }
 
@@ -34,10 +39,12 @@ public class ChangePassController extends HttpServlet {
             if (conPassword.equals(newPassword)) {
                 UserDAO.getInstance().changePass(us.getId(), newPassword);
 
-//            String success = "Đổi mật khẩu thành công.";
-//            request.setAttribute("success", success);
-                response.sendRedirect("../profile");
-                
+//                String success = "Đổi mật khẩu thành công.";
+//                request.setAttribute("success", success);
+//                request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
+
+                response.sendRedirect("profile");
+
             } else {
                 String errConfPass = "Xác nhận Mật khẩu mới không đúng!";
                 request.setAttribute("errConfPass", errConfPass);

@@ -63,10 +63,10 @@
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
+                                            <a href="#" class="btn btn-danger w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
                                         </div>
                                         <div class="col-lg-6">
-                                            <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
+                                            <a href="#" class="btn btn-success w-100 shop-now" style="font-size: 20px">Mua Ngay</a>
                                         </div>
                                     </div>
                                 </div>

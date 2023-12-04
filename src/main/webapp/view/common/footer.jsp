@@ -24,7 +24,7 @@
                 <a href="home" class="nav-link text-blue">Hotline:  1900</a>
             </li>
             <li class="nav-item ">
-                <a href="https://github.com/bakaqc" target="_blank" class="nav-link text-blue">Github</a>
+                <a href="https://github.com/bakaqc/flower" target="_blank" class="nav-link text-blue">Github</a>
             </li>
             <li class="nav-item ">
                 <a href="https://www.facebook.com/dqchuongbk" target="_blank" class="nav-link text-blue">Facebook</a>

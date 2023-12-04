@@ -1,6 +1,5 @@
 package com.bakaqc.flower.controller;
 
-
 import com.bakaqc.flower.dao.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +12,8 @@ public class DeleteAccountController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String id = request.getParameter("id");
             UserDAO.getInstance().delete(id);
@@ -35,10 +35,4 @@ public class DeleteAccountController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

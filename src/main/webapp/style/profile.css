@@ -171,8 +171,7 @@ button.bg-danger:focus {
 }
 
 .err {
-    margin-top: 15px!important;
-    /*margin-left: 15px!important;*/
+    margin-top: 5px!important;
     font-size: 18px!important;
 }
 
@@ -186,4 +185,12 @@ button.bg-danger:focus {
 
 .row {
     margin-top: 0;
+}
+
+.col-xs-12 > label {
+    margin-bottom: 10px;
+}
+
+.col-xs-6 > label {
+    margin-bottom: 10px;
 }

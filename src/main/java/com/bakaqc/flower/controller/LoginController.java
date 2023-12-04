@@ -41,11 +41,18 @@ public class LoginController extends HttpServlet {
 
         String errorMsg = "Sai mật khẩu!";
         if (user != null && user.getStatus() == UserStatus.DEACTIVATE) {
-            errorMsg = "Tài khoản đã bị khóa!";
+            String errorEmail = "Tài khoản đã bị khóa!";
+            request.setAttribute("errorEmail", errorEmail);
+
+            this.doGet(request, response);
         }
         if (user == null) {
-            errorMsg = "Tài khoản không tồn tại!";
+            String errorEmail = "Tài khoản không tồn tại!";
             email = null;
+
+            request.setAttribute("errorEmail", errorEmail);
+
+            this.doGet(request, response);
         }
 
         request.setAttribute("email", email);

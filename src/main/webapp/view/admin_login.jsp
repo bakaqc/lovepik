@@ -39,15 +39,17 @@
                                             <label class="form-label" for="typeEmailX" style="color: black">Tài khoản</label>
                                             <input type="username" name="username" id="typeEmailX" class="form-control form-control-lg" required value="${username}" />
 
+                                            <div id="error-message" class="text-danger err" style="margin-left: 15px">${errorUSN}</div>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
                                             <label class="form-label" for="typePasswordX" style="color: black">Mật khẩu</label>
                                             <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
 
+                                             <div id="error-message" class="text-danger err" style="margin-left: 15px">${errorMsg}</div>
                                         </div>
 
-                                        <div id="error-message" class="text-danger err">${errorMsg}</div>
+                                       
                                         <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập Ngay" action="admin" method="post" style="font-weight: bold; color: black; background-color: orange;"/>
 
                                     </div>
