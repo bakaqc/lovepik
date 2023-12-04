@@ -186,3 +186,11 @@ button.bg-danger:focus {
 .row {
     margin-top: 0;
 }
+
+.col-xs-12 > label {
+    margin-bottom: 10px;
+}
+
+.col-xs-6 > label {
+    margin-bottom: 10px;
+}

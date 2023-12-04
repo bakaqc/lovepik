@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">   
+        <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.3/components/cards/card-1/assets/css/card-1.css"/>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/profile.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
 
@@ -28,7 +29,7 @@
 
                     <h4 style="color: green; text-align: center;">${success}</h4>
 
-                    <div class="container infor">
+                    <div class="container infor" style="padding: 0;">
 
                         <form class="form" action="" method="post" id="registrationForm">
 
