@@ -54,7 +54,7 @@
                                 <thead>
                                     <tr>
                                         <th width="10"><input type="checkbox" id="all"></th>
-                                        <th>ID Khách Hàng</th>
+                                        <th>ID</th>
                                         <th width="150">Họ và tên</th>
                                         <th width="300">Địa chỉ</th>
                                         <th>Năm sinh</th>

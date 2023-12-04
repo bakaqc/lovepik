@@ -23,8 +23,7 @@ public class CreateAccountAdminController extends HttpServlet {
             admin.setUserName(username);
             admin.setPassword(Hash.hashCode(password));
             admin.setRole(AdminRole.create("Admin"));
-            AdminDAO adminDAO = new AdminDAO();
-            adminDAO.insert(admin);
+            AdminDAO.getInstance().insert(admin);
             String url = request.getHeader("referer");
             response.sendRedirect(url);
         }
@@ -46,9 +45,5 @@ public class CreateAccountAdminController extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }

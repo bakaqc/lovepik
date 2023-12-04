@@ -1,16 +1,16 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-
-        <title>Quản lí đơn hàng</title>
+        <title>Quản lí đơn hàng </title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Main CSS-->
-        <link rel="stylesheet" type="text/css" href="./style/admin.css">
+        <link rel="stylesheet" type="text/css" href="../style/admin.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <!-- or -->
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -19,113 +19,121 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     </head>
-    
+
     <body onload="time()" class="app sidebar-mini rtl">
-        <jsp:include page="navbaradmin.jsp"/>
+        <jsp:include page="navbaradmin.jsp"/> 
         <main class="app-content">
+            <div class="app-title">
+                <ul class="app-breadcrumb breadcrumb side">
+                    <li class="breadcrumb-item active"><a href="#"><b>Danh sách đơn hàng</b></a></li>
+                </ul>
+                <div id="clock"></div>
+            </div>
             <div class="row">
-                <div class="col-md-12 col-lg-6">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="tile">
-                                <h3 class="tile-title">Tình trạng đơn hàng</h3>
-                                <div>
-                                    <table class="table table-bordered" id="sampleTable">
-                                        <thead>
+                <div class="col-md-12">
+                    <div class="tile">
+                        <div class="tile-body">
+                            <h3 class="tile-title">Tình trạng đơn hàng</h3>
+                            <div>
+                                <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
+                                       id="sampleTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID đơn hàng</th>
+                                            <th>Tên khách hàng</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Trạng thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${requestScope.orders}" var="item">
                                             <tr>
-                                                <th>ID đơn hàng</th>
-                                                <th>Tên khách hàng</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Trạng thái</th>
+                                                <td>${item.id}</td>
+                                                <td>
+                                                    <c:forEach items="${requestScope.users}" var="temp">
+                                                        <c:if test="${temp.id == item.getUserID()}">
+                                                            ${temp.getFullName()}
+                                                        </c:if>
+                                                    </c:forEach>
+                                                </td>
+                                                <td>
+                                                    <script>
+                                                        var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${item.getTotalPrice()});
+                                                        document.write(formattedPrice);
+                                                    </script>
+                                                </td>
+                                                <td>
+                                                    <c:if test="${item.status.toString() == 'processing'}">
+                                                        <span class="badge bg-info">Chờ xử lý</span>
+                                                    </c:if>
+                                                    <c:if test="${item.status.toString() == 'shipping'}">
+                                                        <span class="badge bg-warning">Đang vận chuyển</span>
+                                                    </c:if>
+                                                    <c:if test="${item.status.toString() == 'done'}">
+                                                        <span class="badge bg-success">Đã hoàn thành</span>
+                                                    </c:if>
+                                                    <c:if test="${item.status.toString() == 'canceled'}">
+                                                        <span class="badge bg-danger">Đã hủy</span>
+                                                    </c:if>
+                                                </td>
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${requestScope.orders}" var="item">
-                                                <tr>
-                                                    <td>${item.id}</td>
-                                                    <td>
-                                                        <c:forEach items="${requestScope.users}" var="temp">
-                                                            <c:if test="${temp.id == item.getUserID()}">
-                                                                ${temp.getFullName()}
-                                                            </c:if>
-                                                        </c:forEach>
-                                                    </td>
-                                                    <td>
-                                                        <fmt:setLocale value="vi_VN"/>
-                                                        <fmt:formatNumber type="currency" value="${item.getTotalPrice()}"/>
-                                                    </td>
-                                                    <td>
-                                                        <c:if test="${item.status.toString() == 'processing'}">
-                                                            <span class="badge bg-info">Chờ xử lý</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'shipping'}">
-                                                            <span class="badge bg-warning">Đang vận chuyển</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'done'}">
-                                                            <span class="badge bg-success">Đã hoàn thành</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'canceled'}">
-                                                            <span class="badge bg-danger">Đã hủy</span>
-                                                        </c:if>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </main>
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="js/popper.min.js"></script>
-        <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-        <!--===============================================================================================-->
-        <script src="js/bootstrap.min.js"></script>
-        <!--===============================================================================================-->
-        <script src="js/main.js"></script>
-        <!--===============================================================================================-->
-        <script src="js/plugins/pace.min.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="js/plugins/chart.js"></script>
-        <!--===============================================================================================-->
-        <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-        <script type="text/javascript">
-        $('#sampleTable').DataTable();
-        var data = {
-            labels: ["Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11"],
-            datasets: [{
-                    label: "Dữ liệu đầu tiên",
-                    fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
-                    strokeColor: "rgb(255, 212, 59)",
-                    pointColor: "rgb(255, 212, 59)",
-                    pointStrokeColor: "rgb(255, 212, 59)",
-                    pointHighlightFill: "rgb(255, 212, 59)",
-                    pointHighlightStroke: "rgb(255, 212, 59)",
-                    data: [20, 59, 90, 51, 56, 100]
-                },
-                {
-                    label: "Dữ liệu kế tiếp",
-                    fillColor: "rgba(9, 109, 239, 0.651)  ",
-                    pointColor: "rgb(9, 109, 239)",
-                    strokeColor: "rgb(9, 109, 239)",
-                    pointStrokeColor: "rgb(9, 109, 239)",
-                    pointHighlightFill: "rgb(9, 109, 239)",
-                    pointHighlightStroke: "rgb(9, 109, 239)",
-                    data: [48, 48, 49, 39, 86, 10]
-                }
-            ]
-        };
-        var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-        var lineChart = new Chart(ctxl).Line(data);
-        var ctxb = $("#barChartDemo").get(0).getContext("2d");
-        var barChart = new Chart(ctxb).Bar(data);
+        <script src="../js/jquery-3.2.1.min.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../js/main.js"></script>
+        <!-- The javascript plugin to display page loading on top-->
+        <script src="../js/plugins/pace.min.js"></script>
+        <!-- Page specific javascripts-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <!-- Data table plugin-->
+        <script type="text/javascript" src="../js/plugins/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="../js/plugins/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="text/javascript">$('#sampleTable').DataTable();</script>
+        <script>
+            $('#sampleTable').DataTable();
+            var data = {
+                labels: ["Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11"],
+                datasets: [{
+                        label: "Dữ liệu đầu tiên",
+                        fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
+                        strokeColor: "rgb(255, 212, 59)",
+                        pointColor: "rgb(255, 212, 59)",
+                        pointStrokeColor: "rgb(255, 212, 59)",
+                        pointHighlightFill: "rgb(255, 212, 59)",
+                        pointHighlightStroke: "rgb(255, 212, 59)",
+                        data: [20, 59, 90, 51, 56, 100]
+                    },
+                    {
+                        label: "Dữ liệu kế tiếp",
+                        fillColor: "rgba(9, 109, 239, 0.651)  ",
+                        pointColor: "rgb(9, 109, 239)",
+                        strokeColor: "rgb(9, 109, 239)",
+                        pointStrokeColor: "rgb(9, 109, 239)",
+                        pointHighlightFill: "rgb(9, 109, 239)",
+                        pointHighlightStroke: "rgb(9, 109, 239)",
+                        data: [48, 48, 49, 39, 86, 10]
+                    }
+                ]
+            };
+            var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+            var lineChart = new Chart(ctxl).Line(data);
+            var ctxb = $("#barChartDemo").get(0).getContext("2d");
+            var barChart = new Chart(ctxb).Bar(data);
         </script>
         <script type="text/javascript">
             //Thời Gian

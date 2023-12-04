@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-       
+
         <title>Quản trị Admin</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,8 +21,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap4.min.css">
     </head>
-   
+
     <body onload="time()" class="app sidebar-mini rtl">
+        <%int count=0;%>
         <jsp:include page="navbaradmin.jsp"/>
         <main class="app-content">
             <div class="row">
@@ -69,57 +70,49 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-12 -->
-                        <div class="col-md-12">
-                            <div class="tile">
-                                <h3 class="tile-title">Tình trạng đơn hàng</h3>
-                                <div>
-                                    <table class="table table-bordered" id="sampleTable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID đơn hàng</th>
-                                                <th>Tên khách hàng</th>
-                                                <th>Tổng tiền</th>
-                                                <th>Trạng thái</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${requestScope.orders}" var="item">
-                                                <tr>
-                                                    <td>${item.id}</td>
-                                                    <td>
-                                                        <c:forEach items="${requestScope.users}" var="temp">
-                                                            <c:if test="${temp.id == item.getUserID()}">
-                                                                ${temp.getFullName()}
-                                                            </c:if>
-                                                        </c:forEach>
-                                                    </td>
-                                                    <td>
-                                                        <fmt:setLocale value="vi_VN"/>
-                                                        <fmt:formatNumber type="currency" value="${item.getTotalPrice()}"/>
-                                                    </td>
-                                                    <td>
-                                                        <c:if test="${item.status.toString() == 'processing'}">
-                                                            <span class="badge bg-info">Chờ xử lý</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'shipping'}">
-                                                            <span class="badge bg-warning">Đang vận chuyển</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'done'}">
-                                                            <span class="badge bg-success">Đã hoàn thành</span>
-                                                        </c:if>
-                                                        <c:if test="${item.status.toString() == 'canceled'}">
-                                                            <span class="badge bg-danger">Đã hủy</span>
-                                                        </c:if>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
+                        <!-- col-6 -->
+                        <div class="col-md-6">
+                            <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                                <div class="info">
+                                    <h4>Chờ xử lí</h4>
+                                                            <p>  <b> ${requestScope.process.size()} đơn hàng </b>
+                                     
+                                    <p class="info-tong">Trạng thái đơn hàng</p>
                                 </div>
-                                <!-- / div trống-->
                             </div>
                         </div>
+                        <!-- col-6 -->
+                        <div class="col-md-6">
+                            <div class="widget-small info coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                                <div class="info">
+                                    <h4>Đang vận chuyển</h4>
+                                    <p><b>  ${requestScope.ship.size()} đơn hàng</b></p>
+                                    <p class="info-tong">Trạng thái đơn hàng</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-6 -->
+                        <div class="col-md-6">
+                            <div class="widget-small primary coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                                <div class="info">
+                                    <h4>Đã hoàn thành</h4>
+                                    <p><b> ${requestScope.done.size()} đơn hàng</b></p>
+                                    <p class="info-tong">Trạng thái đơn hàng</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-6 -->
+                        <div class="col-md-6">
+                            <div class="widget-small danger coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                                <div class="info">
+                                    <h4>Đã hủy</h4>
+                                    <p><b> ${requestScope.cancel.size()} đơn hàng</b></p>
+                                    <p class="info-tong">Trạng thái đơn hàng</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col-12 -->
+                       
                         <!-- / col-12 -->
                     </div>
                 </div>

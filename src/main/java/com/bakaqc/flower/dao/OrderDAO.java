@@ -49,6 +49,128 @@ public class OrderDAO implements DAO<Order> {
 
         return list;
     }
+   
+    
+    public List<Order> selectProcess() {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`WHERE status='processing'");
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                Order od = new Order();
+                od.setId(rs.getInt("id"));
+                od.setUserID(rs.getInt("user_id"));
+                od.setTotalPrice(rs.getInt("total_price"));
+                od.setPayment(Payment.create(rs.getString("payment")));
+                od.setStatus(OrderStatus.create(rs.getString("status")));
+                od.setCreateAt(Convert.convert(rs.getTimestamp("create_at")));
+
+                list.add(od);
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(list);
+
+        return list;
+    }
+      public List<Order> selectShip() {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`WHERE status='shipping'");
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                Order od = new Order();
+                od.setId(rs.getInt("id"));
+                od.setUserID(rs.getInt("user_id"));
+                od.setTotalPrice(rs.getInt("total_price"));
+                od.setPayment(Payment.create(rs.getString("payment")));
+                od.setStatus(OrderStatus.create(rs.getString("status")));
+                od.setCreateAt(Convert.convert(rs.getTimestamp("create_at")));
+
+                list.add(od);
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(list);
+
+        return list;
+    }
+        public List<Order> selectDone() {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`WHERE status='done'");
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                Order od = new Order();
+                od.setId(rs.getInt("id"));
+                od.setUserID(rs.getInt("user_id"));
+                od.setTotalPrice(rs.getInt("total_price"));
+                od.setPayment(Payment.create(rs.getString("payment")));
+                od.setStatus(OrderStatus.create(rs.getString("status")));
+                od.setCreateAt(Convert.convert(rs.getTimestamp("create_at")));
+
+                list.add(od);
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(list);
+
+        return list;
+    }
+          public List<Order> selectCancel() {
+        List<Order> list = new ArrayList<>();
+
+        try {
+            Connection conn = JDBC.getConnection();
+
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order`WHERE status='canceled'");
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                Order od = new Order();
+                od.setId(rs.getInt("id"));
+                od.setUserID(rs.getInt("user_id"));
+                od.setTotalPrice(rs.getInt("total_price"));
+                od.setPayment(Payment.create(rs.getString("payment")));
+                od.setStatus(OrderStatus.create(rs.getString("status")));
+                od.setCreateAt(Convert.convert(rs.getTimestamp("create_at")));
+
+                list.add(od);
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        System.out.println(list);
+
+        return list;
+    }
 
     @Override
     public List<Order> selectById(String id) {

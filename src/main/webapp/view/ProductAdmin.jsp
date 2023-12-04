@@ -6,10 +6,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
-    <body>
-        <title>Quản trị Admin</title>
-        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Main CSS-->
@@ -23,7 +19,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    </body>
+    </head>
+
     <body onload="time()" class="app sidebar-mini rtl">
         <jsp:include page="navbaradmin.jsp"/>
         <main class="app-content">
@@ -49,9 +46,9 @@
                                 <thead>
                                     <tr>
                                         <th width="10"><input type="checkbox" id="all"></th>
-                                        <th>ID Sản Phẩm</th>
-                                        <th width="150">Tên Sản Phẩm</th>
-                                        <th width="20">Ảnh</th>
+                                        <th width="20">ID</th>
+                                        <th width="300">Tên Sản Phẩm</th>
+                                        <th width="50">Ảnh</th>
                                         <th>Danh mục</th>
                                         <th>Giá</th>
                                         <th width="100">Tính năng</th>
@@ -71,7 +68,11 @@
                                                     </c:if>
                                                 </c:forEach>
                                             </td>
-                                            <td>${item.price}</td>
+                                            <td> <script>
+                                                var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${item.price});
+                                                document.write(formattedPrice);
+                                                </script>
+                                            </td>
                                             <td class="table-td-center">
                                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
                                                         onclick="deleteProduct(${item.id})"><i class="fas fa-trash-alt"></i>

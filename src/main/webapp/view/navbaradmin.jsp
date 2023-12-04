@@ -20,7 +20,7 @@
 <aside class="app-sidebar" style="background-color: #f8d7da">
 
     <div>
-        <p class="app-sidebar__user-name"><b>${sessionScope.user.getUserName()}</b></p>
+        <p class="app-sidebar__user-name"><b style="text-transform:uppercase;">${sessionScope.user.getUserName()}</b></p>
         <h5 class="app-sidebar__user-designation">Chào mừng bạn trở lại ^.^</h5>
     </div>
 
