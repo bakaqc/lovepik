@@ -1,10 +1,13 @@
 package com.bakaqc.flower.controller;
 
+import com.bakaqc.flower.dao.CategoriesDAO;
 import com.bakaqc.flower.dao.UserDAO;
+import com.bakaqc.flower.model.Categories;
 import com.bakaqc.flower.model.User;
 import com.bakaqc.flower.model.option.UserGender;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
+import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -15,8 +18,10 @@ public class EditProfileController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+        List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
 
-        request.getRequestDispatcher("/view/user_edit_profile.jsp").forward(request, response);
+        request.setAttribute("listCAT", listCAT);
+        request.getRequestDispatcher("/view/user_edit.jsp").forward(request, response);
     }
 
     @Override
@@ -55,10 +60,12 @@ public class EditProfileController extends HttpServlet {
             us.setAddress(newAddress);
 
             UserDAO.getInstance().update(us);
+            
 //            String success = "Chỉnh sửa thông tin thành công.";
 //            request.setAttribute("success", success);
-            response.sendRedirect("../profile");
+//            request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
 
+            response.sendRedirect("profile");
         }
     }
 }

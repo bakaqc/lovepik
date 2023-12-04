@@ -37,13 +37,13 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg">Năm Sinh</label>
-                                            <input name="yearOfBirth" type="number" id="yearOfBirth" min="1900" max="2023" class="form-control form-control-lg" required value="${yearOfBirth}"/>
+                                            <input name="yearOfBirth" type="number" id="yearOfBirth" min="1900" max="2023" maxlength="4" minlength="4" class="form-control form-control-lg" required value="${yearOfBirth}"/>
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label for="gender">Giới tính<span class="text-danger"></span></label>
 
-                                            <select name="gender" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                            <select name="gender" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="margin-top: 8px;">
                                                 <option value="male">Nam</option>
                                                 <option value="female">Nữ</option>
                                             </select>
@@ -56,7 +56,9 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Số Điện Thoại</label>
-                                            <input name="phone_number" type="number"  id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
+                                            <input name="phone_number" type="number" id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
+                                            
+                                            <!--<div id="phone_error" class="error hidden" style="margin-left: 15px; color: red;">Please enter a valid phone number</div>-->
                                         </div>
 
                                         <div class="form-outline mb-4">
@@ -109,6 +111,6 @@
 
         </section>
 
-        <!--<script src="<%=request.getContextPath()%>/js/register.js"></script>-->
+        <script src="<%=request.getContextPath()%>/js/register.js"></script>
     </body>
 </html>

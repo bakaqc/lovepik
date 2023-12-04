@@ -104,6 +104,10 @@
         <servlet-name>CreateAccountAdminController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.CreateAccountAdminController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserHistory</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.UserHistory</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -150,11 +154,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditProfileController</servlet-name>
-        <url-pattern>/profile/edit_profile</url-pattern>
+        <url-pattern>/edit_profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChangePassController</servlet-name>
-        <url-pattern>/profile/change_pass</url-pattern>
+        <url-pattern>/change_pass</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminAccountController</servlet-name>
@@ -199,6 +203,10 @@
     <servlet-mapping>
         <servlet-name>CreateAccountAdminController</servlet-name>
         <url-pattern>/admin/createAccountAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserHistory</servlet-name>
+        <url-pattern>/history</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
