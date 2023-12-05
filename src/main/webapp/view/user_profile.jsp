@@ -43,7 +43,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row mt-2">
                                 <div class="form-group col-6">
                                     <div class="col-xs-6">
                                         <label for="phone">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <div class="col-xs-6">
                                     <label for="email">
                                         <h4>Email</h4>
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <div class="col-xs-6">
                                     <label for="mobile">
                                         <h4>Số Điện Thoại</h4>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <div class="col-xs-12">
                                     <label for="mobile">
                                         <h4>Địa chỉ</h4>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row mt-4 mb-2">
                                 <div class="form-group col-6">
                                     <div class="col-xs-12 align-items-center"  style="margin-bottom: 30px;">
                                         <br />
