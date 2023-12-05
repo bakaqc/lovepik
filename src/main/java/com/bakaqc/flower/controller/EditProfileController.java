@@ -57,7 +57,24 @@ public class EditProfileController extends HttpServlet {
             UserDAO.getInstance().update(us);
 //            String success = "Chỉnh sửa thông tin thành công.";
 //            request.setAttribute("success", success);
-            response.sendRedirect("../profile");
+// câu gốc    response.sendRedirect("../profile");
+
+            
+
+
+
+            String flag = (String) session.getAttribute("flag");//dương thêm
+
+            if (flag != null) {//dương thêm
+                // Điều hướng đến payment.jsp
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/view/payment.jsp");//dương thêm
+                dispatcher.forward(request, response);//dương thêm
+            } else {//dương thêm
+                response.sendRedirect("../profile");
+            }//dương thêm
+
+            // Xóa giá trị của biến từ session bên payment sau khi sử dụng
+            session.removeAttribute("flag");//dương thêm
 
         }
     }

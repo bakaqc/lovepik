@@ -56,64 +56,84 @@
                                 <div class="col-lg-12 ship">
                                     <h5>Giao hàng nhanh trong khu vực Tỉnh Bình Định </h5>
                                 </div>   
-                                <div class="col-lg-12 product-amount">
-                                    <h5>Số lượng :</h5>
-                                    <input type="number" min="1" class="form-control text-center w-100 amount" value="1">
-                                </div>
-                                <div class="col-lg-12 mt-3">
-                                    <div class="row">
-                                        <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
+                                <!--    code gốc                            <div class="col-lg-12 product-amount">
+                                                                    <h5>Số lượng :</h5>
+                                                                    <input type="number" min="1" class="form-control text-center w-100 amount" value="1"> câu gốc
+                                                                 
+                                                                </div>
+                                                                <div class="col-lg-12 mt-3">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-6 pb-2 ">
+                                                                            <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                            <a href="#" class="btn btn-success w-100 shop-now">Mua Ngay</a>
+                                                                        
+                                                                        </div>
+                                                        code gốc            </div>--> 
+                                <form action="payment" method="get"> <!-- duong them -->
+                                    <div class="col-lg-12 product-amount">
+                                        <h5>Số lượng :</h5>
+                                        <input type="number" min="1" class="form-control text-center w-100 amount" name="quantity" value="1">
+                                    </div>
+                                    <div class="col-lg-12 mt-3">
+                                        <div class="row">
+                                            <div class="col-lg-6 pb-2">
+                                                <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <button type="submit" class="btn btn-danger w-100">Mua Ngay</button>
+
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <input type="hidden" name="proId" value="${pro.id}">
+                                </form> <!-- duong them -->
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container position-relative text-center more">
-                    <h1>Sản phẩm liên quan</h1>
-                    <div class="listp">
-                        <c:forEach items="${listP}" var="p">
-                            <div class="col-sm-3">
-                                <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row my-5" id="new"> 
-                                    <div class="card m-2 card-pro">
+            </div>
+            <div class="container position-relative text-center more">
+                <h1>Sản phẩm liên quan</h1>
+                <div class="listp">
+                    <c:forEach items="${listP}" var="p">
+                        <div class="col-sm-3">
+                            <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row my-5" id="new"> 
+                                <div class="card m-2 card-pro">
 
-                                        <div class="product">
-                                            <a href ="detail?pid=${p.id}" class="product-img">
-                                                <img src="${p.banners}" alt="Product" class="card-img-top p-img"
-                                                     height="200" >
-                                            </a>
-                                            <a href="#" class="buy">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                            </a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text fw-bold namep">
-                                                ${p.name}
-                                            </p>
-                                            <small class="text-secondary pricep">
-                                                <script>
+                                    <div class="product">
+                                        <a href ="detail?pid=${p.id}" class="product-img">
+                                            <img src="${p.banners}" alt="Product" class="card-img-top p-img"
+                                                 height="200" >
+                                        </a>
+                                        <a href="#" class="buy">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text fw-bold namep">
+                                            ${p.name}
+                                        </p>
+                                        <small class="text-secondary pricep">
+                                            <script>
                                                     var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${p.price});
                                                     document.write(formattedPrice);
-                                                </script>
-                                            </small>
-                                        </div>
+                                            </script>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
-                        </c:forEach>
-                    </div>
-
+                        </div>
+                    </c:forEach>
                 </div>
+
             </div>
-
         </div>
-        <%@include file="common/footer.jsp" %>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </body>
+    </div>
+    <%@include file="common/footer.jsp" %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
 </html>
