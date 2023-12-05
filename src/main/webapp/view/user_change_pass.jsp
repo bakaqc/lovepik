@@ -85,7 +85,7 @@
                                     <div class="col-xs-12 can"  style="margin-bottom: 30px;">
                                         <br />
                                         <a href="${pageContext.request.contextPath}/profile"> 
-                                            <button class="btn btn-lg btn-cancel col-12 can" type="button">
+                                            <button class="btn btn-lg col-12 can" type="button" style="background-color: red; color: white;">
                                                 Hủy thay đổi
                                             </button>
                                         </a>

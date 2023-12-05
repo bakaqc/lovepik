@@ -21,116 +21,170 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <c:if test="${!listHB.isEmpty()}">
+                        <h3 style="text-align: center;">Lịch sử chi tiết</h3>
 
-                    <h3 style="text-align: center; margin-bottom: 10px;">Lịch sử mua hàng</h3>
+                        <div class="container mt-4" style="width: 100%; margin: 15px 0px 0px; text-align: center; padding: 0;">
 
-                    <div class="container" style="width: 100%; margin: 15px 0px 0px; text-align: center; padding: 0;">
+                            <div class="table table-lg mt-4">
 
-                        <div class="table table-lg mt-4">
-
-                            <table class="table table-bordered text-center">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: center; font-size: 20px;">Ảnh Sản Phẩm</th>
-                                        <th class="max-width" style="text-align: center; font-size: 20px;">Tên Sản Phẩm</th>
-                                        <th class="" style="text-align: center; font-size: 20px;">Số Lượng</th>
-                                        <th class="" style="text-align: center; font-size: 20px;">Giá</th>
-                                        <th class="sortable" style="text-align: center; font-size: 20px;">Thanh toán</th>
-                                        <th class="sortable" style="text-align: center; font-size: 20px;">Trạng Thái</th>
-                                        <th class="sortable" style="text-align: center; font-size: 20px;">Ngày Mua</th>
-                                    </tr>
-                                </thead>
-
-                                <c:forEach items="${listHB}" var="b">
-                                    <tbody>
+                                <table class="table table-bordered text-center">
+                                    <thead>
                                         <tr>
-                                            <td class="align-middle text-center">
-                                                <div
-                                                    class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
-                                                    style="
-                                                    width: 110px;
-                                                    height: 120px;
-                                                    border-radius: 5px;
-                                                    background-image: url(<%=request.getContextPath()%>/${b.bannersP});
-                                                    background-size: 110px 120px;
-                                                    background-repeat: no-repeat;
-                                                    margin: 7px auto;
-                                                    ">                                                                            
-                                                </div>
-                                            </td>
-
-                                            <td class="text-nowrap" style="vertical-align: middle; font-size: 20px;">${b.nameP}</td>
-
-                                            <td class="text-nowrap" style="vertical-align: middle; font-size: 20px;">
-                                                <span>${b.amountP}</span>
-                                            </td>
-
-                                            <td class="text-center" style="vertical-align: middle; font-size: 20px;">
-                                                <span>
-                                                    <script>
-                                                        var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${b.totalPriceP});
-                                                        document.write(formattedPrice);
-                                                    </script>
-                                                </span>
-                                            </td>
-
-                                            <td class="text-center" style="vertical-align: middle; font-size: 20px;">
-                                                <span>${b.paymentP.toString() == 'MoMo' ? 'MoMo' : 'Thanh toán khi nhận hàng'}</span>
-                                            </td>
-
-                                            <td class="text-center" style="vertical-align: middle; font-size: 20px;">
-                                                <c:if test="${b.statusP.toString() == 'processing'}">
-                                                    <span class="badge bg-info">Chờ xử lý</span>
-                                                </c:if>
-                                                <c:if test="${b.statusP.toString() == 'shipping'}">
-                                                    <span class="badge bg-warning">Đang vận chuyển</span>
-                                                </c:if>
-                                                <c:if test="${b.statusP.toString() == 'done'}">
-                                                    <span class="badge bg-success">Đã hoàn thành</span>
-                                                </c:if>
-                                                <c:if test="${b.statusP.toString() == 'canceled'}">
-                                                    <span class="badge bg-danger">Đã hủy</span>
-                                                </c:if>
-                                            </td>
-
-                                            <td class="text-center" style="vertical-align: middle; font-size: 20px;">
-                                                <span>${b.createAtP}</span>
-                                            </td>
-
+                                            <th style="text-align: center; font-size: 20px;">Ảnh Sản Phẩm</th>
+                                            <th class="max-width" style="text-align: center; font-size: 20px;">Tên Sản Phẩm</th>
+                                            <th class="" style="text-align: center; font-size: 20px;">Số Lượng</th>
+                                            <th class="" style="text-align: center; font-size: 20px;">Giá</th>
+                                            <th class="sortable" style="text-align: center; font-size: 20px;">Thanh toán</th>
+                                            <th class="sortable" style="text-align: center; font-size: 20px;">Trạng Thái</th>
+                                            <th class="sortable" style="text-align: center; font-size: 20px;">Ngày Mua</th>
                                         </tr>
+                                    </thead>
 
-                                    </tbody>
+                                    <c:forEach items="${listHB}" var="b">
+                                        <tbody>
+                                            <tr>
+                                                <td class="align-middle text-center">
+                                                    <div
+                                                        class="bg-light d-inline-flex justify-content-center align-items-center align-top ban"
+                                                        style="
+                                                        width: 110px;
+                                                        height: 120px;
+                                                        border-radius: 5px;
+                                                        background-image: url(<%=request.getContextPath()%>/${b.bannersP});
+                                                        background-size: 110px 120px;
+                                                        background-repeat: no-repeat;
+                                                        margin: 7px auto;
+                                                        ">                                                                            
+                                                    </div>
+                                                </td>
+
+                                                <td class="text-nowrap" style="vertical-align: middle; font-size: 20px;">${b.nameP}</td>
+
+                                                <td class="text-nowrap" style="vertical-align: middle; font-size: 20px;">
+                                                    <span>${b.amountP}</span>
+                                                </td>
+
+                                                <td class="text-center" style="vertical-align: middle; font-size: 20px;">
+                                                    <span>
+                                                        <script>
+                                                            var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${b.totalPriceP});
+                                                            document.write(formattedPrice);
+                                                        </script>
+                                                    </span>
+                                                </td>
+
+                                                <td class="text-center" style="vertical-align: middle; font-size: 20px;">
+                                                    <span>${b.paymentP.toString() == 'MoMo' ? 'MoMo' : 'Thanh toán khi nhận hàng'}</span>
+                                                </td>
+
+                                                <td class="text-center" style="vertical-align: middle; font-size: 20px;">
+                                                    <c:if test="${b.statusP.toString() == 'processing'}">
+                                                        <span class="badge bg-info">Chờ xử lý</span>
+                                                    </c:if>
+                                                    <c:if test="${b.statusP.toString() == 'shipping'}">
+                                                        <span class="badge bg-warning">Đang vận chuyển</span>
+                                                    </c:if>
+                                                    <c:if test="${b.statusP.toString() == 'done'}">
+                                                        <span class="badge bg-success">Đã hoàn thành</span>
+                                                    </c:if>
+                                                    <c:if test="${b.statusP.toString() == 'canceled'}">
+                                                        <span class="badge bg-danger">Đã hủy</span>
+                                                    </c:if>
+                                                </td>
+
+                                                <td class="text-center" style="vertical-align: middle; font-size: 20px;">
+                                                    <span>${b.createAtP}</span>
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </c:forEach>
+
+
+                                </table>
+
+                            </div>
+                            <div class="d-flex justify-content-center pag" style="align-items: center;">
+                                <c:forEach begin="1" end="${endP}" var="i">
+                                    <a class="page-item ${index == i ? "active": ""}" href="${pageContext.request.contextPath}/history?index=${i}">${i}</a>
                                 </c:forEach>
-
-
-                            </table>
-
+                            </div>
                         </div>
-                        <div class="d-flex justify-content-center pag" style="align-items: center;">
-                            <c:forEach begin="1" end="${endP}" var="i">
-                                <a class="page-item ${index == i ? "active": ""}" href="${pageContext.request.contextPath}/history?index=${i}">${i}</a>
-                            </c:forEach>
+
+                        <div class="row gy-4 mb-5 align-items-center">
+                            <div class="col-12 col-sm-3"></div>
+                            <div class="col-12 col-sm-6">
+                                <hr  width="100%" size="7px" align="center" color="orange" style="border-radius: 10px;"/>
+                            </div>
+                            <div class="col-12 col-sm-3"></div>
                         </div>
-                    </div>
 
-                    <h3 style="text-align: center; margin-top: 80px;">Thống kê mua hàng</h3>
+                        <h3 style="text-align: center; margin-top: 80px;">Tổng quan</h3>
 
-                    <div class="row gy-4 mb-5">
-                        <div class="col-12 col-sm-3">
-                            <div class="card widget-card border-light shadow-sm" style="background-color: #b6bef5;">
-                                <div class="card-body p-4">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h5 class="card-title widget-card-title mb-3">
-                                                Chờ xử lí
-                                            </h5>
-                                            <h4 class="card-subtitle text-body-secondary m-0">
-                                                ${amountS} Sản phẩm
-                                            </h4>
+                        <div class="row gy-4 mb-5">
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #FFCC66;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Giỏ hàng
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    0 Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-cart-shopping" style="font-size: 50px"></i>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-end">
-                                                <i class="fa-solid fa-spinner" style="font-size: 50px"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Đã Mua
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    ${amountS} Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Đã Hủy
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    ${amountC} Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -138,72 +192,99 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-3">
-                            <div class="card widget-card border-light shadow-sm" style="background-color: #f2f98a;">
-                                <div class="card-body p-4">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h5 class="card-title widget-card-title mb-3">
-                                                Đang vận chuyển
-                                            </h5>
-                                            <h4 class="card-subtitle text-body-secondary m-0">
-                                                ${amountC} Sản phẩm
-                                            </h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-end">
-                                                <i class="fa-solid fa-truck-fast" style="font-size: 50px"></i>
+                        <div class="row gy-4 align-items-center">
+                            <div class="col-12 col-sm-4"></div>
+                            <div class="col-12 col-sm-4" >
+                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Quay về trang chủ</a>
+                            </div>
+                            <div class="col-12 col-sm-4"></div>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${listHB.isEmpty()}">
+                        <h3 style="text-align: center; margin-top: 80px;">Bạn chưa mua sản phẩm nào.</h3>
+
+                        <h3 style="text-align: center; margin-top: 80px;">Tổng quan</h3>
+
+                        <div class="row gy-4 mb-5">
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #FFCC66;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Giỏ hàng
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    0 Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-cart-shopping" style="font-size: 50px"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Đã Mua
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    ${amountS} Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
+                                    <div class="card-body p-4">
+                                        <div class="row">
+                                            <div class="col-8">
+                                                <h5 class="card-title widget-card-title mb-3">
+                                                    Đã Hủy
+                                                </h5>
+                                                <h4 class="card-subtitle text-body-secondary m-0">
+                                                    ${amountC} Sản phẩm
+                                                </h4>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="d-flex justify-content-end">
+                                                    <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </div>
 
-                        <div class="col-12 col-sm-3">
-                            <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
-                                <div class="card-body p-4">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h5 class="card-title widget-card-title mb-3">
-                                                Đã nhận
-                                            </h5>
-                                            <h4 class="card-subtitle text-body-secondary m-0">
-                                                ${amountC} Sản phẩm
-                                            </h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-end">
-                                                <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="row gy-4 align-items-center">
+                            <div class="col-12 col-sm-4"></div>
+                            <div class="col-12 col-sm-4" >
+                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Quay về trang chủ</a>
                             </div>
+                            <div class="col-12 col-sm-4"></div>
                         </div>
-
-                        <div class="col-12 col-sm-3">
-                            <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
-                                <div class="card-body p-4">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h5 class="card-title widget-card-title mb-3">
-                                                Đã hủy
-                                            </h5>
-                                            <h4 class="card-subtitle text-body-secondary m-0">
-                                                ${amountC} Sản phẩm
-                                            </h4>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="d-flex justify-content-end">
-                                                <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </c:if>
                 </div>
             </div>
         </div>
