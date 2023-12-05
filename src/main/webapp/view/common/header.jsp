@@ -25,7 +25,7 @@
                                     <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; padding: 0;">
                                         ${sessionScope.user.fullName}
                                     </a>
-                                    <ul class="dropdown-menu" style="margin-left: 40px;">
+                                    <ul class="dropdown-menu" style="margin-left: 20px;">
                                         <li>
                                             <a class="dropdown-item" href="profile" style="font-weight: bold;">Thông tin</a>
                                         </li>
