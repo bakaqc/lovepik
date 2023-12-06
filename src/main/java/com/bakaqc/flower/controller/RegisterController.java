@@ -42,7 +42,7 @@ public class RegisterController extends HttpServlet {
 // Kiểm tra năm sinh
         if (yearOfBirth < 1900 || yearOfBirth > 2023) {
             // Năm sinh không hợp lệ
-            String errorMsg = "Năm sinh không hợp lệ! Vui lòng nhập lại.";
+            String errorMsg = "Năm sinh không hợp lệ!";
             request.setAttribute("errorYear", errorMsg);
 
             request.setAttribute("fullName", fullName);
@@ -55,7 +55,7 @@ public class RegisterController extends HttpServlet {
 // Kiểm tra số điện thoại
             if (phoneNumber.length() != 10) {
                 // Số điện thoại không hợp lệ
-                String errorMsg = "Số điện thoại phải có 10 kí tự số! Vui lòng nhập lại.";
+                String errorMsg = "Số điện thoại phải có 10 kí tự số!";
                 request.setAttribute("errorPhone", errorMsg);
 
                 request.setAttribute("fullName", fullName);
@@ -81,7 +81,7 @@ public class RegisterController extends HttpServlet {
                 } else { // Kiểm tra mật khẩu
                     if (password.length() < 6) {
                         // Mật khẩu không hợp lệ
-                        String errorMsg = "Mật khẩu phải ít nhất trên 6 ký tự! Vui lòng nhập lại.";
+                        String errorMsg = "Mật khẩu phải có ít nhất 6 ký tự!";
                         request.setAttribute("errorMissingPass", errorMsg);
 
                         request.setAttribute("fullName", fullName);
