@@ -15,7 +15,8 @@ public class EditProfileController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-
+        String pid = request.getParameter("pid"); //duong them
+                String quantity = request.getParameter("quantity");  // duong them
         request.getRequestDispatcher("/view/user_edit_profile.jsp").forward(request, response);
     }
 
@@ -59,16 +60,15 @@ public class EditProfileController extends HttpServlet {
 //            request.setAttribute("success", success);
 // câu gốc    response.sendRedirect("../profile");
 
-            
-
-
-
             String flag = (String) session.getAttribute("flag");//dương thêm
 
             if (flag != null) {//dương thêm
                 // Điều hướng đến payment.jsp
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/view/payment.jsp");//dương thêm
-                dispatcher.forward(request, response);//dương thêm
+                
+                String pid = (String) request.getParameter("pid");//dương thêm
+                String quantity = request.getParameter("quantity");//dương thêm
+
+                response.sendRedirect(request.getContextPath() + "/payment?quantity=" + quantity + "&proId=" + pid);//dương thêm
             } else {//dương thêm
                 response.sendRedirect("../profile");
             }//dương thêm

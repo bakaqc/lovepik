@@ -33,16 +33,14 @@ public class PaymentController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
+           
         
-        HttpSession session = request.getSession();
-        String quantityString = request.getParameter("quantity");
         String proId = request.getParameter("proId");
-        int quantity = Integer.parseInt(quantityString);
+  
         Product p = ProductDAO.getInstance().getById(proId);
-        int total=p.getPrice()*quantity;
+        int total = p.getPrice();
         request.setAttribute("total", total);
-        session.getAttribute("user");
-        
+        request.setAttribute("pid", proId);
         
         request.getRequestDispatcher("/view/payment.jsp").forward(request, response);
 

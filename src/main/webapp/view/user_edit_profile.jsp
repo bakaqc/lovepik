@@ -134,8 +134,12 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-xs-6 save"  style="margin-bottom: 30px;">
+                            <div class="col-xs-6 save"  style="margin-bottom: 30px;">   
                                 <br />
+
+                                <input type="hidden" name="quantity" value="${param.quantity}" /> <!--                                 duong them-->
+                                <input type="hidden" name="pid" value="${param.pid}" /><!--                                 duong them-->
+
                                 <button class="btn btn-lg btn-success col-xs-12 save" type="submit">
                                     <i class=""></i> Lưu thay đổi
                                 </button>
@@ -163,6 +167,18 @@
 
         <script src="<%=request.getContextPath()%>/js/profile.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!--                                 duong them-->
+        <script>
+    $(document).ready(function() {
+        // Đặt giá trị cho các trường input ẩn trước khi form được submit
+        $("#changeInfoForm").submit(function() {
+            $("input[name='pid']").val("${param.pid}");
+            $("input[name='quantity']").val("${param.quantity}");
+        });
+    });
+</script>   <!--                                 duong them-->
     </body>
 </html>

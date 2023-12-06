@@ -72,17 +72,14 @@
                                                                         </div>
                                                         code gốc            </div>--> 
                                 <form action="payment" method="get"> <!-- duong them -->
-                                    <div class="col-lg-12 product-amount">
-                                        <h5>Số lượng :</h5>
-                                        <input type="number" min="1" class="form-control text-center w-100 amount" name="quantity" value="1">
-                                    </div>
+                                    
                                     <div class="col-lg-12 mt-3">
                                         <div class="row">
                                             <div class="col-lg-6 pb-2">
-                                                <a href="#" class="btn btn-danger w-100">Thêm vào Giỏ Hàng</a>
+                                                <a href="#" class="btn btn-success w-100">Thêm vào Giỏ Hàng</a>
                                             </div>
                                             <div class="col-lg-6">
-                                                <button type="submit" class="btn btn-danger w-100">Mua Ngay</button>
+                                                <button type="submit" class="btn btn-success w-100">Mua Ngay</button>
 
                                             </div>
                                         </div>

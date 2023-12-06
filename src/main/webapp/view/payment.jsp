@@ -9,8 +9,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-
     session.setAttribute("flag", "payment");
+
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,7 @@
 
                 Toastify({
                     text: "Bạn cần đăng nhập để thanh toán",
-                    duration: 4000, // Thời gian hiển thị thông báo (miligiây)
+                    duration: 3500, // Thời gian hiển thị thông báo (miligiây)
                     destination: "http://localhost:8080/flower/login", // Đường dẫn đến trang đăng nhập
                     newWindow: true,
                     close: true,
@@ -54,62 +55,79 @@
         </script>
         <section class="component">
             <div class="total">
-                <h1>TOTAL</h1>
-                <p id="totalValue"><script>
-
-                    var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${requestScope.total});
-                    document.write(formattedPrice);
-                    </script>      </p>
+                <!--                <h1>TOTAL</h1>-->
+                <!--                <p id="totalValue"><script>
+                
+                                    var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${requestScope.total});
+                                    document.write(formattedPrice);
+                                    </script>      </p>-->
 
             </div>
             <div class="credit-card">
-                <h2>Payment</h2>
-                <% String flag_incart = (String) session.getAttribute("flag_incart");
+                <h1 style="color: orange;">Thanh toán</h1>
 
-                    if (flag_incart != null) {
-                        // làm trường hợp cart 
-                        session.removeAttribute("flag_incart");
-                        } else {%>
                 <form>
- 
-                    <c:set  var="u"  value="${sessionScope.user}" />
-                    <input type="text" placeholder="NAME"value="${u.fullName}" readonly />
-                 
 
-                    <!--                    <div class="line"><input type="text" placeholder="CARD" /> <input type="text" placeholder="NUMBER" /> <input
-            type="text" /> <input type="text" /></div>
-<div class="line">
-<input class="litle" type="text" placeholder="EXPIRY" />
-     <input class="tall" type="text" placeholder="CCV" />
-         </div>-->
-                    <input type="text" placeholder="sdt" value="${u.phone_number}" readonly />
-                    <input type="text" placeholder="dc" value="${u.address}" readonly />
-                    <% 
-                    LocalDate curDate=LocalDate.now();
-                    String date=curDate.toString();
+                    <c:set  var="u"  value="${sessionScope.user}" />
+                    <input type="text" placeholder="FULLNAME"value="${u.fullName}" readonly />
+
+
+
+                    <input type="text" placeholder="PHONE" value="${u.phone_number}" readonly />
+                    <input type="text" placeholder="ADDRESS" value="${u.address}" readonly />
+                    <%
+                        LocalDate curDate = LocalDate.now();
+                        String date = curDate.toString();
                     %>
-                    <input type="text" placeholder="date" value="<%=date%>" readonly />
-                    <button type="submit" class="valid-button" >CHECKOUT</button>
-                    
-                    </form>
-                <%}%>
+                    <input type="text" placeholder="DATE" value="<%=date%>" readonly />
+                    <div>  
+                        <h2>Tổng tiền: 
+                            <script>
+                                     var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${requestScope.total});
+                                     document.write(formattedPrice);
+                            </script>
+                        </h2>
+
+                    </div>
+
+                    <div class="row checkout-buttons">
+
+                        <div class="col-sm-4">
+                            <button type="button" class="valid-button" style="background-color: orange; color: black;" onclick="redirectToDetail()">Quay lại</button>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <button type="button" class="valid-button" style="background-color: orange; color: black;" onclick="redirectToEdit()">Chỉnh sửa thông tin</button>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <button type="submit" class="valid-button" style="background-color: orange; color: black">Thanh toán</button>
+                        </div>
+
+                    </div>
+
+                </form>
+
 
 
 
             </div>
         </section>
-   <script>// Thêm đoạn mã JavaScript để đồng bộ kích thước
-const totalValue = document.getElementById("totalValue");
-const total = document.querySelector(".total");
 
-function updateTotalWidth() {
-  total.style.width = totalValue.offsetWidth + "px";
-}
+        <script>
+            function redirectToDetail() {
+                var pid = "${requestScope.pid}";
+                window.location.href = "detail?pid=" + encodeURIComponent(pid);
+            }
+        </script>
+        <script>
+            function redirectToEdit() {
+                var pid = "${requestScope.pid}";
 
-// Gọi hàm cập nhật kích thước khi trang tải hoặc nội dung thay đổi
-window.addEventListener("load", updateTotalWidth);
-window.addEventListener("resize", updateTotalWidth);
-</script>
+                window.location.href = "profile/edit_profile?pid=" + encodeURIComponent(pid);
+            }
+        </script>
+
     </body>
 
 </html>
