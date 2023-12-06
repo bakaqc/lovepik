@@ -69,10 +69,17 @@
                         </ul>
                     </li>
                     <li class="nav-item d-flex align-items-center">
-                        <a href="#" class="nav-link mx-2">
+                    <c:if test="${sessionScope.user == null}">
+                        <a href="login" class="nav-link mx-2">
                             <i class="fas fa-shopping-cart"></i>                          
                         </a>
-                        <span class="badge rounded-pill bg-secondary">0</span>
+                    </c:if>
+
+                    <c:if test="${sessionScope.user != null}">
+                        <a href="cart" class="nav-link mx-2">
+                            <i class="fas fa-shopping-cart"></i>                          
+                        </a>
+                    </c:if>                   
                     </li>
                 </ul>
             </div>

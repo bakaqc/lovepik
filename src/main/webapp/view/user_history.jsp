@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">   
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/profile.css" />
+
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
     </head>
     <body>
         <%@include file="common/header.jsp" %>
@@ -21,8 +23,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    <h3 style="text-align: center;">Lịch sử chi tiết</h3>
+
                     <c:if test="${!listHB.isEmpty()}">
-                        <h3 style="text-align: center;">Lịch sử chi tiết</h3>
 
                         <div class="container mt-4" style="width: 100%; margin: 15px 0px 0px; text-align: center; padding: 0;">
 
@@ -113,86 +116,7 @@
                             </div>
                         </div>
 
-                        <div class="row gy-4 mb-5 align-items-center">
-                            <div class="col-12 col-sm-3"></div>
-                            <div class="col-12 col-sm-6">
-                                <hr  width="100%" size="7px" align="center" color="orange" style="border-radius: 10px;"/>
-                            </div>
-                            <div class="col-12 col-sm-3"></div>
-                        </div>
-
-                        <h3 style="text-align: center; margin-top: 80px;">Tổng quan</h3>
-
-                        <div class="row gy-4 mb-5">
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #FFCC66;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Giỏ hàng
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    0 Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-cart-shopping" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Đã Mua
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    ${amountS} Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Đã Hủy
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    ${amountC} Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row gy-4 align-items-center">
+                        <div class="row gy-4 align-items-center mb-4">
                             <div class="col-12 col-sm-4"></div>
                             <div class="col-12 col-sm-4" >
                                 <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Quay về trang chủ</a>
@@ -201,90 +125,6 @@
                         </div>
                     </c:if>
 
-                    <c:if test="${listHB.isEmpty()}">
-                        <h3 style="text-align: center; margin-top: 80px;">Bạn chưa mua sản phẩm nào.</h3>
-
-                        <h3 style="text-align: center; margin-top: 80px;">Tổng quan</h3>
-
-                        <div class="row gy-4 mb-5">
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #FFCC66;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Giỏ hàng
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    0 Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-cart-shopping" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Đã Mua
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    ${amountS} Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-4">
-                                <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
-                                    <div class="card-body p-4">
-                                        <div class="row">
-                                            <div class="col-8">
-                                                <h5 class="card-title widget-card-title mb-3">
-                                                    Đã Hủy
-                                                </h5>
-                                                <h4 class="card-subtitle text-body-secondary m-0">
-                                                    ${amountC} Sản phẩm
-                                                </h4>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="d-flex justify-content-end">
-                                                    <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="row gy-4 align-items-center">
-                            <div class="col-12 col-sm-4"></div>
-                            <div class="col-12 col-sm-4" >
-                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Quay về trang chủ</a>
-                            </div>
-                            <div class="col-12 col-sm-4"></div>
-                        </div>
-                    </c:if>
                 </div>
             </div>
         </div>

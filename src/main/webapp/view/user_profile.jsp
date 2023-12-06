@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/profile.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
+
     </head>
     <body>
         <%@include file="common/header.jsp" %>
@@ -27,7 +29,7 @@
                 <div class="col-sm-10">
                     <h3 style="text-align: center;">Thông tin khách hàng</h3>
 
-                    <h4 style="color: green; text-align: center;">${success}</h4>
+                    <!--<h4 style="color: green; text-align: center;">${success}</h4>-->
 
                     <div class="container infor" style="padding: 0;">
 
@@ -120,6 +122,54 @@
 
                         </form>
 
+                    </div>
+
+                    <h3 style="text-align: center; margin-top: 80px;">Thông tin mua hàng</h3>
+
+                    <div class="row gy-4 mb-5">
+                        <div class="col-12 col-sm-6">
+                            <div class="card widget-card border-light shadow-sm" style="background-color: #bfefc4;">
+                                <div class="card-body p-4">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h5 class="card-title widget-card-title mb-3">
+                                                Đã Mua
+                                            </h5>
+                                            <h4 class="card-subtitle text-body-secondary m-0">
+                                                ${amountS} Sản phẩm
+                                            </h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="d-flex justify-content-end">
+                                                <i class="fa-solid fa-circle-check" style="font-size: 50px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-6">
+                            <div class="card widget-card border-light shadow-sm" style="background-color: #f9c9cd;">
+                                <div class="card-body p-4">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h5 class="card-title widget-card-title mb-3">
+                                                Đã Hủy
+                                            </h5>
+                                            <h4 class="card-subtitle text-body-secondary m-0">
+                                                ${amountC} Sản phẩm
+                                            </h4>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="d-flex justify-content-end">
+                                                <i class="fa-solid fa-xmark" style="font-size: 50px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

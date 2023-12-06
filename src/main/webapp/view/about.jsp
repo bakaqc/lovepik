@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" /> 
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/about.css" /> 
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
+
     </head>
     <body>
         <%@include file="common/header.jsp" %>

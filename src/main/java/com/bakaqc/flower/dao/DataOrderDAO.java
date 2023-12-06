@@ -76,6 +76,33 @@ public class DataOrderDAO implements DAO<DataOrder> {
         return list;
     }
 
+    public DataOrder selectById(int id) {
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM data_order WHERE order_id = ?");
+            st.setInt(1, id);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                DataOrder dataO = new DataOrder();
+                dataO.setOderID(rs.getInt("order_id"));
+                dataO.setProductID(rs.getInt("product_id"));
+                dataO.setAmount(rs.getInt("amount"));
+
+                return dataO;
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+
+    }
+
     @Override
     public void insert(DataOrder ob) {
         try {
@@ -218,7 +245,6 @@ public class DataOrderDAO implements DAO<DataOrder> {
                     + "WHERE o.user_id = ?");
             smt.setInt(1, userId);
 
-
             ResultSet rs = smt.executeQuery();
 
             if (rs.next()) {
@@ -233,6 +259,7 @@ public class DataOrderDAO implements DAO<DataOrder> {
         System.out.println(count);
         return count;
     }
+
     public List<HistoryBuy> pagingHistoryBuy(int userId, int limit, int offset) {
         List<HistoryBuy> list = new ArrayList<>();
 
@@ -256,7 +283,7 @@ public class DataOrderDAO implements DAO<DataOrder> {
                 hb.setPaymentP(Payment.create(rs.getString("payment")));
                 hb.setStatusP(OrderStatus.create(rs.getString("status")));
                 hb.setCreateAtP(Convert.convert(rs.getTimestamp("create_at")));
-                
+
                 list.add(hb);
 
             }
@@ -271,7 +298,7 @@ public class DataOrderDAO implements DAO<DataOrder> {
     }
 
     public static void main(String[] args) {
-        getInstance().pagingHistoryBuy(1,4,1);
+        getInstance().pagingHistoryBuy(1, 4, 1);
     }
 
 }

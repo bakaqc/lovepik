@@ -210,7 +210,7 @@
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            15
+            240
         </session-timeout>
     </session-config>
     <jsp-config>

@@ -5,6 +5,8 @@ import com.bakaqc.flower.model.User;
 import com.bakaqc.flower.model.option.UserStatus;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -34,6 +36,10 @@ public class LoginController extends HttpServlet {
         if (user != null && user.getPassword().equals(Hash.hashCode(password)) && user.getStatus() == UserStatus.ACTIVATE) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+
+            Map<Integer, Integer> cart = new HashMap<>();
+            session.setAttribute("cart", cart);
+
             response.sendRedirect("home");
 
             return;
