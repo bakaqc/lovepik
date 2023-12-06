@@ -47,7 +47,9 @@
                                             <h4>Năm Sinh</h4>
                                         </label>
 
-                                        <input type="text" class="form-control" name="yearOfBirth" id="yearOfBirth" style="font-size: 18px;" required value="${sessionScope.user.yearOfBirth}"/>
+                                        <input type="number" class="form-control" name="yearOfBirth" id="yearOfBirth" style="font-size: 18px;" required value="${sessionScope.user.yearOfBirth}"/>
+
+                                        <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errorNewYear}</div>
                                     </div>
                                 </div>
 
@@ -95,6 +97,8 @@
                                     </label>
 
                                     <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" style="font-size: 18px;" required value="${sessionScope.user.phone_number}"/>
+
+                                    <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errorNewPhone}</div>
                                 </div>
                             </div>
 
@@ -115,7 +119,8 @@
                                     </label>
 
                                     <input type="password" class="form-control" name="password" id="password" style="font-size: 18px;" required/>
-
+                                    
+                                    <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errorMissingNewPass}</div>
                                     <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errPass}</div>
                                 </div>
 

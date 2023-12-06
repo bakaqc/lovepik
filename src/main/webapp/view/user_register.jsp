@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/register.css" />
-
     </head>
     <body>
         <section class="vh-100 bg-image">
@@ -37,7 +36,9 @@
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example3cg">Năm Sinh</label>
-                                            <input name="yearOfBirth" type="number" id="yearOfBirth" min="1900" max="2023" maxlength="4" minlength="4" class="form-control form-control-lg" required value="${yearOfBirth}"/>
+                                            <input name="yearOfBirth" type="number" id="yearOfBirth"  class="form-control form-control-lg" required value="${yearOfBirth}"/>
+                                            
+                                            <div id="error-message" class="text-danger err" style="color: red;">${errorYear}</div>
                                         </div>
 
                                         <div class="form-outline mb-4">
@@ -57,7 +58,8 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cdg">Số Điện Thoại</label>
                                             <input name="phone_number" type="number" id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
-                                            
+
+                                            <div id="error-message" class="text-danger err" style="color: red;">${errorPhone}</div>
                                             <!--<div id="phone_error" class="error hidden" style="margin-left: 15px; color: red;">Please enter a valid phone number</div>-->
                                         </div>
 
@@ -73,6 +75,8 @@
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form3Example4cg">Mật Khẩu</label>
                                             <input name="password" type="password" id="form3Example4cg" class="form-control form-control-lg" required/>
+
+                                            <div id="error-message" class="text-danger err" style="color: red;">${errorMissingPass}</div>
                                         </div>
 
                                         <div class="form-outline mb-4">
