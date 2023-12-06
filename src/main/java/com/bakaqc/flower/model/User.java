@@ -3,7 +3,6 @@ package com.bakaqc.flower.model;
 import com.bakaqc.flower.model.option.UserGender;
 import com.bakaqc.flower.model.option.UserStatus;
 import java.time.LocalDateTime;
-import java.util.logging.Logger;
 
 public class User {
 

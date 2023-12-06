@@ -1,5 +1,8 @@
 package com.bakaqc.flower.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cart {
 
     private int userID;

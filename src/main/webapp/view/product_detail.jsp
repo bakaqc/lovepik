@@ -14,11 +14,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/product_detail.css" />
+
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
     </head>
     <body>
         <%@include file="common/header.jsp" %>
         <div class="container">
-            <div class="p-3 justify-content-center bg-white">
+            <div class="justify-content-center bg-white">
 
                 <div class="row border m-2 detail">
                     <div class="col-lg-4 left-side-product-box pb-3 product-banner">
@@ -56,16 +58,20 @@
                                 <div class="col-lg-12 ship">
                                     <h5>Giao hàng nhanh trong khu vực Tỉnh Bình Định </h5>
                                 </div>   
-                                <div class="col-lg-12 product-amount">
-                                    <h5>Số lượng :</h5>
-                                    <input type="number" min="1" class="form-control text-center w-100 amount" value="1">
-                                </div>
+
                                 <div class="col-lg-12 mt-3">
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-danger w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
+                                            <c:if test="${sessionScope.user == null}">
+                                                <a href="login" class="btn btn-danger w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
+                                            </c:if>
+
+                                            <c:if test="${sessionScope.user != null}">
+                                                <a href="addcart?id=${pro.id}&amount=1" class="btn btn-success w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
+                                            </c:if>
                                         </div>
-                                        <div class="col-lg-6">
+
+                                        <div class="col-lg-6 pb-2 ">
                                             <a href="#" class="btn btn-success w-100 shop-now" style="font-size: 20px">Mua Ngay</a>
                                         </div>
                                     </div>
@@ -87,9 +93,21 @@
                                                 <img src="${p.banners}" alt="Product" class="card-img-top p-img"
                                                      height="200" >
                                             </a>
-                                            <a href="#" class="buy">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                            </a>
+
+                                            <c:if test="${sessionScope.user == null}">
+                                                <a href="login" class="buy">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                </a>
+                                            </c:if>
+
+                                            <c:if test="${sessionScope.user != null}">
+                                                <input type="hidden" name="amount" value="1">
+
+                                                <a href="addcart?id=${p.id}&amount=1" class="buy">
+                                                    <i class="fa-solid fa-cart-shopping"></i>
+                                                </a>
+                                            </c:if>
+
                                         </div>
                                         <div class="card-body">
                                             <p class="card-text fw-bold namep">

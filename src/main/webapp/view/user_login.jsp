@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/login.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
 
         <script type="text/javascript">
             function redirectToSignupPage() {

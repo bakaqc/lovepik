@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/login.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
+
     </head>
     <body>
         <section class="vh-100 gradient-custom">
@@ -46,10 +48,10 @@
                                             <label class="form-label" for="typePasswordX" style="color: black">Mật khẩu</label>
                                             <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
 
-                                             <div id="error-message" class="text-danger err" style="margin-left: 15px">${errorMsg}</div>
+                                            <div id="error-message" class="text-danger err" style="margin-left: 15px">${errorMsg}</div>
                                         </div>
 
-                                       
+
                                         <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập Ngay" action="admin" method="post" style="font-weight: bold; color: black; background-color: orange;"/>
 
                                     </div>

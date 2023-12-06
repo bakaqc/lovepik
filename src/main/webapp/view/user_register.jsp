@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/register.css" />
+
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
+
     </head>
     <body>
         <section class="vh-100 bg-image">
@@ -59,7 +62,9 @@
                                             <label class="form-label" for="form3Example4cdg">Số Điện Thoại</label>
                                             <input name="phone_number" type="number" id="phone_number" class="form-control form-control-lg" required value="${phoneNumber}"/>
 
+
                                             <div id="error-message" class="text-danger err" style="color: red;">${errorPhone}</div>
+
                                             <!--<div id="phone_error" class="error hidden" style="margin-left: 15px; color: red;">Please enter a valid phone number</div>-->
                                         </div>
 

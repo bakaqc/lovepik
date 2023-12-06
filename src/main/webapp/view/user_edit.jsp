@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/profile.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
 
     </head>
     <body>
