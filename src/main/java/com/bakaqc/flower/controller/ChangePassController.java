@@ -28,28 +28,44 @@ public class ChangePassController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-
-        String oldPassword = Hash.hashCode(request.getParameter("oldPassword"));
-        String newPassword = Hash.hashCode(request.getParameter("newPassword"));
-        String conPassword = Hash.hashCode(request.getParameter("conPassword"));
+        String oldPass = request.getParameter("oldPassword");
+        String newPass = request.getParameter("newPassword");
+        String conPass = request.getParameter("conPassword");
+        String oldPassword = Hash.hashCode(oldPass);
+        String newPassword = Hash.hashCode(newPass);
+        String conPassword = Hash.hashCode(conPass);
 
         HttpSession session = request.getSession();
         User us = (User) session.getAttribute("user");
         if (oldPassword.equals(us.getPassword())) {
-            if (conPassword.equals(newPassword)) {
-                UserDAO.getInstance().changePass(us.getId(), newPassword);
+            if (newPass.length() < 6) {
+                String errGotPass = "Mật khẩu mới phải nhập tối thiểu 6 ký tự!";
+                request.setAttribute("errGotPass", errGotPass);
+
+                this.doGet(request, response);
+            } else {
+                if (newPassword.equals(oldPassword)) {
+                    String errOldPass = "Mật khẩu mới trùng với mật khẩu cũ!";
+                    request.setAttribute("errOldPass", errOldPass);
+
+                    this.doGet(request, response);
+                } else {
+                    if (conPassword.equals(newPassword)) {
+                        UserDAO.getInstance().changePass(us.getId(), newPassword);
 
 //                String success = "Đổi mật khẩu thành công.";
 //                request.setAttribute("success", success);
 //                request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
+                        response.sendRedirect("profile");
 
-                response.sendRedirect("profile");
+                    } else {
+                        String errConfPass = "Xác nhận Mật khẩu mới không đúng!";
+                        request.setAttribute("errConfPass", errConfPass);
 
-            } else {
-                String errConfPass = "Xác nhận Mật khẩu mới không đúng!";
-                request.setAttribute("errConfPass", errConfPass);
+                        this.doGet(request, response);
+                    }
+                }
 
-                this.doGet(request, response);
             }
         } else {
             String errPass = "Mật khẩu không đúng!";

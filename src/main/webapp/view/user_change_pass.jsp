@@ -54,6 +54,8 @@
                                         <h4>Mật khẩu mới</h4>
                                     </label>
                                     <input type="password" class="form-control" name="newPassword" id="password" style="font-size: 18px;" required/>
+                                    <div id="error-message" class="text-danger err">${errGotPass}</div>
+                                    <div id="error-message" class="text-danger err">${errOldPass}</div>
                                 </div>
 
                                 <div class="col-xs-3"></div>  

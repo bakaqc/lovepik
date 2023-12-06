@@ -20,14 +20,28 @@ public class CreateAccountAdminController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            Admin admin = new Admin();
-            admin.setUserName(username);
-            admin.setPassword(Hash.hashCode(password));
-            admin.setRole(AdminRole.create("Admin"));
-            AdminDAO adminDAO = new AdminDAO();
-            adminDAO.insert(admin);
-            String url = request.getHeader("referer");
-            response.sendRedirect(url);
+            if (username.length() < 6) {
+                String errorMsg = "Tên tài khoảng phải có ít nhất 6 ký tự!";
+                request.setAttribute("errorUser", errorMsg);  // Set the error message for username
+                String url = request.getHeader("referer");
+                response.sendRedirect(url);  // Forward to the same JSP page
+            } else if (password.length() < 6) {
+                String errorMsg = "Mật khẩu phải có ít nhất 6 ký tự!";
+                request.setAttribute("errorCode", errorMsg);  // Set the error message for password
+                request.setAttribute("username", username);
+                String url = request.getHeader("referer");
+                response.sendRedirect(url);  // Forward to the same JSP page
+            } else {
+                // Rest of the code
+                Admin admin = new Admin();
+                admin.setUserName(username);
+                admin.setPassword(Hash.hashCode(password));
+                admin.setRole(AdminRole.create("Admin"));
+                AdminDAO adminDAO = new AdminDAO();
+                adminDAO.insert(admin);
+                String url = request.getHeader("referer");
+                response.sendRedirect(url);
+            }
         }
     }
 
