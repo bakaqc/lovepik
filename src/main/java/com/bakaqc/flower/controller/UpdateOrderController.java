@@ -31,7 +31,6 @@ public class UpdateOrderController extends HttpServlet {
         order.setId(Integer.parseInt(id));
         order.setStatus(OrderStatus.create(status));
         OrderDAO.getInstance().update(order);
-//        request.getRequestDispatcher("/view/OrderAdmin.jsp").forward(request, response);
 
         String url = request.getHeader("referer");
         response.sendRedirect(url);
