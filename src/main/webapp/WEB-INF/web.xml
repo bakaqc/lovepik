@@ -106,7 +106,7 @@
     </servlet>
     <servlet>
         <servlet-name>UserHistory</servlet-name>
-        <servlet-class>com.bakaqc.flower.controller.UserHistory</servlet-class>
+        <servlet-class>com.bakaqc.flower.controller.UserHistoryController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>

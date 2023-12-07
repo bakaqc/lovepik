@@ -63,7 +63,7 @@
                                     <div class="row">
                                         <div class="col-lg-6 pb-2 ">
                                             <c:if test="${sessionScope.user == null}">
-                                                <a href="login" class="btn btn-danger w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
+                                                <a href="login" class="btn btn-success w-100" style="font-size: 20px">Thêm vào Giỏ Hàng</a>
                                             </c:if>
 
                                             <c:if test="${sessionScope.user != null}">
@@ -72,7 +72,13 @@
                                         </div>
 
                                         <div class="col-lg-6 pb-2 ">
-                                            <a href="#" class="btn btn-success w-100 shop-now" style="font-size: 20px">Mua Ngay</a>
+                                            <c:if test="${sessionScope.user == null}">
+                                                <a href="login" class="btn btn-success w-100" style="font-size: 20px">Mua Ngay</a>
+                                            </c:if>
+
+                                            <c:if test="${sessionScope.user != null}">
+                                                <a href="#" class="btn btn-success w-100" style="font-size: 20px">Mua Ngay</a>
+                                            </c:if>                   
                                         </div>
                                     </div>
                                 </div>
