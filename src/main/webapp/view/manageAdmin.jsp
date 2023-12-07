@@ -46,10 +46,10 @@
                             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0">
                                 <thead>
                                     <tr>
-                                        <th width="10"><input type="checkbox" id="all"></th>
-                                        <th width="100">ID Khách Hàng</th>
-                                        <th width="150">Username</th>
-                                        <th width="30">Tính năng</th>
+                                        <th width="20"><input type="checkbox" id="all"></th>
+                                        <th width="150">ID tài khoản</th>
+                                        <th>Username</th>
+                                        <th width="100">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -4,9 +4,12 @@ import static com.bakaqc.flower.controller.UpdateProductController.DEFAULT_FILEN
 import com.bakaqc.flower.dao.ProductDAO;
 import com.bakaqc.flower.model.Product;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
@@ -19,12 +22,14 @@ import javax.servlet.http.Part;
         maxRequestSize = 1024 * 1024 * 11)
 public class CreateProductController extends HttpServlet {
 
+    private final Logger LOGGER = Logger.getLogger(this.getClass().getName());
+    private final String UPLOAD_FILE_PATH = "/img/product_img";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            ProductDAO productDAO = new ProductDAO();
             Product product = new Product();
             String name = request.getParameter("name");
             String categoryID = request.getParameter("category");
@@ -37,7 +42,7 @@ public class CreateProductController extends HttpServlet {
             product.setPrice(Integer.parseInt(price));
             product.setDetail(detail);
             product.setBanners(image);
-            productDAO.insert(product);
+            ProductDAO.getInstance().insert(product);
             String url = request.getHeader("referer");
             response.sendRedirect(url);
         }
@@ -60,31 +65,38 @@ public class CreateProductController extends HttpServlet {
     }
 
     public String uploadFile(HttpServletRequest request) throws IOException, ServletException {
-        String fileName = "";
-        int length = getServletContext().getRealPath("/").length();
-        String uploadPath = new StringBuilder(getServletContext().getRealPath("/")) + File.separator + "img";
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdir();
+         // Get the file part from the request
+        Part filePart = request.getPart("image");
+        LOGGER.info("filePart: " + filePart.toString());
+        
+        // Get the filename
+        String fileName = getFileName(filePart);
+        LOGGER.info(fileName);
+
+        // Specify the directory to save the uploaded file
+        String savePath = "/img/product_img"; // Change this to your desired directory
+
+        // Create the save directory if it doesn't exist
+        File fileSaveDir = new File(savePath);
+        if (!fileSaveDir.exists()) {
+            fileSaveDir.mkdir();
         }
-        try {
-            for (Part part : request.getParts()) {
-                String temp = getFileName(part);
-                if (!temp.equals(DEFAULT_FILENAME) && !temp.trim().isEmpty()) {
-                    fileName = temp;
-                    part.write(uploadPath + File.separator + fileName);
-                    break;
-                }
-            }
-        } catch (FileNotFoundException fne) {
+
+        // Save the file to the specified directory
+        File file = new File(savePath, fileName);
+        try (InputStream input = filePart.getInputStream()) {
+            Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
+
+        LOGGER.info(fileName);
         return fileName;
     }
 
-    private String getFileName(Part part) {
-        for (String content : part.getHeader("content-disposition").split(";")) {
+    private String getFileName(final Part part) {
+        final String partHeader = part.getHeader("content-disposition");
+        for (String content : partHeader.split(";")) {
             if (content.trim().startsWith("filename")) {
-                return content.substring(content.indexOf("=") + 2, content.length() - 1);
+                return content.substring(content.indexOf('=') + 1).trim().replace("\"", "");
             }
         }
         return DEFAULT_FILENAME;

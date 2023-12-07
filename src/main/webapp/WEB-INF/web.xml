@@ -108,6 +108,14 @@
         <servlet-name>AdminOrderController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.AdminOrderController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateOrderController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.UpdateOrderController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUserController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.UpdateAccountController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -207,6 +215,14 @@
     <servlet-mapping>
         <servlet-name>AdminOrderController</servlet-name>
         <url-pattern>/admin/list-order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderController</servlet-name>
+        <url-pattern>/admin/updateOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUserController</servlet-name>
+        <url-pattern>/updateAccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

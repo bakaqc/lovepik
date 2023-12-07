@@ -115,8 +115,8 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Ảnh</label>
-                                                                <img src="<%=request.getContextPath()%>/img/product_img/${item.banners}" style="width: 60px" alt="alt" id="image${item.id}"/>
-                                                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" onclick="preview(${item.id})">
+                                                                <img src="<%=request.getContextPath()%>${item.banners}" style="width: 60px" alt="alt" id="image${item.banners}"/>
+                                                                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" onclick="preview(${item.banners})">
                                                             </div>
                                                             <div class="form-group col-md-12">
                                                                 <label for="inputAddress">Chi tiết sản phẩm</label>
@@ -168,7 +168,7 @@
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Ảnh</label>
-                                                            <img src="<%=request.getContextPath()%>/img/product_img/${item.banners}" style="width: 60px" alt="alt" id="previewImage"/>
+                                                            <img src="<%=request.getContextPath()%>${item.banners}" style="width: 60px" alt="alt" id="previewImage"/>
                                                             <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" required="" onclick="previewImage()">
                                                         </div>
                                                         <div class="form-group col-md-12">

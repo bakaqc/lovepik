@@ -1,5 +1,3 @@
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,10 +39,11 @@
                                        id="sampleTable">
                                     <thead>
                                         <tr>
-                                            <th>ID đơn hàng</th>
+                                            <th width="30">ID</th>
                                             <th>Tên khách hàng</th>
                                             <th>Tổng tiền</th>
                                             <th>Trạng thái</th>
+                                            <th width="80">Tính năng</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -78,8 +77,72 @@
                                                         <span class="badge bg-danger">Đã hủy</span>
                                                     </c:if>
                                                 </td>
+                                                <td class="table-td-center">
+                                                    <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp"
+                                                            data-toggle="modal" data-target="#ModalUP${item.id}"><i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
                                             </tr>
-                                        </c:forEach>
+                                        <div class="modal fade" id="ModalUP${item.id}"" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+                                             data-keyboard="false">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <form action="${pageContext.request.contextPath}/admin/updateOrder" method="post">
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="form-group  col-md-12">
+                                                                    <span class="thong-tin-thanh-toan">
+                                                                        <h5>Chỉnh sửa trạng thái đơn hàng</h5>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <input class="form-control" name="id" type="hidden" required value="${item.id}">
+                                                                <div class="form-group col-md-6">
+                                                                    <div class="form-check col-sm-6">
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="processing" ${item.status.toString() == 'processing' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="gridRadios1">
+                                                                            Chờ xử lý
+                                                                        </label>
+                                                                    </div>
+                                                                    <BR>
+                                                                    <div class="form-check col-sm-6">
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="shipping" ${item.status.toString() == 'shipping' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="gridRadios1">
+                                                                            <div style="white-space: nowrap">
+                                                                                Đang vận chuyển
+                                                                            </div>
+                                                                        </label>
+                                                                    </div>
+                                                                    <BR>
+                                                                    <div class="form-check col-sm-6">
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="done" ${item.status.toString() == 'done' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="gridRadios1">
+                                                                            <div style="white-space: nowrap">
+                                                                                Đã hoàn thành
+                                                                            </div>
+                                                                        </label>
+                                                                    </div>
+                                                                    <BR>
+                                                                    <div class="form-check col-sm-6">
+                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="canceled" ${item.status.toString() == 'canceled' ? 'checked' : ''}>
+                                                                        <label class="form-check-label" for="gridRadios2">
+                                                                            Đã hủy
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <BR>
+                                                            <button class="btn btn-save" type="submit">Lưu lại</button>
+                                                            <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+                                                            <BR>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

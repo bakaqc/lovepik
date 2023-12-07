@@ -23,7 +23,7 @@
     </head>
 
     <body onload="time()" class="app sidebar-mini rtl">
-        <%int count=0;%>
+        <%int count = 0;%>
         <jsp:include page="navbaradmin.jsp"/>
         <main class="app-content">
             <div class="row">
@@ -40,8 +40,8 @@
                 <!--Left-->
                 <div class="col-md-12 col-lg-6">
                     <div class="row">
-                        <!-- col-6 -->
-                        <div class="col-md-6">
+                        <!-- col-12 -->
+                        <div class="col-md-12">
                             <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
                                 <div class="info">
                                     <h4>Tổng khách hàng</h4>
@@ -50,8 +50,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
+                        <!-- col-12 -->
+                        <div class="col-md-12">
                             <div class="widget-small info coloured-icon"><i class='icon bx bxs-data fa-3x'></i>
                                 <div class="info">
                                     <h4>Tổng sản phẩm</h4>
@@ -60,9 +60,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
-                            <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                        <!-- col-12 -->
+                        <div class="col-md-12">
+
+                            <div  class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
                                     <h4>Tổng đơn hàng</h4>
                                     <p><b>${requestScope.orders.size()} đơn hàng</b></p>
@@ -70,19 +71,22 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
-                            <div class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
+                        <h5 style="margin-left: 15px"> Trạng thái đơn hàng: </h5>
+                        <BR>
+                        <BR>
+                        <!-- col-12 -->
+                        <div class="col-md-12">
+                            <div  class="widget-small warning coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
-                                    <h4>Chờ xử lí</h4>
-                                                            <p>  <b> ${requestScope.process.size()} đơn hàng </b>
-                                     
+                                    <h4>Chờ xử lý</h4>
+                                    <p>  <b> ${requestScope.process.size()} đơn hàng </b>
+
                                     <p class="info-tong">Trạng thái đơn hàng</p>
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
+                        <!-- col-12 -->
+                        <div class="col-md-12">
                             <div class="widget-small info coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
                                     <h4>Đang vận chuyển</h4>
@@ -91,8 +95,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
+                        <!-- col-12 -->
+                        <div class="col-md-12">
                             <div class="widget-small primary coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
                                     <h4>Đã hoàn thành</h4>
@@ -101,8 +105,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- col-6 -->
-                        <div class="col-md-6">
+                        <!-- col-12 -->
+                        <div class="col-md-12">
                             <div class="widget-small danger coloured-icon"><i class='icon bx bxs-shopping-bags fa-3x'></i>
                                 <div class="info">
                                     <h4>Đã hủy</h4>
@@ -112,8 +116,6 @@
                             </div>
                         </div>
                         <!-- col-12 -->
-                       
-                        <!-- / col-12 -->
                     </div>
                 </div>
                 <!--END left-->
@@ -128,7 +130,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        
+                        <div class="col-md-12 mt-4">
                             <div class="tile">
                                 <h3 class="tile-title">Thống kê 6 tháng doanh thu</h3>
                                 <div class="embed-responsive embed-responsive-16by9">

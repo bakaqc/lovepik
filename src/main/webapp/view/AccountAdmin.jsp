@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Quản trị Admin</title>
-       <meta charset="utf-8">
+        <title>LovePik | Quản lí Admin</title>
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Main CSS-->
@@ -44,7 +44,7 @@
                             </div>
                             <form action="${pageContext.request.contextPath}/admin/list-account">
                                 <select name="status" id="custom-select-filter-1" onchange="this.form.submit()">
-                                    <option value="0">Please select status</option>
+                                    <option value="0">Trạng thái khách hàng</option>
                                     <option value="1" ${requestScope.status == 1 ? 'selected' : ''}>Hoạt Động</option>
                                     <option value="2" ${requestScope.status == 2 ? 'selected' : ''}>Không Hoạt Động</option>
                                 </select>
@@ -54,7 +54,7 @@
                                 <thead>
                                     <tr>
                                         <th width="10"><input type="checkbox" id="all"></th>
-                                        <th>ID</th>
+                                        <th>ID Khách Hàng</th>
                                         <th width="150">Họ và tên</th>
                                         <th width="300">Địa chỉ</th>
                                         <th>Năm sinh</th>
@@ -110,41 +110,41 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Địa chỉ email</label>
-                                                                <input disabled class="form-control" type="email" name="email" required value="${item.email}">
+                                                                <input class="form-control" type="email" name="email" required value="${item.email}">
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Giới tính</label>
-                                                                <div class="row">                                                             
-                                                                    <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" ${item.gender.toString() == 'male' ? 'checked' : ''}>
-                                                                        <label class="form-check-label" for="gridRadios1">
-                                                                            Nam
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" ${item.gender.toString() == 'female' ? 'checked' : ''}>
-                                                                        <label class="form-check-label" for="gridRadios2">
-                                                                            Nữ
-                                                                        </label>
-                                                                    </div>
+
+                                                                <div class="form-check col-sm-6">
+                                                                    <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male" ${item.gender.toString() == 'male' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="gridRadios1">
+                                                                        Nam
+                                                                    </label>
                                                                 </div>
+                                                                <div class="form-check col-sm-6">
+                                                                    <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female" ${item.gender.toString() == 'female' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="gridRadios2">
+                                                                        Nữ
+                                                                    </label>
+                                                                </div>
+
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label class="control-label">Trạng thái</label>
-                                                                <div class="row">
-                                                                    <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate" ${item.status.toString() == 'activate' ? 'checked' : ''}>
-                                                                        <label class="form-check-label" for="gridRadios1">
-                                                                            Hoạt Động
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="form-check col-sm-6">
-                                                                        <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactivate" ${item.status.toString() == 'deactivate' ? 'checked' : ''}>
-                                                                        <label class="form-check-label" for="gridRadios2">
-                                                                            Không Hoạt Động
-                                                                        </label>
-                                                                    </div>
+
+                                                                <div class="form-check col-sm-6">
+                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate" ${item.status.toString() == 'activate' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="gridRadios1">
+                                                                        Hoạt Động
+                                                                    </label>
                                                                 </div>
+                                                                <div class="form-check col-sm-6">
+                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactivate" ${item.status.toString() == 'deactivate' ? 'checked' : ''}>
+                                                                    <label class="form-check-label" for="gridRadios2">
+                                                                        Không Hoạt Động
+                                                                    </label>
+                                                                </div>
+
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label for="inputAddress">Địa chỉ</label>
@@ -152,8 +152,8 @@
                                                             </div>
                                                         </div>
                                                         <BR>
-                                                        <BR>
-                                                        <BR>
+                                                       
+
                                                         <button class="btn btn-save" type="submit">Lưu lại</button>
                                                         <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
                                                         <BR>
@@ -200,37 +200,38 @@
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Giới tính</label>
-                                                            <div class="row">                                                             
-                                                                <div class="form-check col-sm-6">
-                                                                    <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male">
-                                                                    <label class="form-check-label" for="gridRadios1">
-                                                                        Nam
-                                                                    </label>
-                                                                </div>
-                                                                <div class="form-check col-sm-6">
-                                                                    <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female">
-                                                                    <label class="form-check-label" for="gridRadios2">
-                                                                        Nữ
-                                                                    </label>
-                                                                </div>
+
+                                                            <div class="form-check col-sm-6">
+                                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male">
+                                                                <label class="form-check-label" for="gridRadios1">
+                                                                    Nam
+                                                                </label>
                                                             </div>
+                                                            <div class="form-check col-sm-6">
+                                                                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female">
+                                                                <label class="form-check-label" for="gridRadios2">
+                                                                    Nữ
+                                                                </label>
+                                                            </div>
+
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Trạng thái</label>
-                                                            <div class="row">
-                                                                <div class="form-check col-sm-6">
-                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate">
-                                                                    <label class="form-check-label" for="gridRadios1">
-                                                                        Hoạt Động
-                                                                    </label>
-                                                                </div>
-                                                                <div class="form-check col-sm-6">
-                                                                    <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactive">
-                                                                    <label class="form-check-label" for="gridRadios2">
-                                                                        Không Hoạt Động
-                                                                    </label>
-                                                                </div>
+
+                                                            <div class="form-check col-sm-6">
+                                                                <input class="form-check-input" type="radio" name="status" id="gridRadios1" value="activate">
+                                                                <label class="form-check-label" for="gridRadios1">
+                                                                    Hoạt Động
+                                                                </label>
                                                             </div>
+                                                            <BR>
+                                                            <div class="form-check col-sm-6">
+                                                                <input class="form-check-input" type="radio" name="status" id="gridRadios2" value="deactive">
+                                                                <label class="form-check-label" for="gridRadios2">
+                                                                    Không Hoạt Động
+                                                                </label>
+                                                            </div>
+
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label for="inputAddress">Địa chỉ</label>
@@ -238,8 +239,8 @@
                                                         </div>
                                                     </div>
                                                     <BR>
-                                                    <BR>
-                                                    <BR>
+                                                  
+
                                                     <button class="btn btn-save" type="submit">Lưu lại</button>
                                                     <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
                                                     <BR>
