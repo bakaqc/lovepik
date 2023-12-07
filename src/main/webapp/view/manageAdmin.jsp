@@ -41,6 +41,8 @@
                                     <a class="btn btn-add btn-sm" href="#" title="Thêm" data-toggle="modal" data-target="#ModalAdd"><i class="fas fa-plus"></i>
                                         Tạo mới tài khoản quản trị
                                     </a>
+                                    <div id="error-message" class="text-danger err" style="color: red;">${errorUser}</div>
+                                    <div id="error-message" class="text-danger err" style="color: red;">${errorCode}</div>
                                 </div>
                             </div>
                             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0">
@@ -87,13 +89,17 @@
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Tài khoản</label>
                                                             <input class="form-control" type="text" name="username" required >
+                                                            <div id="error-message" class="text-danger err" style="color: red;">${errorUser}</div>
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                             <label class="control-label">Mật khẩu</label>
                                                             <input class="form-control" type="password" name="password" required >
+                                                            <div id="error-message" class="text-danger err" style="color: red;">${errorCode}</div>
                                                         </div>
 
                                                     </div>
+
+
                                                     <BR>
                                                     <BR>
                                                     <BR>
@@ -125,6 +131,7 @@
         <script type="text/javascript" src="..  /js/plugins/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script>
+
                                                                 function deleteRow(r) {
                                                                     var i = r.parentNode.parentNode.rowIndex;
                                                                     document.getElementById("myTable").deleteRow(i);

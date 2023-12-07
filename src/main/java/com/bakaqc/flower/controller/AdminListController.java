@@ -14,7 +14,8 @@ public class AdminListController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             AdminDAO adminDAO = new AdminDAO();
             List<Admin> list = adminDAO.selectAll();
@@ -39,10 +40,4 @@ public class AdminListController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

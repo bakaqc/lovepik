@@ -1,4 +1,4 @@
-<div class ="footers">
+<div class ="footers mt-5">
     <footer class="d-flex justify-content-between my-5 text-start flex-wrap home-footer">
         <ul class="nav flex-column">
             <li class="fw-bold nav-item">
@@ -24,7 +24,7 @@
                 <a href="home" class="nav-link text-blue">Hotline:  1900</a>
             </li>
             <li class="nav-item ">
-                <a href="https://github.com/bakaqc" target="_blank" class="nav-link text-blue">Github</a>
+                <a href="https://github.com/bakaqc/flower" target="_blank" class="nav-link text-blue">Github</a>
             </li>
             <li class="nav-item ">
                 <a href="https://www.facebook.com/dqchuongbk" target="_blank" class="nav-link text-blue">Facebook</a>

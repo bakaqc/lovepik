@@ -15,10 +15,12 @@ public class CreateAccountAdminController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+
             Admin admin = new Admin();
             admin.setUserName(username);
             admin.setPassword(Hash.hashCode(password));
@@ -26,6 +28,7 @@ public class CreateAccountAdminController extends HttpServlet {
             AdminDAO.getInstance().insert(admin);
             String url = request.getHeader("referer");
             response.sendRedirect(url);
+
         }
     }
 
@@ -44,6 +47,6 @@ public class CreateAccountAdminController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     }
-
     
 }
+

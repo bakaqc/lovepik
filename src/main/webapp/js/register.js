@@ -1,37 +1,18 @@
-const form = document.getElementById('register-form');
-const fullNameInp = document.getElementById('fullname');
-const yearOfBirthInp = document.getElementById('yearOfBirth');
-const addressInp = document.getElementById('address');
-const phoneNumberInp = document.getElementById('phone_number');
-const emailInp = document.getElementById('email');
-const errorMessage = document.getElementById('error-message');
+function validatePhoneNumber(input_str) {
+    var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
 
-form.addEventListener('submit', function (send) {
-    event.preventDefault();
+    return re.test(input_str);
+}
 
-    removeExtraSpaces(fullNameInp);
-    
-    const emailValue = emailInp.value;
-
-    if (!isValidEmail(emailValue)) {
-        errorMessage.textContent = 'Email không hợp lệ!';
-        emailInp.focus();
-        return;
+function validateForm(event) {
+    var phone = document.getElementById('phone_number').value;
+    if (!validatePhoneNumber(phone)) {
+        document.getElementById('phone_error').classList.remove('hidden');
+    } else {
+        document.getElementById('phone_error').classList.add('hidden');
+        alert("validation success")
     }
-});
-
-emailInp.addEventListener('input', function () {
-    removeSpaces(emailInp);
-});
-
-function removeExtraSpaces(input) {
-    input.value = input.value.replace(/\s+/g, ' ').trim();
+    event.preventDefault();
 }
 
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function removeSpaces(input) {
-    input.value = input.value.replace(/\s/g, '');
-}
+document.getElementById('register-form').addEventListener('submit', validateForm);

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/login.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
 
         <script type="text/javascript">
             function redirectToSignupPage() {
@@ -34,8 +35,6 @@
 
                             <div class="card-body p-5 text-center " style="border-radius: 1rem;background-color: antiquewhite;border:solid 5px white;">
 
-                                <h2>${success}</h2>
-
                                 <form action="login" method="post"> 
 
                                     <div class="mb-md-5 mt-md-4 pb-5">
@@ -48,15 +47,17 @@
                                             <label class="form-label" for="typeEmailX" style="color: black">Email</label>
                                             <input type="text" name="email" id="typeEmailX" class="form-control form-control-lg" required value="${email}"/>
 
+                                            <div id="error-message" class="text-danger err" style="margin-left: 15px;">${errorEmail}</div>
                                         </div>
 
                                         <div class="form-outline form-white mb-4">
                                             <label class="form-label" for="typePasswordX" style="color: black">Mật Khẩu</label>
                                             <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
 
+                                            <div id="error-message" class="text-danger err" style="margin-left: 15px;">${errorMsg}</div>
                                         </div>
 
-                                        <div id="error-message" class="text-danger err">${errorMsg}</div>
+
                                         <input class="btn btn-outline-light btn-lg px-5" type="submit"  value="Đăng Nhập Ngay" style="font-weight: bold; color: black; background-color: orange; "/>
 
 

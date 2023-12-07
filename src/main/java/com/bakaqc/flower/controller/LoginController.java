@@ -5,6 +5,8 @@ import com.bakaqc.flower.model.User;
 import com.bakaqc.flower.model.option.UserStatus;
 import com.bakaqc.flower.service.Hash;
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -34,6 +36,10 @@ public class LoginController extends HttpServlet {
         if (user != null && user.getPassword().equals(Hash.hashCode(password)) && user.getStatus() == UserStatus.ACTIVATE) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+
+            Map<Integer, Integer> cart = new HashMap<>();
+            session.setAttribute("cart", cart);
+
             response.sendRedirect("home");
 
             return;
@@ -41,11 +47,18 @@ public class LoginController extends HttpServlet {
 
         String errorMsg = "Sai mật khẩu!";
         if (user != null && user.getStatus() == UserStatus.DEACTIVATE) {
-            errorMsg = "Tài khoản đã bị khóa!";
+            String errorEmail = "Tài khoản đã bị khóa!";
+            request.setAttribute("errorEmail", errorEmail);
+
+            this.doGet(request, response);
         }
         if (user == null) {
-            errorMsg = "Tài khoản không tồn tại!";
+            String errorEmail = "Tài khoản không tồn tại!";
             email = null;
+
+            request.setAttribute("errorEmail", errorEmail);
+
+            this.doGet(request, response);
         }
 
         request.setAttribute("email", email);

@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse p-2 flex-column" id="navbarContent">                
             <div class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100 test">
                 <a href="home" class="navbar-brand d-none d-lg-block">LovePik</a>
-                <form action="search" method="get" class="d-flex search">
+                <form action="search" method="get" class="d-flex search" style="padding-left: 200px;">
                     <input value="${txtS}" name="txt" type="search" class="form-control me-2 search-input" placeholder="Search" />
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="fas fa-search"></i>
@@ -18,55 +18,68 @@
                 </form>
                 <ul class="navbar-nav">
                     <li class="nav-item d-flex align-items-center">
-                        <a href="home" class="nav-link mx-2 hotline">
-                            Hotline: 1900 
-                        </a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center">
                         <ul class="navbar-nav">
                             <c:if test="${sessionScope.user != null}">
                                 <li class="nav-item d-flex align-items-center dropdown">
-                                    <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user" style="margin-right: 10px;"></i>
+                                    <a href="#" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; padding: 0;">
                                         ${sessionScope.user.fullName}
                                     </a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" style="margin-left: 20px;">
                                         <li>
-                                            <a class="dropdown-item" href="profile">Cài đặt</a>
+                                            <a class="dropdown-item" href="profile" style="font-weight: bold;">Thông tin</a>
                                         </li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="logout">Đăng xuất</a>
+                                            <a class="dropdown-item" href="history" style="font-weight: bold;">Lịch sử mua hàng</a>
+                                        </li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="logout" style="font-weight: bold;">Đăng Xuất</a>
                                         </li>
                                     </ul>
                                 </li>
                             </c:if>
                             <c:if test="${sessionScope.user == null}">
                                 <li class="nav-item d-flex align-items-center dropdown">
-                                    <a href="" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Đăng nhập
+                                    <a href="register" class="nav-link mx-2 nav-link" style="color: black" aria-expanded="false">
+                                        Đăng Ký
+                                    </a>   
+                                    <a href="" class="nav-link mx-2 nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                                        Đăng Nhập
                                     </a>                                    
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" style="margin-left: 100px;">
                                         <li>
-                                            <a class="dropdown-item" href="login">User</a>
+                                            <a class="dropdown-item" href="login" style="font-weight: bold;">User</a>
                                         </li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" href="admin_login">Admin</a>
+                                            <a class="dropdown-item" href="admin_login" style="font-weight: bold;">Admin</a>
                                         </li>
                                     </ul>
+
                                 </li>
                             </c:if>
                         </ul>
                     </li>
                     <li class="nav-item d-flex align-items-center">
-                        <a href="#" class="nav-link mx-2">
+                    <c:if test="${sessionScope.user == null}">
+                        <a href="login" class="nav-link mx-2">
                             <i class="fas fa-shopping-cart"></i>                          
                         </a>
-                        <span class="badge rounded-pill bg-secondary">0</span>
+                    </c:if>
+
+                    <c:if test="${sessionScope.user != null}">
+                        <a href="cart" class="nav-link mx-2">
+                            <i class="fas fa-shopping-cart"></i>                          
+                        </a>
+                    </c:if>                   
                     </li>
                 </ul>
             </div>
@@ -89,4 +102,3 @@
         </div>
     </div>
 </nav>
-                            

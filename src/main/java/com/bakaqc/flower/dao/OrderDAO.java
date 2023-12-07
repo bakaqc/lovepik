@@ -261,7 +261,34 @@ public class OrderDAO implements DAO<Order> {
         }
     }
 
-    public static void main(String[] args) {
+    public Order getIdAdd() {
+        try {
+            Connection conn = JDBC.getConnection();
 
+            PreparedStatement smt = conn.prepareStatement("SELECT * FROM `order` ORDER BY id DESC LIMIT 1;");
+
+            ResultSet rs = smt.executeQuery();
+
+            while (rs.next()) {
+                Order od = new Order();
+                od.setId(rs.getInt("id"));
+                od.setUserID(rs.getInt("user_id"));
+                od.setTotalPrice(rs.getInt("total_price"));
+                od.setPayment(Payment.create(rs.getString("payment")));
+                od.setStatus(OrderStatus.create(rs.getString("status")));
+                od.setCreateAt(Convert.convert(rs.getTimestamp("create_at")));
+
+                return od;
+            }
+
+            JDBC.closeConnection(conn);
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getInstance().getIdAdd());
     }
 }

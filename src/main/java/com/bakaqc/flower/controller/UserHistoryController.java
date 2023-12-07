@@ -10,7 +10,7 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class ProfileController extends HttpServlet {
+public class UserHistoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,7 +52,7 @@ public class ProfileController extends HttpServlet {
         request.setAttribute("listHB", listHB);
         request.setAttribute("index", index);
         request.setAttribute("endP", endP);
-        request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/user_history.jsp").forward(request, response);
     }
 
     @Override
@@ -60,4 +60,5 @@ public class ProfileController extends HttpServlet {
             throws ServletException, IOException {
 
     }
+
 }

@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">   
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/home.css" />
 
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
+
     </head>
     <body>
         <%@include file="common/header.jsp" %>
@@ -23,7 +25,7 @@
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
 
-            <h1>Danh mục sản phẩm</h1>
+            <h1>Danh sách sản phẩm</h1>
 
             <h3 class="not-found">${notFound}</h3>
 
@@ -39,14 +41,26 @@
 
                                 <div class="product">
 
+                                    <input type="hidden" name="id" value="${p.id}">
+
                                     <a href ="detail?pid=${p.id}" class="product-img">
                                         <img src="<%=request.getContextPath()%>/${p.banners}" alt="Product" class="card-img-top p-img"
                                              height="200" >
                                     </a>
 
-                                    <a href="#" class="buy">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                    </a>
+                                    <c:if test="${sessionScope.user == null}">
+                                        <a href="login" class="buy">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </c:if>
+
+                                    <c:if test="${sessionScope.user != null}">
+                                        <input type="hidden" name="amount" value="1">
+
+                                        <a href="addcart?id=${p.id}&amount=1" class="buy">
+                                            <i class="fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </c:if>
 
                                 </div>
 
