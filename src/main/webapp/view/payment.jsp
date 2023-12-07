@@ -83,8 +83,8 @@
                     <div>  
                         <h2>Tổng tiền: 
                             <script>
-                                     var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${requestScope.total});
-                                     document.write(formattedPrice);
+                                var formattedPrice = new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(${requestScope.total});
+                                document.write(formattedPrice);
                             </script>
                         </h2>
 
@@ -101,7 +101,7 @@
                         </div>
 
                         <div class="col-sm-4">
-                            <button type="submit" class="valid-button" style="background-color: orange; color: black">Thanh toán</button>
+                            <button type="button" class="valid-button" style="background-color: orange; color: black" onclick="checkout()">Thanh toán</button>
                         </div>
 
                     </div>
@@ -125,6 +125,15 @@
                 var pid = "${requestScope.pid}";
 
                 window.location.href = "profile/edit_profile?pid=" + encodeURIComponent(pid);
+            }
+        </script>
+
+
+        <script>
+            function checkout() {
+                var pid = "${requestScope.pid}";
+
+                window.location.href = "checkout?pid=" + encodeURIComponent(pid);
             }
         </script>
 

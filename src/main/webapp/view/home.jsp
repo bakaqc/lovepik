@@ -23,6 +23,18 @@
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
 
+
+            <%
+
+                String successMessage = (String) session.getAttribute("successMessage");
+
+                session.removeAttribute("successMessage");
+            %>
+
+
+            <% if (successMessage != null && !successMessage.isEmpty()) {%>
+            <h1 style="color: #29E6DF"><%= successMessage%></h1>
+            <% }%>
             <h1>Danh mục sản phẩm</h1>
 
             <h3 class="not-found">${notFound}</h3>
