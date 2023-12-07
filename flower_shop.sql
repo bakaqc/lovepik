@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 30, 2023 lúc 10:16 AM
--- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Dec 07, 2023 at 02:17 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `flower_shop`
+-- Database: `flower_shop`
 --
 CREATE DATABASE IF NOT EXISTS `flower_shop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `flower_shop`;
@@ -26,7 +26,7 @@ USE `flower_shop`;
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,7 +37,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `cart`
+-- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
@@ -59,7 +59,7 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `cart`
+-- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`user_id`, `product_id`, `amount`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `cart` (`user_id`, `product_id`, `amount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -106,7 +106,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `data_order`
+-- Table structure for table `data_order`
 --
 
 CREATE TABLE `data_order` (
@@ -129,7 +129,7 @@ CREATE TABLE `data_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `data_order`
+-- Dumping data for table `data_order`
 --
 
 INSERT INTO `data_order` (`order_id`, `product_id`, `amount`) VALUES
@@ -171,7 +171,7 @@ INSERT INTO `data_order` (`order_id`, `product_id`, `amount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `order`
+-- Table structure for table `order`
 --
 
 CREATE TABLE `order` (
@@ -184,7 +184,7 @@ CREATE TABLE `order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `order`
+-- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`id`, `user_id`, `total_price`, `payment`, `status`, `create_at`) VALUES
@@ -226,7 +226,7 @@ INSERT INTO `order` (`id`, `user_id`, `total_price`, `payment`, `status`, `creat
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -240,7 +240,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`, `detail`) VALUES
@@ -290,7 +290,7 @@ INSERT INTO `product` (`id`, `category_id`, `name`, `banners`, `thumb`, `price`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -308,86 +308,85 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `full_name`, `year_of_birth`, `gender`, `email`, `password`, `address`, `phone_number`, `status`, `create_at`, `delete_at`) VALUES
-(1, 'Vũ Ngọc Ánh', 1997, 'female', 'Anhvn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn, Bình Định', '02567308668', 'activate', '2022-11-16 10:41:46', NULL),
-(2, 'Đinh Quốc Chương', 1999, 'male', 'Chuongdq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '23 Phan Bội Châu,Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-01 11:04:28', NULL),
-(3, 'Trịnh Minh Dương', 2000, 'male', 'Duongtm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '231 Lê Hồng Phong, Quy Nhơn, Bình Định', '02567308668', 'deactivate', '2023-11-01 08:04:40', '2023-11-15 11:08:24'),
-(4, 'Lê Đồng Tâm', 2002, 'male', 'Tamld@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Hùng Vương, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-09-06 11:04:53', NULL),
-(5, 'Phan Thu Thảo', 2001, 'female', 'Thaopt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '213 Âu Cơ, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-03 11:05:13', NULL),
-(6, 'Đường Mỹ Hà', 2003, 'female', 'Hadm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '1112 Hùng Vương, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-04 11:05:25', NULL),
-(7, 'Nguyễn Tuấn Nghĩa', 2004, 'male', 'Nghiant@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '21 Đào Duy Tử, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-09-07 11:06:50', NULL),
-(8, 'Bùi Quang Tuấn', 1992, 'male', 'Tuanbq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'Hẻm 220 Nguyễn Thái Học, Quy Nhơn, Bình Định', '02567308668', 'deactivate', '2023-11-02 11:07:17', '2023-11-17 11:08:59'),
-(9, 'Trần Thu Ngân', 1998, 'female', 'Ngantt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '38 Võ Lai, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-09-06 11:07:38', NULL),
-(10, 'Nguyễn Thục Ngân', 2001, 'female', 'Ngannt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '456 Trần Hưng Đạo, Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-24 11:09:10', NULL),
-(11, 'Bùi Ngọc Bảo Trân', 2000, 'female', 'Tranbnb@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '561 Lạc Long Quân, Quy Nhơn', '02567308668', 'activate', '2023-10-12 11:09:22', NULL),
-(12, 'Phạm Ngọc Quyền', 1994, 'male', 'Quyenpn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '17 Trần Thị Kỷ, thị xã An Nhơn, Bình Định', '02567308668', 'deactivate', '2023-10-10 11:09:47', '2023-11-16 11:19:22'),
-(13, 'Nguyễn Trung Dũng', 1999, 'male', 'Dungnt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '44 Tăng Bạt Hổ, huyện Tuy Phước, Bình Định', '02567308668', 'activate', '2023-10-23 11:10:51', NULL),
-(14, 'Nguyễn Tấn Kiệt', 2002, 'male', 'Kietnt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '521 Tây Sơn, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-06 11:11:33', NULL),
-(15, 'Nguyễn Dương', 2000, 'male', 'Duongn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '34 Nguyễn Trân, thị xã Hoài Nhơn, Bình Định', '02567308668', 'activate', '2023-10-26 11:11:46', NULL),
-(16, 'Đoàn Nguyễn Huyền Trang', 2005, 'female', 'Trangdnh@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '22 Đào Duy Từ, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-03 11:11:57', NULL),
-(17, 'Đào Thanh Trúc', 2002, 'female', 'Trucdt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '307 Nguyễn Thị Minh Khai, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-16 11:12:45', NULL),
-(18, 'Trương Thế Cảnh', 1997, 'male', 'Canhtt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '5D Tăng Bạt Hổ, tp.Quy Nhơn, Bình Định ', '02567308668', 'activate', '2023-10-11 11:13:02', NULL),
-(19, 'Phạm Quốc Toàn', 2004, 'male', 'Toanpq@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '65 Quang Trung, thị xã Hoài Nhơn, Bình Định', '02567308668', 'activate', '2023-09-22 11:13:29', NULL),
-(20, 'Phạm Thanh Trúc', 1990, 'female', 'Trucpt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '295 Trần Phú, thị xã Hoài Nhơn, Bình Định', '02567308668', 'activate', '2023-09-14 11:13:57', NULL),
-(21, 'Phan Bảo Nhi', 1999, 'female', 'Nhipb@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '1126 Hùng Vương, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-16 11:21:26', NULL),
-(22, 'Phan Mai Sơn', 2003, 'male', 'Sonpm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '25 Nguyễn Thị Định, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-23 11:21:26', NULL),
-(23, 'Đặng Ngọc Hưng', 2001, 'male', 'Hungdn@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '71 Bùi Thị Xuân, huyện Tây Sơn, Bình Định', '02567308668', 'activate', '2023-10-30 11:21:26', NULL),
-(24, 'Lâm Mỹ Linh', 1996, 'female', 'Linhlm@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '94 Mai Xuân Thưởng, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-15 11:21:26', NULL),
-(25, 'Lê Thị Chí Thương', 1998, 'female', 'Thuongltc@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '85/24 hoàng văn thụ, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-12 11:21:26', NULL),
-(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendk@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', '02567308668', 'activate', '2023-10-09 11:21:26', NULL),
-(27, 'Vũ Việt Thắng', 1991, 'male', 'Thangvt@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '333 Quang Trung, huyện Phù Cát, Bình Định', '02567308668', 'deactivate', '2023-09-13 11:20:34', '2023-11-15 11:20:51'),
-(28, 'Vũ Văn Dũng', 2000, 'male', 'Dungvv@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '57A Nguyễn Huệ, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-11-07 11:20:01', NULL),
-(29, 'Phạm Đức Nghĩa', 2003, 'male', 'Nghiapd@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', '114B 31 tháng 3, tp.Quy Nhơn, Bình Định', '02567308668', 'activate', '2023-10-05 11:21:26', NULL),
-(30, 'Lê Uyển Nhi', 2001, 'female', 'Nhilu@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'Lô 01 Ngọc Hồi, huyện Tây Sơn, Bình Định', '02567308668', 'activate', '2023-10-01 11:21:26', NULL),
-(49, 'Nguyễn Văn A', 2000, 'male', 'fafa', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '5/20/17 Hoàng Hoa Thám, TP.Quy Nhơn', '0363475716', 'activate', '2023-11-28 20:15:47', NULL);
+(1, 'Vũ Ngọc Ánh ', 1997, 'female', 'Anhvn@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '561 Lạc Long Quân, Quy Nhơn, Bình Định', '0256730866', 'activate', '2022-11-16 10:41:46', NULL),
+(2, 'Đinh Quốc Chương', 1999, 'male', 'Chuongdq@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '23 Phan Bội Châu,Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-11-01 11:04:28', NULL),
+(3, 'Trịnh Minh Dương', 2000, 'male', 'Duongtm@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '231 Lê Hồng Phong, Quy Nhơn, Bình Định', '0256730866', 'deactivate', '2023-11-01 08:04:40', '2023-11-15 11:08:24'),
+(4, 'Lê Đồng Tâm', 2002, 'male', 'Tamld@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '456 Hùng Vương, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-09-06 11:04:53', NULL),
+(5, 'Phan Thu Thảo', 2001, 'female', 'Thaopt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '213 Âu Cơ, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-11-03 11:05:13', NULL),
+(6, 'Đường Mỹ Hà', 2003, 'female', 'Hadm@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '1112 Hùng Vương, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-11-04 11:05:25', NULL),
+(7, 'Nguyễn Tuấn Nghĩa', 2004, 'male', 'Nghiant@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '21 Đào Duy Tử, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-09-07 11:06:50', NULL),
+(8, 'Bùi Quang Tuấn', 1992, 'male', 'Tuanbq@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Hẻm 220 Nguyễn Thái Học, Quy Nhơn, Bình Định', '0256730866', 'deactivate', '2023-11-02 11:07:17', '2023-11-17 11:08:59'),
+(9, 'Trần Thu Ngân', 1998, 'female', 'Ngantt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '38 Võ Lai, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-09-06 11:07:38', NULL),
+(10, 'Nguyễn Thục Ngân', 2001, 'female', 'Ngannt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '456 Trần Hưng Đạo, Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-24 11:09:10', NULL),
+(11, 'Bùi Ngọc Bảo Trân', 2000, 'female', 'Tranbnb@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '561 Lạc Long Quân, Quy Nhơn', '0256730866', 'activate', '2023-10-12 11:09:22', NULL),
+(12, 'Phạm Ngọc Quyền', 1994, 'male', 'Quyenpn@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '17 Trần Thị Kỷ, thị xã An Nhơn, Bình Định', '0256730866', 'deactivate', '2023-10-10 11:09:47', '2023-11-16 11:19:22'),
+(13, 'Nguyễn Trung Dũng', 1999, 'male', 'Dungnt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '44 Tăng Bạt Hổ, huyện Tuy Phước, Bình Định', '0256730866', 'activate', '2023-10-23 11:10:51', NULL),
+(14, 'Nguyễn Tấn Kiệt', 2002, 'male', 'Kietnt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '521 Tây Sơn, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-11-06 11:11:33', NULL),
+(15, 'Nguyễn Dương', 2000, 'male', 'Duongn@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '34 Nguyễn Trân, thị xã Hoài Nhơn, Bình Định', '0256730866', 'activate', '2023-10-26 11:11:46', NULL),
+(16, 'Đoàn Nguyễn Huyền Trang', 2005, 'female', 'Trangdnh@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '22 Đào Duy Từ, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-03 11:11:57', NULL),
+(17, 'Đào Thanh Trúc', 2002, 'female', 'Trucdt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '307 Nguyễn Thị Minh Khai, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-16 11:12:45', NULL),
+(18, 'Trương Thế Cảnh', 1997, 'male', 'Canhtt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '5D Tăng Bạt Hổ, tp.Quy Nhơn, Bình Định ', '0256730866', 'activate', '2023-10-11 11:13:02', NULL),
+(19, 'Phạm Quốc Toàn', 2004, 'male', 'Toanpq@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '65 Quang Trung, thị xã Hoài Nhơn, Bình Định', '0256730866', 'activate', '2023-09-22 11:13:29', NULL),
+(20, 'Phạm Thanh Trúc', 1990, 'female', 'Trucpt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '295 Trần Phú, thị xã Hoài Nhơn, Bình Định', '0256730866', 'activate', '2023-09-14 11:13:57', NULL),
+(21, 'Phan Bảo Nhi', 1999, 'female', 'Nhipb@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '1126 Hùng Vương, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-16 11:21:26', NULL),
+(22, 'Phan Mai Sơn', 2003, 'male', 'Sonpm@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '25 Nguyễn Thị Định, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-23 11:21:26', NULL),
+(23, 'Đặng Ngọc Hưng', 2001, 'male', 'Hungdn@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '71 Bùi Thị Xuân, huyện Tây Sơn, Bình Định', '0256730866', 'activate', '2023-10-30 11:21:26', NULL),
+(24, 'Lâm Mỹ Linh', 1996, 'female', 'Linhlm@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '94 Mai Xuân Thưởng, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-15 11:21:26', NULL),
+(25, 'Lê Thị Chí Thương', 1998, 'female', 'Thuongltc@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '85/24 hoàng văn thụ, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-12 11:21:26', NULL),
+(26, 'Đặng Kiều Duyên', 2002, 'female', 'Duyendk@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '67 Chế Lan Viên, thị xã An Nhơn, Bình Định', '0256730866', 'activate', '2023-10-09 11:21:26', NULL),
+(27, 'Vũ Việt Thắng', 1991, 'male', 'Thangvt@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '333 Quang Trung, huyện Phù Cát, Bình Định', '0256730866', 'deactivate', '2023-09-13 11:20:34', '2023-11-15 11:20:51'),
+(28, 'Vũ Văn Dũng', 2000, 'male', 'Dungvv@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '57A Nguyễn Huệ, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-11-07 11:20:01', NULL),
+(29, 'Phạm Đức Nghĩa', 2003, 'male', 'Nghiapd@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '114B 31 tháng 3, tp.Quy Nhơn, Bình Định', '0256730866', 'activate', '2023-10-05 11:21:26', NULL),
+(30, 'Lê Uyển Nhi', 2001, 'female', 'Nhilu@gmail.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'Lô 01 Ngọc Hồi, huyện Tây Sơn, Bình Định', '0256730866', 'activate', '2023-10-01 11:21:26', NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- Chỉ mục cho bảng `cart`
+-- Indexes for table `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`user_id`,`product_id`);
 
 --
--- Chỉ mục cho bảng `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `data_order`
+-- Indexes for table `data_order`
 --
 ALTER TABLE `data_order`
   ADD PRIMARY KEY (`order_id`,`product_id`);
 
 --
--- Chỉ mục cho bảng `order`
+-- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Chỉ mục cho bảng `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -395,51 +394,51 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email_2` (`email`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT cho bảng `order`
+-- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT cho bảng `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT cho bảng `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `data_order`
+-- Constraints for table `data_order`
 --
 ALTER TABLE `data_order`
   ADD CONSTRAINT `data_order_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
 
 --
--- Các ràng buộc cho bảng `order`
+-- Constraints for table `order`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);

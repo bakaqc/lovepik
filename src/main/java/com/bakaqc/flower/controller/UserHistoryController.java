@@ -10,7 +10,7 @@ import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class UserHistory extends HttpServlet {
+public class UserHistoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

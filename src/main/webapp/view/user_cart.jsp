@@ -38,7 +38,13 @@
                                         <div class="container my-5 mt-5">
                                             <br>
                                             <h6 class="display-6 mb-5 mt-5 d-flex justify-content-center">
-                                                Không có sản phẩm nào
+
+                                                <c:if test="${empty sessionScope.done}">
+                                                    Không có sản phẩm nào
+                                                </c:if>
+                                                <c:if test="${not empty sessionScope.done}">
+                                                    ${sessionScope.done}
+                                                </c:if>
                                             </h6>
                                             <br>
                                             <div class="row">
@@ -155,7 +161,7 @@
                                             </div>   
                                             <div class="form-group col-6 mt-1">
                                                 <div class="col-xs-12 can"  style="margin-bottom: 30px;">                            
-                                                    <a href="#"> 
+                                                    <a href="payment"> 
                                                         <button class="btn btn-lg col-12 can" type="button" style="background-color: #33CC66; color: black;">
                                                             <i class=""></i> Thanh toán
                                                         </button>

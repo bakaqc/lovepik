@@ -119,12 +119,25 @@
                         <div class="row gy-4 align-items-center mb-4">
                             <div class="col-12 col-sm-4"></div>
                             <div class="col-12 col-sm-4" >
-                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Quay về trang chủ</a>
+                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Tiếp tục mua hàng</a>
                             </div>
                             <div class="col-12 col-sm-4"></div>
                         </div>
                     </c:if>
 
+                    <c:if test="${listHB.isEmpty()}">
+                        <div class="row pt-5 pb-3">
+                            <h3 style="text-align: center; margin-top: 80px;">Bạn chưa mua sản phẩm nào.</h3>
+                        </div>
+                        
+                        <div class="row gy-4 align-items-center pt-5 pb-5">
+                            <div class="col-12 col-sm-4"></div>
+                            <div class="col-12 col-sm-4" >
+                                <a href="home" class="btn btn-outline-dark my-5 view-all" style="display: block; align-items: center; font-size: 20px;">Tiếp tục mua hàng</a>
+                            </div>
+                            <div class="col-12 col-sm-4"></div>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>
