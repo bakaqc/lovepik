@@ -20,7 +20,7 @@ public class AdminListController extends HttpServlet {
             AdminDAO adminDAO = new AdminDAO();
             List<Admin> list = adminDAO.selectAll();
             request.setAttribute("list", list);
-            request.getSession().setAttribute("isActive", 3);
+            request.getSession().setAttribute("isActive", 4);
             request.getRequestDispatcher("/view/manageAdmin.jsp").forward(request, response);
         }
     }

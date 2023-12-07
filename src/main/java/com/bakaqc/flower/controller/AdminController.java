@@ -19,6 +19,12 @@ public class AdminController extends HttpServlet {
         response.setContentType("text/html; charset=UTF-8");
         OrderDAO orderDAO = new OrderDAO();
         List<Order> orders = orderDAO.selectAll();
+        
+         List<Order> process = orderDAO.selectProcess();
+         List<Order> ship = orderDAO.selectShip();
+          List<Order> done = orderDAO.selectDone();
+           List<Order> cancel = orderDAO.selectCancel();
+           
         UserDAO userDAO = new UserDAO();
         List<User> users = userDAO.selectAll();
         ProductDAO productDAO = new ProductDAO();
@@ -26,6 +32,10 @@ public class AdminController extends HttpServlet {
         request.setAttribute("numPro", productNum);
         request.setAttribute("users", users);
         request.setAttribute("orders", orders);
+        request.setAttribute("process", process);
+         request.setAttribute("ship", ship);
+          request.setAttribute("done", done);
+           request.setAttribute("cancel", cancel);
         request.getSession().setAttribute("isActive", 0);
 
         RequestDispatcher rd = request.getRequestDispatcher("/view/admin.jsp");

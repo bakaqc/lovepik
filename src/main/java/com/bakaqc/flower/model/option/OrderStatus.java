@@ -6,6 +6,10 @@ public enum OrderStatus {
     DONE("done"),
     CANCELED("canceled");
 
+    public static boolean isValid(String status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private final String label;
 
     private OrderStatus(String label) {

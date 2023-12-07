@@ -48,9 +48,9 @@
                             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0">
                                 <thead>
                                     <tr>
-                                        <th width="10"><input type="checkbox" id="all"></th>
-                                        <th>ID Khách Hàng</th>
-                                        <th width="150">Username</th>
+                                        <th width="20"><input type="checkbox" id="all"></th>
+                                        <th width="150">ID tài khoản</th>
+                                        <th>Username</th>
                                         <th width="100">Tính năng</th>
                                     </tr>
                                 </thead>
@@ -61,9 +61,13 @@
                                             <td>#${item.id}</td>
                                             <td>${item.getUserName()}</td>
                                             <td class="table-td-center">
-                                                <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                                        onclick="deleteAdmin(${item.id})"><i class="fas fa-trash-alt"></i>
-                                                </button>
+                                                <c:if test="${item.getUserName()!='superadmin'}">
+                                                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                                            onclick="deleteAdmin(${item.id})"><i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </c:if>
+
+
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -92,6 +96,7 @@
                                                             <input class="form-control" type="password" name="password" required >
                                                             <div id="error-message" class="text-danger err" style="color: red;">${errorCode}</div>
                                                         </div>
+
                                                     </div>
 
 
@@ -126,76 +131,77 @@
         <script type="text/javascript" src="..  /js/plugins/dataTables.bootstrap.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script>
-                                                            function deleteRow(r) {
-                                                                var i = r.parentNode.parentNode.rowIndex;
-                                                                document.getElementById("myTable").deleteRow(i);
-                                                            }
-                                                            function deleteAdmin(i) {
-                                                                swal({
-                                                                    title: "Cảnh báo",
-                                                                    text: "Bạn có chắc chắn là muốn xóa tài khoản này?",
-                                                                    buttons: ["Hủy bỏ", "Đồng ý"]
-                                                                }).then((willDelete) => {
-                                                                    if (willDelete) {
-                                                                        $.ajax({
-                                                                            type: 'POST',
-                                                                            url: '${pageContext.request.contextPath}/admin/deleteAdmin',
-                                                                            data: {
-                                                                                id: i
-                                                                            },
-                                                                            success: function (data, textStatus, jqXHR) {
-                                                                                swal("Đã xóa thành công.!", {
-                                                                                });
-                                                                                location.reload();
-                                                                            }
-                                                                        })
+
+                                                                function deleteRow(r) {
+                                                                    var i = r.parentNode.parentNode.rowIndex;
+                                                                    document.getElementById("myTable").deleteRow(i);
+                                                                }
+                                                                function deleteAdmin(i) {
+                                                                    swal({
+                                                                        title: "Cảnh báo",
+                                                                        text: "Bạn có chắc chắn là muốn xóa tài khoản này?",
+                                                                        buttons: ["Hủy bỏ", "Đồng ý"]
+                                                                    }).then((willDelete) => {
+                                                                        if (willDelete) {
+                                                                            $.ajax({
+                                                                                type: 'POST',
+                                                                                url: '${pageContext.request.contextPath}/admin/deleteAdmin',
+                                                                                data: {
+                                                                                    id: i
+                                                                                },
+                                                                                success: function (data, textStatus, jqXHR) {
+                                                                                    swal("Đã xóa thành công.!", {
+                                                                                    });
+                                                                                    location.reload();
+                                                                                }
+                                                                            })
+                                                                        }
+                                                                    });
+                                                                }
+
+                                                                //Thời Gian
+                                                                function time() {
+                                                                    var today = new Date();
+                                                                    var weekday = new Array(7);
+                                                                    weekday[0] = "Chủ Nhật";
+                                                                    weekday[1] = "Thứ Hai";
+                                                                    weekday[2] = "Thứ Ba";
+                                                                    weekday[3] = "Thứ Tư";
+                                                                    weekday[4] = "Thứ Năm";
+                                                                    weekday[5] = "Thứ Sáu";
+                                                                    weekday[6] = "Thứ Bảy";
+                                                                    var day = weekday[today.getDay()];
+                                                                    var dd = today.getDate();
+                                                                    var mm = today.getMonth() + 1;
+                                                                    var yyyy = today.getFullYear();
+                                                                    var h = today.getHours();
+                                                                    var m = today.getMinutes();
+                                                                    var s = today.getSeconds();
+                                                                    m = checkTime(m);
+                                                                    s = checkTime(s);
+                                                                    nowTime = h + " giờ " + m + " phút " + s + " giây";
+                                                                    if (dd < 10) {
+                                                                        dd = '0' + dd
                                                                     }
+                                                                    if (mm < 10) {
+                                                                        mm = '0' + mm
+                                                                    }
+                                                                    today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+                                                                    tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+                                                                            '</span>';
+                                                                    document.getElementById("clock").innerHTML = tmp;
+                                                                    clocktime = setTimeout("time()", "1000", "Javascript");
+
+                                                                    function checkTime(i) {
+                                                                        if (i < 10) {
+                                                                            i = "0" + i;
+                                                                        }
+                                                                        return i;
+                                                                    }
+                                                                }
+                                                                $("#show-emp").on("click", function () {
+                                                                    $("#ModalUP").modal({backdrop: false, keyboard: false})
                                                                 });
-                                                            }
-
-                                                            //Thời Gian
-                                                            function time() {
-                                                                var today = new Date();
-                                                                var weekday = new Array(7);
-                                                                weekday[0] = "Chủ Nhật";
-                                                                weekday[1] = "Thứ Hai";
-                                                                weekday[2] = "Thứ Ba";
-                                                                weekday[3] = "Thứ Tư";
-                                                                weekday[4] = "Thứ Năm";
-                                                                weekday[5] = "Thứ Sáu";
-                                                                weekday[6] = "Thứ Bảy";
-                                                                var day = weekday[today.getDay()];
-                                                                var dd = today.getDate();
-                                                                var mm = today.getMonth() + 1;
-                                                                var yyyy = today.getFullYear();
-                                                                var h = today.getHours();
-                                                                var m = today.getMinutes();
-                                                                var s = today.getSeconds();
-                                                                m = checkTime(m);
-                                                                s = checkTime(s);
-                                                                nowTime = h + " giờ " + m + " phút " + s + " giây";
-                                                                if (dd < 10) {
-                                                                    dd = '0' + dd
-                                                                }
-                                                                if (mm < 10) {
-                                                                    mm = '0' + mm
-                                                                }
-                                                                today = day + ', ' + dd + '/' + mm + '/' + yyyy;
-                                                                tmp = '<span class="date"> ' + today + ' - ' + nowTime +
-                                                                        '</span>';
-                                                                document.getElementById("clock").innerHTML = tmp;
-                                                                clocktime = setTimeout("time()", "1000", "Javascript");
-
-                                                                function checkTime(i) {
-                                                                    if (i < 10) {
-                                                                        i = "0" + i;
-                                                                    }
-                                                                    return i;
-                                                                }
-                                                            }
-                                                            $("#show-emp").on("click", function () {
-                                                                $("#ModalUP").modal({backdrop: false, keyboard: false})
-                                                            });
         </script>
     </body>
 </html>

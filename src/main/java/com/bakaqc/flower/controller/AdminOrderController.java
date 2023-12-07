@@ -1,34 +1,34 @@
 package com.bakaqc.flower.controller;
 
-import com.bakaqc.flower.dao.AdminDAO;
-import com.bakaqc.flower.model.Admin;
-import com.bakaqc.flower.model.option.AdminRole;
-import com.bakaqc.flower.service.Hash;
+
+import com.bakaqc.flower.dao.OrderDAO;
+import com.bakaqc.flower.dao.UserDAO;
+import com.bakaqc.flower.model.Order;
+import com.bakaqc.flower.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CreateAccountAdminController extends HttpServlet {
+public class AdminOrderController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html; charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-
-            Admin admin = new Admin();
-            admin.setUserName(username);
-            admin.setPassword(Hash.hashCode(password));
-            admin.setRole(AdminRole.create("Admin"));
-            AdminDAO.getInstance().insert(admin);
-            String url = request.getHeader("referer");
-            response.sendRedirect(url);
-
+            OrderDAO orderDAO = new OrderDAO();
+        List<Order> orders = orderDAO.selectAll();
+         UserDAO userDAO = new UserDAO();
+        List<User> users = userDAO.selectAll();
+         request.setAttribute("users", users);
+           // List<Admin> list = adminDAO.selectAll();
+            request.setAttribute("orders", orders);
+            request.getSession().setAttribute("isActive", 3);
+            request.getRequestDispatcher("/view/OrderAdmin.jsp").forward(request, response);
         }
     }
 
@@ -47,6 +47,5 @@ public class CreateAccountAdminController extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
     }
-    
-}
 
+}
