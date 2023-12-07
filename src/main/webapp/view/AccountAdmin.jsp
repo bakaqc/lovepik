@@ -54,14 +54,14 @@
                                 <thead>
                                     <tr>
                                         <th width="10"><input type="checkbox" id="all"></th>
-                                        <th>ID Khách Hàng</th>
-                                        <th width="150">Họ và tên</th>
+                                        <th width="30">ID</th>
+                                        <th>Họ và tên</th>
                                         <th width="300">Địa chỉ</th>
                                         <th>Năm sinh</th>
                                         <th>Giới tính</th>
                                         <th>Email</th>
                                         <th>Trạng Thái</th>
-                                        <th width="100">Tính năng</th>
+                                        <th width="80">Tính năng</th>
 
                                     </tr>
                                 </thead>

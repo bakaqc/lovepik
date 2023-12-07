@@ -14,7 +14,6 @@ public class UpdateOrderController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
 
     }
@@ -24,17 +23,19 @@ public class UpdateOrderController extends HttpServlet {
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        String url = request.getHeader("referer");
 
         String id = request.getParameter("id");
         String status = request.getParameter("status");
+
         Order order = new Order();
         order.setId(Integer.parseInt(id));
         order.setStatus(OrderStatus.create(status));
         OrderDAO.getInstance().update(order);
-
         request.getRequestDispatcher("/view/OrderAdmin.jsp").forward(request, response);
 
+        String url = request.getHeader("referer");
         response.sendRedirect(url);
+
     }
+
 }

@@ -46,12 +46,12 @@
                                 <thead>
                                     <tr>
                                         <th width="10"><input type="checkbox" id="all"></th>
-                                        <th width="20">ID</th>
+                                        <th width="30">ID</th>
                                         <th width="300">Tên Sản Phẩm</th>
-                                        <th width="50">Ảnh</th>
+                                        <th width="80">Ảnh</th>
                                         <th>Danh mục</th>
                                         <th>Giá</th>
-                                        <th width="100">Tính năng</th>
+                                        <th width="80">Tính năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>

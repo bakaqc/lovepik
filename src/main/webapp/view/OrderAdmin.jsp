@@ -87,7 +87,8 @@
                                              data-keyboard="false">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
-                                                    <form action="${pageContext.request.contextPath}/admin/updateOrder" method="post">
+
+                                                    <form class="form" action="${pageContext.request.contextPath}/admin/updateOrder" method="post">
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <div class="form-group  col-md-12">

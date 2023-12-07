@@ -49,8 +49,7 @@ public class OrderDAO implements DAO<Order> {
 
         return list;
     }
-   
-    
+
     public List<Order> selectProcess() {
         List<Order> list = new ArrayList<>();
 
@@ -81,7 +80,8 @@ public class OrderDAO implements DAO<Order> {
 
         return list;
     }
-      public List<Order> selectShip() {
+
+    public List<Order> selectShip() {
         List<Order> list = new ArrayList<>();
 
         try {
@@ -111,7 +111,8 @@ public class OrderDAO implements DAO<Order> {
 
         return list;
     }
-        public List<Order> selectDone() {
+
+    public List<Order> selectDone() {
         List<Order> list = new ArrayList<>();
 
         try {
@@ -141,7 +142,8 @@ public class OrderDAO implements DAO<Order> {
 
         return list;
     }
-          public List<Order> selectCancel() {
+
+    public List<Order> selectCancel() {
         List<Order> list = new ArrayList<>();
 
         try {
@@ -230,13 +232,9 @@ public class OrderDAO implements DAO<Order> {
         try {
             Connection conn = JDBC.getConnection();
 
-            PreparedStatement smt = conn.prepareStatement("UPDATE `order` SET user_id = ?, total_price = ?, payment = ?, status = ?, create_at = ? WHERE id = ?");
-            smt.setInt(1, ob.getUserID());
-            smt.setInt(2, ob.getTotalPrice());
-            smt.setString(3, ob.getPayment().toString());
-            smt.setString(4, ob.getStatus().toString());
-            smt.setString(5, Convert.convert(LocalDateTime.now()));
-            smt.setInt(6, ob.getId());
+            PreparedStatement smt = conn.prepareStatement("UPDATE `order` SET status = ? WHERE id = ?");
+            smt.setString(1, ob.getStatus().toString());
+            smt.setInt(2, ob.getId());
 
             smt.executeUpdate();
 
@@ -262,7 +260,7 @@ public class OrderDAO implements DAO<Order> {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     public static void main(String[] args) {
 
     }
