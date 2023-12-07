@@ -126,9 +126,8 @@
                     </c:if>
 
                     <c:if test="${listHB.isEmpty()}">
-                        <div class="row pt-5 pb-3">
-                            <h3 style="text-align: center; margin-top: 80px;">Bạn chưa mua sản phẩm nào.</h3>
-                        </div>
+                            <h3 style="text-align: center; margin-top: 190px;">Bạn chưa mua sản phẩm nào.</h3>
+
                         
                         <div class="row gy-4 align-items-center pt-5 pb-5">
                             <div class="col-12 col-sm-4"></div>

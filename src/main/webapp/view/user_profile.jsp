@@ -28,9 +28,6 @@
 
                 <div class="col-sm-10">
                     <h3 style="text-align: center;">Thông tin khách hàng</h3>
-
-                    <!--<h4 style="color: green; text-align: center;">${success}</h4>-->
-
                     <div class="container infor" style="padding: 0;">
 
                         <form class="form" action="" method="post" id="registrationForm">

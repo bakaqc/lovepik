@@ -106,9 +106,9 @@ public class EditProfileController extends HttpServlet {
 
                         UserDAO.getInstance().update(us);
 
-//            String success = "Chỉnh sửa thông tin thành công.";
-//            request.setAttribute("success", success);
-//            request.getRequestDispatcher("/view/user_profile.jsp").forward(request, response);
+//                        String success = "Chỉnh sửa thông tin thành công.";
+//                        session.setAttribute("success", success);
+
                         response.sendRedirect("profile");
                     }
                 }

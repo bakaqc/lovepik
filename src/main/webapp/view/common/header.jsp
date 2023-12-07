@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse p-2 flex-column" id="navbarContent">                
             <div class="d-flex justify-content-center justify-content-lg-between flex-column flex-lg-row w-100 test">
                 <a href="home" class="navbar-brand d-none d-lg-block">LovePik</a>
-                <form action="search" method="get" class="d-flex search">
+                <form action="search" method="get" class="d-flex search" style="padding-left: 200px;">
                     <input value="${txtS}" name="txt" type="search" class="form-control me-2 search-input" placeholder="Search" />
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="fas fa-search"></i>

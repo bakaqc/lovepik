@@ -25,7 +25,7 @@
                 <img src="./img/banner_home.png" alt="Banner" class="w-100" height="350">
             </header>
 
-            <h1>Danh mục sản phẩm</h1>
+            <h1>Danh sách sản phẩm</h1>
 
             <h3 class="not-found">${notFound}</h3>
 

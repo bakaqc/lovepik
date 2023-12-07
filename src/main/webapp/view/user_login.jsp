@@ -35,8 +35,6 @@
 
                             <div class="card-body p-5 text-center " style="border-radius: 1rem;background-color: antiquewhite;border:solid 5px white;">
 
-                                <h2>${success}</h2>
-
                                 <form action="login" method="post"> 
 
                                     <div class="mb-md-5 mt-md-4 pb-5">
