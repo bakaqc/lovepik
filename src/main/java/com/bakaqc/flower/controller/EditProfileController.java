@@ -108,8 +108,21 @@ public class EditProfileController extends HttpServlet {
 
 //                        String success = "Chỉnh sửa thông tin thành công.";
 //                        session.setAttribute("success", success);
+                        String flag = (String) session.getAttribute("flag");//dương thêm
 
-                        response.sendRedirect("profile");
+                        if (flag != null) {//dương thêm
+                            // Điều hướng đến payment.jsp
+
+                            String pid = (String) request.getParameter("pid");//dương thêm
+//                String quantity = request.getParameter("quantity");//dương thêm
+
+                            response.sendRedirect(request.getContextPath() + "/pay?proId=" + pid);//dương thêm
+                        } else {//dương thêm
+                            response.sendRedirect("profile");
+                        }//dương thêm
+
+                        // Xóa giá trị của biến từ session bên payment sau khi sử dụng
+                        session.removeAttribute("flag");//dương thêm
                     }
                 }
 

@@ -25,6 +25,10 @@
         <servlet-class>com.bakaqc.flower.controller.ViewAllController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>PaymentController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.PaymentController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ProductDetail</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.ProductDetailController</servlet-class>
     </servlet>
@@ -43,6 +47,10 @@
     <servlet>
         <servlet-name>AdminLoginController</servlet-name>
         <servlet-class>com.bakaqc.flower.controller.AdminLoginController</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>com.bakaqc.flower.controller.CheckoutController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminRegisterController</servlet-name>
@@ -165,6 +173,10 @@
         <url-pattern>/admin/list-account</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AdminProductController</servlet-name>
         <url-pattern>/admin/list-product</url-pattern>
     </servlet-mapping>
@@ -175,6 +187,10 @@
     <servlet-mapping>
         <servlet-name>DeleteAccountController</servlet-name>
         <url-pattern>/admin/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentController</servlet-name>
+        <url-pattern>/pay</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateAccountController</servlet-name>
