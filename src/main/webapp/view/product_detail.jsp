@@ -71,7 +71,7 @@
                                                                         
                                                                         </div>
                                                         code gốc            </div>--> 
-                                <form action="payment" method="get"> <!-- duong them -->
+                                <form action="pay" method="get"> <!-- duong them -->
                                     
                                     <div class="col-lg-12 mt-3">
                                         <div class="row">

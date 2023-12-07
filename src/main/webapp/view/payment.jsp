@@ -80,6 +80,7 @@
                         String date = curDate.toString();
                     %>
                     <input type="text" placeholder="DATE" value="<%=date%>" readonly />
+                    <input type="text" value="Thanh toán khi nhận hàng" readonly />
                     <div>  
                         <h2>Tổng tiền: 
                             <script>

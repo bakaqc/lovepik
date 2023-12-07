@@ -68,7 +68,7 @@ public class EditProfileController extends HttpServlet {
                 String pid = (String) request.getParameter("pid");//dương thêm
                 String quantity = request.getParameter("quantity");//dương thêm
 
-                response.sendRedirect(request.getContextPath() + "/payment?quantity=" + quantity + "&proId=" + pid);//dương thêm
+                response.sendRedirect(request.getContextPath() + "/pay?quantity=" + quantity + "&proId=" + pid);//dương thêm
             } else {//dương thêm
                 response.sendRedirect("../profile");
             }//dương thêm

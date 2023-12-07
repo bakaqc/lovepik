@@ -37,7 +37,7 @@ public class CheckoutController extends HttpServlet {
         
         session.setAttribute("successMessage", "Bạn đã đặt hàng thành công. Cảm ơn và chúc một ngày tốt lành!");
 
-        request.getRequestDispatcher("home").forward(request, response);
+        response.sendRedirect("home");
     }
 
 }
