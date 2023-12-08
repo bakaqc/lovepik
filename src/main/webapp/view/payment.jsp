@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="<%=request.getContextPath()%>/style/payment.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        
+        <link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/img/icon_web.png">
     </head>
 
     <body>
