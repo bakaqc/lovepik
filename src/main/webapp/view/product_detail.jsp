@@ -72,13 +72,10 @@
                                         </div>
 
                                         <div class="col-lg-6 pb-2 ">
-                                            <c:if test="${sessionScope.user == null}">
-                                                <a href="login" class="btn btn-success w-100" style="font-size: 20px">Mua Ngay</a>
-                                            </c:if>
-
-                                            <c:if test="${sessionScope.user != null}">
-                                                <a href="#" class="btn btn-success w-100" style="font-size: 20px">Mua Ngay</a>
-                                            </c:if>                   
+                                            <form action="pay" method="get">
+                                                <input type="hidden" name="proId" value="${pro.id}">
+                                                <button type="submit" class="btn btn-success w-100" style="font-size: 20px">Mua Ngay</button>
+                                            </form>              
                                         </div>
                                     </div>
                                 </div>

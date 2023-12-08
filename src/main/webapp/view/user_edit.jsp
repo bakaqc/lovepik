@@ -120,7 +120,7 @@
                                     </label>
 
                                     <input type="password" class="form-control" name="password" id="password" style="font-size: 18px;" required/>
-                                    
+
                                     <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errorMissingNewPass}</div>
                                     <div id="error-message" class="text-danger err" style="margin-bottom: 15px;">${errPass}</div>
                                 </div>
@@ -131,6 +131,8 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <div class="col-xs-12 save"  style="margin-bottom: 30px;">                      
+                                        <input type="hidden" name="quantity" value="${param.quantity}" /> 
+                                        <input type="hidden" name="pid" value="${param.pid}" />
                                         <button class="btn btn-lg btn-success col-12 save" type="submit">
                                             <i class=""></i> Lưu thay đổi
                                         </button>
@@ -161,6 +163,14 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="<%=request.getContextPath()%>/js/profile.js"></script>
-
+        <script>
+            $(document).ready(function () {
+                // Đặt giá trị cho các trường input ẩn trước khi form được submit
+                $("#changeInfoForm").submit(function () {
+                    $("input[name='pid']").val("${param.pid}");
+                    $("input[name='quantity']").val("${param.quantity}");
+                });
+            });
+        </script>
     </body>
 </html>
