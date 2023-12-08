@@ -4,7 +4,7 @@ import java.security.*;
 
 public class Hash {
 
-    public static String hashcode(String message) {
+     public static String hashCode(String message) {
         try {
             MessageDigest sha256 = MessageDigest.getInstance("SHA-256");
 
@@ -24,5 +24,9 @@ public class Hash {
             System.err.println(ex.getMessage());
             return null;
         }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(hashCode("12345"));
     }
 }

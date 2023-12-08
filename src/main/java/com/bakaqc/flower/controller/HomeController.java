@@ -14,9 +14,11 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 
         List<Categories> listCAT = CategoriesDAO.getInstance().selectAll();
-        List<Product> listP = ProductDAO.getInstance().selectAll();
+        List<Product> listP = ProductDAO.getInstance().randProduct(2);
 
         request.setAttribute("listCAT", listCAT);
         request.setAttribute("listP", listP);

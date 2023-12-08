@@ -31,6 +31,16 @@ body {
     font-size: larger;
 }
 
+.card-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.my-5 {
+    margin-top: 1.5rem!important;
+    margin-bottom: 1.5rem!important;
+}
+
 .d-lg-block {
     font-size: 25px;
     color: orange;
@@ -42,8 +52,8 @@ body {
     font-weight: bold;
 }
 
-.text-start {
-    background-color: antiquewhite;
+h1 {
+    font-size: 30px;
 }
 
 .container-header {
@@ -53,19 +63,10 @@ body {
 
 }
 
-.text-start {
-    padding-left: 340px;
-    padding-right: 340px;
-}
-
 .test {
     padding: 5px 300px 0;
 }
 
-.search{
-    padding-left: inherit;
-
-}
 .search-input {
     width: 350px;
 }
@@ -74,8 +75,8 @@ body {
     margin-bottom: 0px!important;
 }
 
-.hotline {
-    color: red;
+.banner {
+    margin: 0 8px;
 }
 
 .shop-name {
@@ -83,16 +84,6 @@ body {
     font-size: 50px;
     font-weight: bold;
     font-style: italic;
-}
-
-.but {
-    margin-top: 30px;
-    font-weight: bold;
-
-}
-
-.but:hover {
-    background-color: orange;
 }
 
 .view-all:hover {
@@ -107,6 +98,7 @@ body {
 
 .namep {
     font-size: 20px;
+    margin-bottom: 2px;
 }
 
 .pricep {
@@ -127,11 +119,78 @@ body {
     border-bottom: 5px solid orange;
 }
 
-.hihi {
-    height: 400px;
-    width: 300px;
+.p-img {
+    height: 350px;
+    width: 310px;
 }
 
+.product{
+    position: relative;
+    overflow: hidden;
+    transition: all 0.7s ease-in-out
+}
 
+.product:hover img{
+    transform: scale(1.2);
+    opacity: 0.7;
+}
 
+.card-pro:hover a.buy{
+    bottom: 0px;
+}
 
+a.buy {
+    display: block;
+    text-decoration: none;
+    background-color: antiquewhite;
+    font-weight: bold;
+    color: orange;
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    bottom: -40px;
+    transition: 0.25s ease-in-out;
+    opacity: 0.8;
+}
+
+.fa-solid {
+    margin: 8px auto;
+    font-size: 25px
+}
+
+.text-start {
+    background-color: antiquewhite;
+    padding: 0 400px!important;
+}
+
+.paging{
+    display: flex;
+    justify-content: center;
+    word-spacing: 30px;
+
+}
+
+.paging a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.paging a.page-item:hover{
+    background-color: #EEEEEE;
+    width: 45px;
+}
+
+.paging a.page-item.active{
+    font-weight: bold;
+    color: black;
+    background-color: orange;
+    width: 45px;
+}
+
+h3{
+    margin: 40px;
+}

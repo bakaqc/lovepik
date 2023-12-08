@@ -11,9 +11,9 @@ public class User {
     private int yearOfBirth;
     private UserGender gender;
     private String email;
-    private String username;
     private String password;
     private String address;
+    private String phone_number;
     private UserStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime deletedAt;
@@ -21,16 +21,27 @@ public class User {
     public User() {
     }
 
-    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email, String username,
-            String password, String address, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
+    public User(String fullName, int yearOfBirth, UserGender gender, String email, String password, String address, String phone_number, UserStatus status, LocalDateTime createdAt) {
+        this.fullName = fullName;
+        this.yearOfBirth = yearOfBirth;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.phone_number = phone_number;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
+
+    public User(int id, String fullName, int yearOfBirth, UserGender gender, String email, String password, String address, String phone_number, UserStatus status, LocalDateTime createdAt, LocalDateTime deletedAt) {
         this.id = id;
         this.fullName = fullName;
         this.yearOfBirth = yearOfBirth;
         this.gender = gender;
         this.email = email;
-        this.username = username;
         this.password = password;
         this.address = address;
+        this.phone_number = phone_number;
         this.status = status;
         this.createdAt = createdAt;
         this.deletedAt = deletedAt;
@@ -76,14 +87,6 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -98,6 +101,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public UserStatus getStatus() {
@@ -127,9 +138,9 @@ public class User {
     @Override
     public String toString() {
         return "User [ " + "ID = " + id + ", Full Name = " + fullName + ", Year Of Birth = " + yearOfBirth
-                + ", Gender = " + gender + ", Email = " + email + ", Username = " + username + ", Password = "
-                + password + ", Address = " + address + ", status = " + status + ']' + ", Created At = "
-                + createdAt + ", Deleted At = " + deletedAt + "\n";
+                + ", Gender = " + gender + ", Email = " + email + ", Password = "
+                + password + ", Address = " + address + ", Phone Number = " + phone_number + ", status = " + status + ", Created At = "
+                + createdAt + ", Deleted At = " + deletedAt + ']' + "\n";
     }
 
 }

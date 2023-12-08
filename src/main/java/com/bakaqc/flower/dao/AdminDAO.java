@@ -75,6 +75,35 @@ public class AdminDAO implements DAO<Admin> {
         return list;
     }
 
+    public Admin selectByUserName(String username) {
+
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("SELECT * FROM admin WHERE username = ?");
+            st.setString(1, username);
+
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Admin ad = new Admin();
+                ad.setId(rs.getInt("id"));
+                ad.setUserName(rs.getString("username"));
+                ad.setPassword(rs.getString("password"));
+                ad.setRole(AdminRole.create(rs.getString("role")));
+
+                return ad;
+
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return null;
+    }
+
     @Override
     public void insert(Admin ob) {
         try {
@@ -123,13 +152,38 @@ public class AdminDAO implements DAO<Admin> {
             smt.executeUpdate();
 
             JDBC.closeConnection(conn);
-            
+
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
 
+    public Admin login(String username, String password) {
+        try {
+            Connection c = JDBC.getConnection();
+
+            PreparedStatement st = c.prepareStatement("select * from admin where username = ? and password = ?");
+            st.setString(1, username);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                Admin ad = new Admin();
+                ad.setId(rs.getInt("id"));
+                ad.setUserName(rs.getString("username"));
+                ad.setPassword(rs.getString("password"));
+                ad.setRole(AdminRole.create(rs.getString("role")));
+                return ad;
+            }
+
+            c.close();
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
-        getInstance().delete("5");
+        System.out.println(getInstance().selectByUserName("superadmin"));
     }
 }
